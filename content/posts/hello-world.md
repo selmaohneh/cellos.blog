@@ -1,7 +1,7 @@
 ---
 title: "Hello World"
 subtitle: "Placeholder post, delete once the Substack archive is imported"
-date: 2026-11-14T09:30:00+01:00
+date: 2026-11-14T09:00:00+01:00
 slug: "hello-world"
 ---
 
