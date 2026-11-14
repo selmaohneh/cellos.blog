@@ -1,0 +1,22 @@
+baseURL = "https://www.cellos.blog/"
+title = "cellos.blog"
+defaultContentLanguage = "en"
+enableRobotsTXT = true
+
+[params]
+  description = "Personal blog of Marcel Neumann"
+  author = "Marcel Neumann"
+
+# Same URL scheme as Substack, so existing links keep working.
+[permalinks.page]
+  posts = "/p/:slug/"
+
+[outputs]
+  home = ["HTML", "RSS"]
+  section = ["HTML"]
+  taxonomy = ["HTML"]
+  term = ["HTML"]
+
+[markup.goldmark.renderer]
+  # Posts converted from Substack may contain raw HTML (embeds, captions).
+  unsafe = true
