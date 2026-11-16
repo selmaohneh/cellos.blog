@@ -35,7 +35,7 @@ jobs:
       - name: Build
         run: hugo --gc --minify --baseURL "${{ steps.pages.outputs.base_url || 'https://www.cellos.blog' }}/"
       - name: Check Substack-style URL
-        run: test -f public/p/hello-world/index.html
+        run: test -f public/p/benefits-of-smart-laundry/index.html
       - name: Upload site
         if: github.event_name != 'pull_request'
         uses: actions/upload-pages-artifact@v3
