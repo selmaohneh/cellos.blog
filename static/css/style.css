@@ -67,7 +67,7 @@ a:hover { color: var(--bg); background: var(--cyan); text-decoration: none; }
 .post-card:hover .thumb { filter: none; border-color: var(--green); }
 .thumb-empty { display: grid; place-items: center; color: var(--muted); font-size: .8rem; }
 .meta { display: flex; flex-direction: column; gap: .15rem; min-width: 0; }
-.meta time { color: var(--amber); font-size: .85rem; }
+.meta time { color: var(--muted); font-size: .85rem; }
 .meta .title { color: var(--text); font-weight: 700; }
 .meta .subtitle { color: var(--muted); font-size: .9rem; }
 @media (max-width: 34rem) {
@@ -86,7 +86,7 @@ article h3::before { content: "### "; color: var(--muted); }
 article h4::before { content: "#### "; color: var(--muted); }
 article h5::before { content: "##### "; color: var(--muted); }
 .subtitle { color: var(--muted); margin: 0 0 .5rem; }
-.byline { color: var(--amber); font-size: .85rem; margin: 0; }
+.byline { color: var(--muted); font-size: .85rem; margin: 0; }
 strong { color: #eef3ee; }
 em { color: var(--text); }
 hr { border: 0; border-top: 1px dashed var(--rule); margin: 2.5rem 0; }
