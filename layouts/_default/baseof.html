@@ -3,6 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#0d0f0d">
   <title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ .Title }} · {{ site.Title }}{{ end }}</title>
   <meta name="description" content="{{ with .Params.subtitle }}{{ . }}{{ else }}{{ site.Params.description }}{{ end }}">
   <link rel="canonical" href="{{ .Permalink }}">
@@ -13,16 +15,16 @@
 </head>
 <body>
   <header class="site-header">
-    <a class="site-title" href="{{ site.Home.RelPermalink }}">{{ site.Title }}</a>
+    <a class="site-title" href="{{ site.Home.RelPermalink }}"><span class="user">cello@cellos.blog</span><span class="cursor" aria-hidden="true"></span></a>
     <nav>
-      {{ with site.Home.OutputFormats.Get "rss" }}<a href="{{ .RelPermalink }}">RSS</a>{{ end }}
+      {{ with site.Home.OutputFormats.Get "rss" }}<a href="{{ .RelPermalink }}">[rss]</a>{{ end }}
     </nav>
   </header>
   <main>
     {{ block "main" . }}{{ end }}
   </main>
   <footer class="site-footer">
-    © {{ now.Year }} {{ site.Params.author }}
+    # © {{ now.Year }} {{ site.Params.author }} · built with hugo
   </footer>
 </body>
 </html>
