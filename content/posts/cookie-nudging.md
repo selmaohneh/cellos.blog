@@ -2,6 +2,7 @@
 title: "Cookie Nudging"
 date: 2025-07-24T11:38:19.534Z
 slug: "cookie-nudging"
+aliases: ["/p/cookie-nudging/"]
 ---
 
 ![brown round cookie on white surface](/img/cookie-nudging/photo-1597733153203-a54d0fbc47de.jpg)

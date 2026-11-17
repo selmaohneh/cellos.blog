@@ -2,6 +2,7 @@
 title: "How and Where to handle Exceptions while Maintaining a Great API"
 date: 2025-07-24T10:31:11.985Z
 slug: "how-and-where-to-handle-exceptions-while-maintaining-a-great-api"
+aliases: ["/p/how-and-where-to-handle-exceptions-while-maintaining-a-great-api/"]
 ---
 
 ![a close up of a computer screen with a sign on it](/img/how-and-where-to-handle-exceptions-while-maintaining-a-great-api/photo-1611890798517-07b0fcb4a811.jpg)

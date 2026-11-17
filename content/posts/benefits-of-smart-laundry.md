@@ -3,6 +3,7 @@ title: "Benefits of Smart Laundry"
 subtitle: "How to make a Dumb washing machine Smart"
 date: 2025-07-24T10:07:17.195Z
 slug: "benefits-of-smart-laundry"
+aliases: ["/p/benefits-of-smart-laundry/"]
 ---
 
 ![pink and green plastic container](/img/benefits-of-smart-laundry/photo-1610557892470-55d9e80c0bce.jpg)

@@ -2,6 +2,7 @@
 title: "Reclaiming Privacy: How I Got Rid of Google Photos"
 date: 2025-07-24T11:35:54.008Z
 slug: "reclaiming-privacy-how-i-got-rid-of-google-photos"
+aliases: ["/p/reclaiming-privacy-how-i-got-rid-of-google-photos/"]
 ---
 
 ![green, gray, and brown mallard duck in body of water](/img/reclaiming-privacy-how-i-got-rid-of-google-photos/photo-1459682687441-7761439a709d.jpg)

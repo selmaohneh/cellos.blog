@@ -2,6 +2,7 @@
 title: "How Home Assistant saves me 250€ every year"
 date: 2025-07-24T10:27:13.536Z
 slug: "how-home-assistant-saves-me-250-every-year"
+aliases: ["/p/how-home-assistant-saves-me-250-every-year/"]
 ---
 
 ![pink pig coin bank on brown wooden table](/img/how-home-assistant-saves-me-250-every-year/photo-1607863680198-23d4b2565df0.jpg)

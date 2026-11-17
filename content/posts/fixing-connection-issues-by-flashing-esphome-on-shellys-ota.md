@@ -2,6 +2,7 @@
 title: "Fixing Connection Issues by Flashing ESPHome on Shellys OTA"
 date: 2025-07-24T11:10:41.528Z
 slug: "fixing-connection-issues-by-flashing-esphome-on-shellys-ota"
+aliases: ["/p/fixing-connection-issues-by-flashing-esphome-on-shellys-ota/"]
 ---
 
 ![brown wooden stair](/img/fixing-connection-issues-by-flashing-esphome-on-shellys-ota/photo-1564771784795-aebf524ac5e4.jpg)

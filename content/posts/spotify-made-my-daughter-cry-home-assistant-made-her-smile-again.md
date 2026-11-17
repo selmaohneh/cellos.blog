@@ -3,6 +3,7 @@ title: "Spotify made my Daughter cry. Home Assistant made her smile again."
 subtitle: "Building a DIY Music Box powered by Home Assistant"
 date: 2025-07-24T11:31:59.001Z
 slug: "spotify-made-my-daughter-cry-home-assistant-made-her-smile-again"
+aliases: ["/p/spotify-made-my-daughter-cry-home-assistant-made-her-smile-again/"]
 ---
 
 ![](/img/spotify-made-my-daughter-cry-home-assistant-made-her-smile-again/42f288bb-96d0-4935-ba84-45e62271f6e1_786x590.jpeg)

@@ -2,6 +2,7 @@
 title: "My Journey to Pain-Free Typing"
 date: 2025-07-24T10:39:57.298Z
 slug: "my-journey-to-pain-free-typing"
+aliases: ["/p/my-journey-to-pain-free-typing/"]
 ---
 
 ![person holding hands of another person](/img/my-journey-to-pain-free-typing/photo-1627738641656-aebd944716cb.jpg)

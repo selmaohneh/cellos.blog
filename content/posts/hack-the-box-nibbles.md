@@ -2,6 +2,7 @@
 title: "Hack The Box: Nibbles"
 date: 2025-07-24T11:44:47.507Z
 slug: "hack-the-box-nibbles"
+aliases: ["/p/hack-the-box-nibbles/"]
 ---
 
 ![man siting facing laptop](/img/hack-the-box-nibbles/photo-1562813733-b31f71025d54.jpg)

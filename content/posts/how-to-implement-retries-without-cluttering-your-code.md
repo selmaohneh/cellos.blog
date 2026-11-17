@@ -2,6 +2,7 @@
 title: "How to implement Retries without Cluttering your Code"
 date: 2025-07-24T10:35:49.202Z
 slug: "how-to-implement-retries-without-cluttering-your-code"
+aliases: ["/p/how-to-implement-retries-without-cluttering-your-code/"]
 ---
 
 ![yellow blue and green parrot](/img/how-to-implement-retries-without-cluttering-your-code/photo-1604826010917-65cf53d6249b.jpg)

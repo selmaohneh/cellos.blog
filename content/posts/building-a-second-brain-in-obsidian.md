@@ -3,6 +3,7 @@ title: "Building a Second Brain in Obsidian"
 subtitle: "My Workflow for Cyber Security & Software Engineering Notes"
 date: 2025-09-04T07:44:59.796Z
 slug: "building-a-second-brain-in-obsidian"
+aliases: ["/p/building-a-second-brain-in-obsidian/"]
 ---
 
 As a software engineer, cyber security student, and father of two, I constantly juggle a lot of information. There are too many things to remember, and my brain simply can’t handle it alone.
