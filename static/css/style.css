@@ -7,7 +7,6 @@
   --muted: #7d887d;
   --green: #5fd068;
   --amber: #e5b567;
-  --cyan: #6cc5d9;
   --rule: #2a312a;
   --mono: ui-monospace, "JetBrains Mono", "Cascadia Mono", "Fira Code", Menlo, Consolas, "Liberation Mono", monospace;
 }
@@ -24,8 +23,10 @@ body {
 }
 ::selection { background: var(--green); color: var(--bg); }
 
-a { color: var(--cyan); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
-a:hover { color: var(--bg); background: var(--cyan); text-decoration: none; }
+/* Links: body-coloured with a green underline; hover highlights like a terminal selection. */
+a { color: inherit; text-decoration: underline; text-decoration-color: var(--green); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+a:hover { color: var(--bg); background: var(--green); text-decoration: none; }
+a:focus-visible { outline: 2px solid var(--green); outline-offset: 2px; }
 
 /* header / footer */
 .site-header {
