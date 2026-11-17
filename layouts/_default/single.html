@@ -1,11 +1,13 @@
 {{ define "main" }}
+<p class="prompt"><span class="ps1">~$</span> cat posts/{{ .File.ContentBaseName }}.md</p>
 <article>
   <header>
     <h1>{{ .Title }}</h1>
     {{ with .Params.subtitle }}<p class="subtitle">{{ . }}</p>{{ end }}
-    {{ if not .Date.IsZero }}<time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date | time.Format ":date_long" }}</time>{{ end }}
+    {{ if not .Date.IsZero }}<p class="byline"><time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006-01-02" }}</time> · {{ .ReadingTime }} min read</p>{{ end }}
   </header>
   {{ .Content }}
 </article>
 {{ partial "subscribe.html" . }}
+<p class="prompt"><span class="ps1">~$</span> <a href="{{ site.Home.RelPermalink }}">cd ..</a></p>
 {{ end }}

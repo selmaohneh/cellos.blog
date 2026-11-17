@@ -1,12 +1,5 @@
 {{ define "main" }}
+<p class="prompt"><span class="ps1">~$</span> ls -t posts/</p>
+{{ partial "post-list.html" (where site.RegularPages "Section" "posts").ByDate.Reverse }}
 {{ partial "subscribe.html" . }}
-<ul class="post-list">
-  {{ range (where site.RegularPages "Section" "posts").ByDate.Reverse }}
-  <li>
-    <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-    {{ with .Params.subtitle }}<p class="subtitle">{{ . }}</p>{{ end }}
-    <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date | time.Format ":date_long" }}</time>
-  </li>
-  {{ end }}
-</ul>
 {{ end }}

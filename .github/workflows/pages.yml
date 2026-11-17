@@ -39,6 +39,13 @@ jobs:
           test -f public/p/benefits-of-smart-laundry/index.html
           grep -q 'embed-subscribe/' public/p/benefits-of-smart-laundry/index.html
           grep -q 'embed-subscribe/' public/index.html
+      - name: Upload preview of the built site
+        if: github.event_name == 'pull_request'
+        uses: actions/upload-artifact@v4
+        with:
+          name: site-preview
+          path: public
+          retention-days: 7
       - name: Upload site
         if: github.event_name != 'pull_request'
         uses: actions/upload-pages-artifact@v3

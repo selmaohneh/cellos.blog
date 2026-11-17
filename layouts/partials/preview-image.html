@@ -1,0 +1,11 @@
+{{- /* Returns the post's preview image URL: front matter "image", else the first image in the post. */ -}}
+{{- $src := .Params.image -}}
+{{- if not $src -}}
+  {{- with findRESubmatch `!\[[^\]]*\]\(([^)\s]+)` .RawContent 1 -}}
+    {{- $src = index (index . 0) 1 -}}
+  {{- end -}}
+{{- end -}}
+{{- if and $src (strings.HasPrefix $src "/") -}}
+  {{- $src = strings.TrimPrefix "/" $src | relURL -}}
+{{- end -}}
+{{- return $src -}}
