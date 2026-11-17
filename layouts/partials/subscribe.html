@@ -1,0 +1,12 @@
+{{- with site.Params.buttondown }}
+<section class="subscribe" aria-labelledby="subscribe-title">
+  <h2 id="subscribe-title">Get new posts by email</h2>
+  <p>No spam, unsubscribe at any time.</p>
+  <form action="https://buttondown.com/api/emails/embed-subscribe/{{ . }}" method="post" target="_blank">
+    <label for="bd-email" class="visually-hidden">Email address</label>
+    <input type="email" name="email" id="bd-email" placeholder="you@example.com" required autocomplete="email">
+    <input type="hidden" name="embed" value="1">
+    <button type="submit">Subscribe</button>
+  </form>
+</section>
+{{- end }}
