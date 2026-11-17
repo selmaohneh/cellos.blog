@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>Cello&#39;s Blog</title>
+		<link>/</link>
+		<description>Recent content on Cello&#39;s Blog</description>
+		<generator>Hugo</generator>
+		<language>en</language>
+		
+		
+		
+		
+			<lastBuildDate>Tue, 11 Nov 2025 11:50:48 +0000</lastBuildDate>
+		
+			<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>Building a DIY Advent Calendar powered by Home Assistant</title>
+				<link>/p/building-a-diy-advent-calendar-powered-by-home-assistant/</link>
+				<pubDate>Tue, 11 Nov 2025 11:50:48 +0000</pubDate>
+				<guid>/p/building-a-diy-advent-calendar-powered-by-home-assistant/</guid>
+				<description>&lt;p&gt;&lt;strong&gt;Christmas is coming!&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;That also means it’s time once again to fill Advent calendars for the kids. This year, I came up with something very special for my daughter: &lt;strong&gt;a smart audio Advent calendar powered by Home Assistant!&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;/img/building-a-diy-advent-calendar-powered-by-home-assistant/9bf3c92c-6d27-4d54-89fe-6ffe9b7ae0fb_4000x3000.jpeg&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&#xA;&lt;/p&gt;&#xA;&lt;p&gt;Some time ago, I built my daughter her own music box. The box is based on &lt;em&gt;ESPHome&lt;/em&gt;, recognizes when &lt;em&gt;NFC&lt;/em&gt; tags are placed on it, and then starts an album via &lt;em&gt;Home Assistant&lt;/em&gt; → &lt;em&gt;Music Assistant&lt;/em&gt; → &lt;em&gt;Spotify&lt;/em&gt; on a &lt;em&gt;SONOS&lt;/em&gt; speaker. I packed the whole thing into a &lt;em&gt;LEGO&lt;/em&gt; case and attached a few buttons — basically a DIY &lt;em&gt;Toniebox&lt;/em&gt;. Since so many people have asked about the &lt;em&gt;LEGO&lt;/em&gt; version, I still owe you a separate blog post on that. But you can find the guide to the first version &lt;a href=&#34;https://www.cellos.blog/p/spotify-made-my-daughter-cry-home-assistant-made-her-smile-again/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Building a Second Brain in Obsidian</title>
+				<link>/p/building-a-second-brain-in-obsidian/</link>
+				<pubDate>Thu, 04 Sep 2025 07:44:59 +0000</pubDate>
+				<guid>/p/building-a-second-brain-in-obsidian/</guid>
+				<description>&lt;p&gt;As a software engineer, cyber security student, and father of two, I constantly juggle a lot of information. There are too many things to remember, and my brain simply can’t handle it alone.&lt;/p&gt;&#xA;&lt;p&gt;Fortunately, I have a &lt;strong&gt;second brain&lt;/strong&gt; right inside Obsidian.&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;/img/building-a-second-brain-in-obsidian/03fe778c-980c-49b1-8632-3d04df3b6697_744x765.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&#xA;&lt;/p&gt;&#xA;&lt;p&gt;In this post, I’ll share my simple, effective workflow for taking, refining, and organizing technical notes in fields like software engineering and cyber security.&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h3 id=&#34;why-obsidian&#34;&gt;Why Obsidian?&lt;/h3&gt;&#xA;&lt;p&gt;I’ve tried many note-taking tools over the years (Notion, Standard Notes, Notesnook, Joplin, Evernote, Logseq, Trillium, Notable, QOwnNotes…). None of them felt quite right, until I landed on Obsidian.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Pen-testing without Prison</title>
+				<link>/p/pen-testing-without-prison/</link>
+				<pubDate>Fri, 29 Aug 2025 06:02:03 +0000</pubDate>
+				<guid>/p/pen-testing-without-prison/</guid>
+				<description>&lt;p&gt;&lt;img src=&#34;/img/pen-testing-without-prison/photo-1567766176311-a1a2d11a3e35.jpg&#34; alt=&#34;gray stainless steel bed frame&#34; loading=&#34;lazy&#34;&gt;&#xA;&lt;/p&gt;&#xA;&lt;p&gt;&lt;em&gt;Photo by &lt;a href=&#34;https://unsplash.com/@camstejim&#34;&gt;camilo jimenez&lt;/a&gt; on &lt;a href=&#34;https://unsplash.com&#34;&gt;Unsplash&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;&#xA;&lt;p&gt;Pen-testing is fun.&lt;/p&gt;&#xA;&lt;p&gt;Breaking things on purpose, but in a responsible way.&lt;/p&gt;&#xA;&lt;p&gt;Sounds cool, right? Hacker hoodie, flashy exploits, adrenaline&amp;hellip;&lt;/p&gt;&#xA;&lt;p&gt;But here’s the problem: &lt;strong&gt;the law&lt;/strong&gt;.&lt;/p&gt;&#xA;&lt;p&gt;When you touch a system that’s not yours, you’re instantly walking a &lt;strong&gt;legal tightrope&lt;/strong&gt;. And that&amp;rsquo;s a wobbly one.&lt;/p&gt;&#xA;&lt;p&gt;So before you even get started, make sure to have the most important docs in writing: Authorization. Scope. Contacts. Duration.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>You are Never Safe in Cyber Security</title>
+				<link>/p/you-are-never-safe-in-cyber-security/</link>
+				<pubDate>Tue, 26 Aug 2025 11:41:02 +0000</pubDate>
+				<guid>/p/you-are-never-safe-in-cyber-security/</guid>
+				<description>&lt;p&gt;&lt;img src=&#34;/img/you-are-never-safe-in-cyber-security/photo-1621072145476-7c50a88739c3.jpg&#34; alt=&#34;text&#34; loading=&#34;lazy&#34;&gt;&#xA;&lt;/p&gt;&#xA;&lt;p&gt;&lt;em&gt;Photo by &lt;a href=&#34;https://unsplash.com/@flyd2069&#34;&gt;FlyD&lt;/a&gt; on &lt;a href=&#34;https://unsplash.com&#34;&gt;Unsplash&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;&#xA;&lt;p&gt;That’s the reality: complete safety does not exist. Every system has risk. The goal isn’t to eliminate risk entirely - that’s impossible - but to &lt;strong&gt;manage it effectively&lt;/strong&gt;. And you can only manage what you first identify.&lt;/p&gt;&#xA;&lt;h2 id=&#34;vulnerability-assessments&#34;&gt;Vulnerability Assessments&lt;/h2&gt;&#xA;&lt;p&gt;Automated tools such as &lt;strong&gt;Nessus, Qualys, Wiz, and OpenVAS&lt;/strong&gt; are great at scanning and uncovering a wide range of vulnerabilities across your infrastructure. They cast a broad net and provide valuable coverage.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Learning Cyber Security</title>
+				<link>/p/learning-cyber-security/</link>
+				<pubDate>Mon, 25 Aug 2025 12:36:42 +0000</pubDate>
+				<guid>/p/learning-cyber-security/</guid>
+				<description>&lt;p&gt;&lt;img src=&#34;/img/learning-cyber-security/photo-1603205431143-ce58f21799a4.jpg&#34; alt=&#34;brown wooden blocks on white table&#34; loading=&#34;lazy&#34;&gt;&#xA;&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Learning by doing&lt;/strong&gt; isn&amp;rsquo;t just a nice-to-have in cyber security; it&amp;rsquo;s essential. You can read about vulnerabilities all day, but until you&amp;rsquo;ve exploited one in a controlled environment, you don&amp;rsquo;t truly understand the attack vector.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Always understand the &amp;ldquo;why&amp;rdquo;.&lt;/strong&gt; Don&amp;rsquo;t just follow step-by-step tutorials. When you run that Nmap scan, understand what each flag does. When you exploit that buffer overflow, know why those specific bytes cause the crash.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Lessons Learned: Building a Cross-Platform App with AI</title>
+				<link>/p/lessons-learned-building-a-cross-platform-app-with-ai/</link>
+				<pubDate>Thu, 24 Jul 2025 11:46:54 +0000</pubDate>
+				<guid>/p/lessons-learned-building-a-cross-platform-app-with-ai/</guid>
+				<description>&lt;p&gt;&lt;img src=&#34;/img/lessons-learned-building-a-cross-platform-app-with-ai/4a94de0f-6ef0-403e-aef3-dcc6e25133a0_1024x500.jpeg&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&#xA;&lt;/p&gt;&#xA;&lt;p&gt;I developed an app for &lt;strong&gt;&lt;a href=&#34;https://play.google.com/store/apps/details?id=com.lily624org.bbqbuddy&#34;&gt;Android&lt;/a&gt;&lt;/strong&gt; and &lt;strong&gt;&lt;a href=&#34;https://apps.apple.com/de/app/bbq-buddy/id6747058992&#34;&gt;iOS&lt;/a&gt;&lt;/strong&gt; without writing a single line of code. I even had no prior experience with the programming language used. All of this was thanks to an AI agent, which I also had never used before. That sounds pretty impressive at first, but it actually wasn’t quite that easy. Here’s a brief report of my experience and what I learned, including tips and pitfalls, so you can do the same!&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Hack The Box: Nibbles</title>
+				<link>/p/hack-the-box-nibbles/</link>
+				<pubDate>Thu, 24 Jul 2025 11:44:47 +0000</pubDate>
+				<guid>/p/hack-the-box-nibbles/</guid>
+				<description>&lt;p&gt;&lt;img src=&#34;/img/hack-the-box-nibbles/photo-1562813733-b31f71025d54.jpg&#34; alt=&#34;man siting facing laptop&#34; loading=&#34;lazy&#34;&gt;&#xA;&lt;/p&gt;&#xA;&lt;p&gt;&lt;em&gt;Photo by Clint Patterson on &lt;a href=&#34;https://unsplash.com&#34;&gt;Unsplash&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;&#xA;&lt;p&gt;This is my walkthrough for the machine &lt;code&gt;Nibbles&lt;/code&gt; on &lt;strong&gt;&lt;a href=&#34;https://referral.hackthebox.com/mzBNP9n&#34;&gt;Hack The Box&lt;/a&gt;&lt;/strong&gt;.&lt;/p&gt;&#xA;&lt;h3 id=&#34;enumeration&#34;&gt;Enumeration&lt;/h3&gt;&#xA;&lt;p&gt;As usual we are only given the IP of our target machine. For convenience let&amp;rsquo;s add that IP into our &lt;code&gt;/etc/hosts&lt;/code&gt; file. That way we can simply use &lt;code&gt;target&lt;/code&gt; instead of re-typing the whole IP whenever we need it for a command.&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;/img/hack-the-box-nibbles/c8aa4a4c-78bc-4e44-bf6d-e289c4c933fa_1023x280.jpeg&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&#xA;&lt;/p&gt;&#xA;&lt;p&gt;Next is a full scan with &lt;strong&gt;&lt;a href=&#34;https://nmap.org/&#34;&gt;Nmap&lt;/a&gt;&lt;/strong&gt;. I like to add the flag &lt;code&gt;--open&lt;/code&gt; to only get open ports and not pollute the result with so much noise. The flag &lt;code&gt;-p-&lt;/code&gt; tells Nmap to scan &lt;strong&gt;all&lt;/strong&gt; ports, not just the most common ones.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>My guests&#39; favorite automation is dumb as hell</title>
+				<link>/p/my-guests-favorite-automation-is-dumb-as-hell/</link>
+				<pubDate>Thu, 24 Jul 2025 11:41:52 +0000</pubDate>
+				<guid>/p/my-guests-favorite-automation-is-dumb-as-hell/</guid>
+				<description>&lt;p&gt;&lt;img src=&#34;/img/my-guests-favorite-automation-is-dumb-as-hell/photo-1578269174936-2709b6aeb913.jpg&#34; alt=&#34;yellow and white trophy&#34; loading=&#34;lazy&#34;&gt;&#xA;&lt;/p&gt;&#xA;&lt;p&gt;&lt;em&gt;Photo by Giorgio Trovato on &lt;a href=&#34;https://unsplash.com&#34;&gt;Unsplash&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;&#xA;&lt;p&gt;I&amp;rsquo;ve installed quite some smart home stuff in my house. Some projects I&amp;rsquo;m really proud of, like the &lt;strong&gt;&lt;a href=&#34;https://www.cellos.blog/p/spotify-made-my-daughter-cry-home-assistant-made-her-smile-again/&#34;&gt;music box I built for my daughter&lt;/a&gt;&lt;/strong&gt;. Others are super nerdy, like the &lt;strong&gt;&lt;a href=&#34;https://www.cellos.blog/p/how-home-assistant-saves-me-250-every-year/&#34;&gt;smart meter I made for my gas meter&lt;/a&gt;&lt;/strong&gt;.&lt;/p&gt;&#xA;&lt;p&gt;I would have expected visitors who are not so tech-savvy to be really impressed by that.&lt;/p&gt;&#xA;&lt;p&gt;To my surprise, however, I always find that another, totally dumb automation is the winner of the visitors&amp;rsquo; hearts&amp;hellip; But first a little more background:&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Smart HDMI Switching with Home Assistant</title>
+				<link>/p/smart-hdmi-switching-with-home-assistant/</link>
+				<pubDate>Thu, 24 Jul 2025 11:40:38 +0000</pubDate>
+				<guid>/p/smart-hdmi-switching-with-home-assistant/</guid>
+				<description>&lt;p&gt;&lt;img src=&#34;/img/smart-hdmi-switching-with-home-assistant/photo-1653998582106-0509104928d9.jpg&#34; alt=&#34;a close up view of a computer keyboard&#34; loading=&#34;lazy&#34;&gt;&#xA;&lt;/p&gt;&#xA;&lt;p&gt;&lt;em&gt;Photo by TheRegisti on &lt;a href=&#34;https://unsplash.com&#34;&gt;Unsplash&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-problem&#34;&gt;The Problem&lt;/h2&gt;&#xA;&lt;p&gt;I recently became the proud owner of a &lt;strong&gt;&lt;a href=&#34;https://www.steamdeck.com/de&#34;&gt;Steam Deck&lt;/a&gt;&lt;/strong&gt;. Most of the time I play comfortably on the couch in handheld mode, but every now and then I want to throw a game onto the screen via my &lt;strong&gt;&lt;a href=&#34;https://amzn.to/3BYzdQQ&#34;&gt;projector&lt;/a&gt;&lt;/strong&gt;. To do this, I ordered a &lt;strong&gt;&lt;a href=&#34;https://amzn.to/3DIsDhH&#34;&gt;dock&lt;/a&gt;&lt;/strong&gt; that connects the Steam Deck to my projector via HDMI.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>I have nothing to hide - A dangerous mindset in the age of OSINT</title>
+				<link>/p/i-have-nothing-to-hide-a-dangerous-mindset-in-the-age-of-osint/</link>
+				<pubDate>Thu, 24 Jul 2025 11:39:17 +0000</pubDate>
+				<guid>/p/i-have-nothing-to-hide-a-dangerous-mindset-in-the-age-of-osint/</guid>
+				<description>&lt;p&gt;&lt;img src=&#34;/img/i-have-nothing-to-hide-a-dangerous-mindset-in-the-age-of-osint/photo-1580582932707-520aed937b7b.jpg&#34; alt=&#34;brown wooden table and chairs&#34; loading=&#34;lazy&#34;&gt;&#xA;&lt;/p&gt;&#xA;&lt;p&gt;&lt;em&gt;Photo by Ivan Aleksic on &lt;a href=&#34;https://unsplash.com&#34;&gt;Unsplash&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;&#xA;&lt;p&gt;I often hear the argument &amp;ldquo;I have nothing to hide&amp;rdquo; when talking about data privacy. This argument, of course, is a little naive. Some time ago I came across a story that shows how easy it is to find enough private information about a person in publicly available sources (also called OSINT - Open Source Intelligence) to perform a scary phishing attack.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Cookie Nudging</title>
+				<link>/p/cookie-nudging/</link>
+				<pubDate>Thu, 24 Jul 2025 11:38:19 +0000</pubDate>
+				<guid>/p/cookie-nudging/</guid>
+				<description>&lt;p&gt;&lt;img src=&#34;/img/cookie-nudging/photo-1597733153203-a54d0fbc47de.jpg&#34; alt=&#34;brown round cookie on white surface&#34; loading=&#34;lazy&#34;&gt;&#xA;&lt;/p&gt;&#xA;&lt;p&gt;&lt;em&gt;Photo by Vyshnavi Bisani on &lt;a href=&#34;https://unsplash.com&#34;&gt;Unsplash&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;&#xA;&lt;p&gt;Recently, I heard the term &lt;em&gt;cookie nudging&lt;/em&gt; for the first time in a podcast and, to be honest, I had to research what that means exactly.&lt;/p&gt;&#xA;&lt;h2 id=&#34;nudging&#34;&gt;Nudging&lt;/h2&gt;&#xA;&lt;p&gt;&lt;em&gt;Nudging&lt;/em&gt; means influencing a person in a desired direction. And not through guidelines or bans, but through psychological methods. The classic example of such a &lt;em&gt;nudge&lt;/em&gt; is the fly in a urinal.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Key Safe Overkill: Better Safe than Sorry</title>
+				<link>/p/key-safe-overkill-better-safe-than-sorry/</link>
+				<pubDate>Thu, 24 Jul 2025 11:36:49 +0000</pubDate>
+				<guid>/p/key-safe-overkill-better-safe-than-sorry/</guid>
+				<description>&lt;p&gt;&lt;img src=&#34;/img/key-safe-overkill-better-safe-than-sorry/photo-1503792243040-7ce7f5f06085.jpg&#34; alt=&#34;photo of key against black background&#34; loading=&#34;lazy&#34;&gt;&#xA;&lt;/p&gt;&#xA;&lt;p&gt;&lt;em&gt;Photo by Matt Artz on &lt;a href=&#34;https://unsplash.com&#34;&gt;Unsplash&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;&#xA;&lt;p&gt;I bet you have a spare key for your home hidden somewhere on your property!&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Is it in the garden? Maybe disguised as a rock?&lt;/li&gt;&#xA;&lt;li&gt;Is it right under the doormat?&lt;/li&gt;&#xA;&lt;li&gt;Do your neighbors have it?&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;No matter where it is, it is important to have one! It sucks to come home after a long day, only to realize that you&amp;rsquo;ve forgotten your keys. I know that from experience because until recently we didn’t have a spare key.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Reclaiming Privacy: How I Got Rid of Google Photos</title>
+				<link>/p/reclaiming-privacy-how-i-got-rid-of-google-photos/</link>
+				<pubDate>Thu, 24 Jul 2025 11:35:54 +0000</pubDate>
+				<guid>/p/reclaiming-privacy-how-i-got-rid-of-google-photos/</guid>
+				<description>&lt;p&gt;&lt;img src=&#34;/img/reclaiming-privacy-how-i-got-rid-of-google-photos/photo-1459682687441-7761439a709d.jpg&#34; alt=&#34;green, gray, and brown mallard duck in body of water&#34; loading=&#34;lazy&#34;&gt;&#xA;&lt;/p&gt;&#xA;&lt;p&gt;&lt;em&gt;Photo by Ravi Singh on &lt;a href=&#34;https://unsplash.com&#34;&gt;Unsplash&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;&#xA;&lt;p&gt;I am a privacy nerd in many areas. Since discovering &lt;strong&gt;&lt;a href=&#34;http://privacytools.io/&#34;&gt;privacytools.io&lt;/a&gt;&lt;/strong&gt;, I have been on a mission to replace all Google services I use.&lt;/p&gt;&#xA;&lt;p&gt;One big skeleton that I had in my closet until recently is Google Photos. But that&amp;rsquo;s finally over!&lt;/p&gt;&#xA;&lt;h2 id=&#34;why-i-decided-to-stop-using-google-photos&#34;&gt;Why I Decided to Stop Using Google Photos&lt;/h2&gt;&#xA;&lt;p&gt;My wife and I have consistently stored all photos taken on our phones directly with Google. It was just super convenient. It&amp;rsquo;s quickly set up and works flawlessly.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Spotify made my Daughter cry. Home Assistant made her smile again.</title>
+				<link>/p/spotify-made-my-daughter-cry-home-assistant-made-her-smile-again/</link>
+				<pubDate>Thu, 24 Jul 2025 11:31:59 +0000</pubDate>
+				<guid>/p/spotify-made-my-daughter-cry-home-assistant-made-her-smile-again/</guid>
+				<description>&lt;p&gt;&lt;img src=&#34;/img/spotify-made-my-daughter-cry-home-assistant-made-her-smile-again/42f288bb-96d0-4935-ba84-45e62271f6e1_786x590.jpeg&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&#xA;&lt;/p&gt;&#xA;&lt;p&gt;Everybody knows the famous &lt;strong&gt;&lt;a href=&#34;https://amzn.to/3WRLnjE&#34;&gt;Toniebox&lt;/a&gt;&lt;/strong&gt;. It&amp;rsquo;s a wonderful device which lets kids start music or an audio book just by putting a little figure on top of it. Every friend of our daughter got one on their second birthday. So the pressure was high.&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;em&gt;&lt;strong&gt;My daughter looked at me with her big eyes — She wants one, as well!&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;But that cute little cube is not cheap. Especially the costs for the &lt;strong&gt;&lt;a href=&#34;https://amzn.to/3Zh2OLT&#34;&gt;Tonie figures&lt;/a&gt;&lt;/strong&gt; stack up fast… 15€ per figure times ten audio books: That&amp;rsquo;s 150 bucks — for audio books that are already available with my Spotify subscription.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Home Assistant saves my Daughter from Nightmares</title>
+				<link>/p/home-assistant-saves-my-daughter-from-nightmares/</link>
+				<pubDate>Thu, 24 Jul 2025 11:14:49 +0000</pubDate>
+				<guid>/p/home-assistant-saves-my-daughter-from-nightmares/</guid>
+				<description>&lt;p&gt;&lt;img src=&#34;/img/home-assistant-saves-my-daughter-from-nightmares/photo-1580920790557-43158492adb5.jpg&#34; alt=&#34;silhouette of man standing in front of window&#34; loading=&#34;lazy&#34;&gt;&#xA;&lt;/p&gt;&#xA;&lt;p&gt;&lt;em&gt;Photo by ALEXANDRE LALLEMAND on &lt;a href=&#34;https://unsplash.com&#34;&gt;Unsplash&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-problem&#34;&gt;The Problem&lt;/h2&gt;&#xA;&lt;p&gt;When our daughter is (finally) asleep, we like to watch a few more series to wind down. Currently, we are into relatively violent stuff like &lt;strong&gt;&lt;a href=&#34;https://amzn.to/3XyVo7U&#34;&gt;The Boys&lt;/a&gt;&lt;/strong&gt;. My wife likes to tell the anecdote that she used to crawl out of bed as a child, then secretly sit on the stairs and listen to her parents or the television. Once, she even had nightmares because her parents were watching a horror movie and she couldn&amp;rsquo;t get the horrifying screams out of her head.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Lost in Translation</title>
+				<link>/p/lost-in-translation/</link>
+				<pubDate>Thu, 24 Jul 2025 11:13:14 +0000</pubDate>
+				<guid>/p/lost-in-translation/</guid>
+				<description>&lt;p&gt;&lt;img src=&#34;/img/lost-in-translation/photo-1673515335152-f2589ba8bb7a.jpg&#34; alt=&#34;a wooden block that says translation on it&#34; loading=&#34;lazy&#34;&gt;&#xA;&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-problem&#34;&gt;The Problem&lt;/h2&gt;&#xA;&lt;p&gt;The other day I picked up a phrase that still bounces around in my head from time to time.&lt;/p&gt;&#xA;&lt;p&gt;If you don&amp;rsquo;t write in your native language, there&amp;rsquo;s always a risk that details will get lost.&lt;/p&gt;&#xA;&lt;p&gt;I&amp;rsquo;ve been blogging in English so far in order to reach more people. But my mother tongue is German. Do I still manage to express what I want to convey?&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Fixing Connection Issues by Flashing ESPHome on Shellys OTA</title>
+				<link>/p/fixing-connection-issues-by-flashing-esphome-on-shellys-ota/</link>
+				<pubDate>Thu, 24 Jul 2025 11:10:41 +0000</pubDate>
+				<guid>/p/fixing-connection-issues-by-flashing-esphome-on-shellys-ota/</guid>
+				<description>&lt;p&gt;&lt;img src=&#34;/img/fixing-connection-issues-by-flashing-esphome-on-shellys-ota/photo-1564771784795-aebf524ac5e4.jpg&#34; alt=&#34;brown wooden stair&#34; loading=&#34;lazy&#34;&gt;&#xA;&lt;/p&gt;&#xA;&lt;p&gt;&lt;em&gt;Photo by Robert Katzki on &lt;a href=&#34;https://unsplash.com&#34;&gt;Unsplash&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-problem&#34;&gt;The Problem&lt;/h2&gt;&#xA;&lt;p&gt;My house is flooded with smart relays from Shelly.&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;I use multiple &lt;strong&gt;&lt;a href=&#34;https://amzn.to/3LJYm2f&#34;&gt;Shelly 2.5&lt;/a&gt;&lt;/strong&gt; to control all the covers in my house&lt;/li&gt;&#xA;&lt;li&gt;I use a &lt;strong&gt;&lt;a href=&#34;https://amzn.to/3LKJiSg&#34;&gt;Shelly 1PM&lt;/a&gt;&lt;/strong&gt; to keep track of the production of my &lt;strong&gt;&lt;a href=&#34;https://amzn.to/4cQXyV1&#34;&gt;balcony power plant&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;&#xA;&lt;li&gt;I use many &lt;strong&gt;&lt;a href=&#34;https://amzn.to/4e69Rhd&#34;&gt;Shelly 1&lt;/a&gt;&lt;/strong&gt; to automate my light switches&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;I have at least 30 smart relays around my house/garden and they work flawlessly! But then there are one or two relays that give me headaches. Especially the one controlling the lights at my stairs. These lights are motion-controlled and I expect them to go off 3 minutes after all motion cleared. But over the last couple of weeks, this has not been happening.. This is very annoying since I had to get out of bed and switch them off manually.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>My Journey to Pain-Free Typing</title>
+				<link>/p/my-journey-to-pain-free-typing/</link>
+				<pubDate>Thu, 24 Jul 2025 10:39:57 +0000</pubDate>
+				<guid>/p/my-journey-to-pain-free-typing/</guid>
+				<description>&lt;p&gt;&lt;img src=&#34;/img/my-journey-to-pain-free-typing/photo-1627738641656-aebd944716cb.jpg&#34; alt=&#34;person holding hands of another person&#34; loading=&#34;lazy&#34;&gt;&#xA;&lt;/p&gt;&#xA;&lt;p&gt;&lt;em&gt;Photo by Towfiqu barbhuiya on &lt;a href=&#34;https://unsplash.com&#34;&gt;Unsplash&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;&#xA;&lt;p&gt;As software developers, we type a lot. And we type very fast… This results in quite some keystrokes over the years. Sadly we don&amp;rsquo;t get younger. Due to that load most of us will feel some signs of wear and tear at some point in their career. For some it&amp;rsquo;s the neck, for others it&amp;rsquo;s a pain in the fingers.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>How I explained IoC and DI to our Senior Software Engineer</title>
+				<link>/p/how-i-explained-ioc-and-di-to-our-senior-software-engineer/</link>
+				<pubDate>Thu, 24 Jul 2025 10:39:04 +0000</pubDate>
+				<guid>/p/how-i-explained-ioc-and-di-to-our-senior-software-engineer/</guid>
+				<description>&lt;p&gt;&lt;img src=&#34;/img/how-i-explained-ioc-and-di-to-our-senior-software-engineer/photo-1431499012454-31a9601150c9.jpg&#34; alt=&#34;person holding white and silver-colored pocket watch&#34; loading=&#34;lazy&#34;&gt;&#xA;&lt;/p&gt;&#xA;&lt;p&gt;&lt;em&gt;Photo by Veri Ivanova on &lt;a href=&#34;https://unsplash.com&#34;&gt;Unsplash&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;&#xA;&lt;p&gt;Inversion of Control and Dependency Injection are two of these big buzz words you always hear when talking about modern software development. At least they were when I started going professional. That’s why I invested quite some time to research that topic. I was surprised that our Senior Software Engineer did not…&lt;/p&gt;&#xA;&lt;p&gt;I had to explain it to him while reviewing some of my code. I still remember his reaction:&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Embarrassment-Driven-Testing</title>
+				<link>/p/embarrassment-driven-testing/</link>
+				<pubDate>Thu, 24 Jul 2025 10:37:04 +0000</pubDate>
+				<guid>/p/embarrassment-driven-testing/</guid>
+				<description>&lt;p&gt;&lt;img src=&#34;/img/embarrassment-driven-testing/photo-1483193722442-5422d99849bc.jpg&#34; alt=&#34;girl covering her face with both hands&#34; loading=&#34;lazy&#34;&gt;&#xA;&lt;/p&gt;&#xA;&lt;p&gt;&lt;em&gt;Photo by Caleb Woods on &lt;a href=&#34;https://unsplash.com&#34;&gt;Unsplash&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;&#xA;&lt;h2 id=&#34;a-new-perspective&#34;&gt;A new perspective&lt;/h2&gt;&#xA;&lt;p&gt;There are lots of links in my head when thinking about testing in software:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;a good test suite indicates good software quality&lt;/li&gt;&#xA;&lt;li&gt;a good test suite is a safety net for developers&lt;/li&gt;&#xA;&lt;li&gt;a good test suite saves time in the long run&lt;/li&gt;&#xA;&lt;li&gt;…&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;A talk from &lt;strong&gt;&lt;a href=&#34;https://www.linkedin.com/in/raneland/&#34;&gt;Daniel Raniz Raneland&lt;/a&gt;&lt;/strong&gt; just added another surprising perspective:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;em&gt;&lt;strong&gt;A good test suite prevents you from embarrassment.&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;</description>
+			</item>
+			<item>
+				<title>How to implement Retries without Cluttering your Code</title>
+				<link>/p/how-to-implement-retries-without-cluttering-your-code/</link>
+				<pubDate>Thu, 24 Jul 2025 10:35:49 +0000</pubDate>
+				<guid>/p/how-to-implement-retries-without-cluttering-your-code/</guid>
+				<description>&lt;p&gt;&lt;img src=&#34;/img/how-to-implement-retries-without-cluttering-your-code/photo-1604826010917-65cf53d6249b.jpg&#34; alt=&#34;yellow blue and green parrot&#34; loading=&#34;lazy&#34;&gt;&#xA;&lt;/p&gt;&#xA;&lt;p&gt;&lt;em&gt;Photo by Ilona Frey on &lt;a href=&#34;https://unsplash.com&#34;&gt;Unsplash&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;&#xA;&lt;h2 id=&#34;imperfection&#34;&gt;Imperfection&lt;/h2&gt;&#xA;&lt;p&gt;One important lesson I learned working as a software engineer in the production industry for many years:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;em&gt;&lt;strong&gt;Some things don’t work on the first try.&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;The real-world hardware and corresponding drivers I met and worked with always had some quirks.&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Some hardware disconnects from time to time.&lt;/li&gt;&#xA;&lt;li&gt;Some drivers throw an exception when commands are executed too fast after each other.&lt;/li&gt;&#xA;&lt;li&gt;Some sensors don’t answer your commands at all. Maybe after the third try.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;em&gt;&lt;strong&gt;The world is not perfect and everyone makes mistakes. Most of the time, hardware and drivers don’t work as you would expect.&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;</description>
+			</item>
+			<item>
+				<title>Imperative vs. Declarative Models. Explained with Beer</title>
+				<link>/p/imperative-vs-declarative-models-explained-with-beer/</link>
+				<pubDate>Thu, 24 Jul 2025 10:34:20 +0000</pubDate>
+				<guid>/p/imperative-vs-declarative-models-explained-with-beer/</guid>
+				<description>&lt;p&gt;&lt;img src=&#34;/img/imperative-vs-declarative-models-explained-with-beer/photo-1605251947757-4cad133bd9e0.jpg&#34; alt=&#34;brown and white labeled can&#34; loading=&#34;lazy&#34;&gt;&#xA;&lt;/p&gt;&#xA;&lt;p&gt;&lt;em&gt;Photo by Masaaki Komori on &lt;a href=&#34;https://unsplash.com&#34;&gt;Unsplash&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;&#xA;&lt;p&gt;Do you know the difference between an imperative modelling approach and a declarative one? If not, here is a brief explanation with beer.&lt;/p&gt;&#xA;&lt;p&gt;When hosting a party in our garage, I need to make sure the fridge is filled with beer. Of course we also organize soft drinks and water, since legend has it that there are people who don&amp;rsquo;t like beer.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Beyond the Dogma: An unpopular opinion on Clean Code</title>
+				<link>/p/beyond-the-dogma-an-unpopular-opinion-on-clean-code/</link>
+				<pubDate>Thu, 24 Jul 2025 10:33:07 +0000</pubDate>
+				<guid>/p/beyond-the-dogma-an-unpopular-opinion-on-clean-code/</guid>
+				<description>&lt;p&gt;&lt;img src=&#34;/img/beyond-the-dogma-an-unpopular-opinion-on-clean-code/photo-1631333615271-c8e1028e9717.jpg&#34; alt=&#34;a neon sign on the side of a building&#34; loading=&#34;lazy&#34;&gt;&#xA;&lt;/p&gt;&#xA;&lt;p&gt;&lt;em&gt;Photo by Jon Tyson on &lt;a href=&#34;https://unsplash.com&#34;&gt;Unsplash&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;&#xA;&lt;h2 id=&#34;an-uplifting-read&#34;&gt;An uplifting read&lt;/h2&gt;&#xA;&lt;p&gt;Part of being a good developer is reading books and pursuing lifelong learning. One of the books that greatly influenced me as a young professional was &lt;strong&gt;&lt;a href=&#34;https://amzn.to/3XZ8j3J&#34;&gt;“Clean Code” by Robert C. Martin&lt;/a&gt;&lt;/strong&gt;.&lt;/p&gt;&#xA;&lt;p&gt;The best part? It’s an uplifting read. Even with limited software knowledge, you can easily grasp Martin’s concepts. I remember sitting on the train, reading with a smile on my face, and nodding in agreement throughout.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>How and Where to handle Exceptions while Maintaining a Great API</title>
+				<link>/p/how-and-where-to-handle-exceptions-while-maintaining-a-great-api/</link>
+				<pubDate>Thu, 24 Jul 2025 10:31:11 +0000</pubDate>
+				<guid>/p/how-and-where-to-handle-exceptions-while-maintaining-a-great-api/</guid>
+				<description>&lt;p&gt;&lt;img src=&#34;/img/how-and-where-to-handle-exceptions-while-maintaining-a-great-api/photo-1611890798517-07b0fcb4a811.jpg&#34; alt=&#34;a close up of a computer screen with a sign on it&#34; loading=&#34;lazy&#34;&gt;&#xA;&lt;/p&gt;&#xA;&lt;p&gt;&lt;em&gt;Photo by Nong on &lt;a href=&#34;https://unsplash.com&#34;&gt;Unsplash&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;&#xA;&lt;p&gt;Exception handling is not easy. It can be done in the wrong places, it can be done the wrong way, and it can even be forgotten completely.&lt;/p&gt;&#xA;&lt;p&gt;The best we can do to help our fellow developers with that problem is to design our API as bulletproof as possible.&lt;/p&gt;&#xA;&lt;p&gt;An exception-less approach via the Result Pattern is a step in that direction.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>How Home Assistant saves me 250€ every year</title>
+				<link>/p/how-home-assistant-saves-me-250-every-year/</link>
+				<pubDate>Thu, 24 Jul 2025 10:27:13 +0000</pubDate>
+				<guid>/p/how-home-assistant-saves-me-250-every-year/</guid>
+				<description>&lt;p&gt;&lt;img src=&#34;/img/how-home-assistant-saves-me-250-every-year/photo-1607863680198-23d4b2565df0.jpg&#34; alt=&#34;pink pig coin bank on brown wooden table&#34; loading=&#34;lazy&#34;&gt;&#xA;&lt;/p&gt;&#xA;&lt;p&gt;&lt;em&gt;Photo by Andre Taissin on &lt;a href=&#34;https://unsplash.com&#34;&gt;Unsplash&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;&#xA;&lt;p&gt;The gas price went nuts in 2022. Thanks to Home Assistant I was able to save quite some money without losing any convenience. Here is how.&lt;/p&gt;&#xA;&lt;h2 id=&#34;step-1-gathering-data&#34;&gt;Step 1: Gathering data&lt;/h2&gt;&#xA;&lt;p&gt;My house is heated by a gas heater. This is pretty common in Germany. I can read my gas consumption on the dumb gas meter I was provided.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Fake it till you Make it: Shipping your Ideas</title>
+				<link>/p/fake-it-till-you-make-it-shipping-your-ideas/</link>
+				<pubDate>Thu, 24 Jul 2025 10:24:35 +0000</pubDate>
+				<guid>/p/fake-it-till-you-make-it-shipping-your-ideas/</guid>
+				<description>&lt;p&gt;&lt;img src=&#34;/img/fake-it-till-you-make-it-shipping-your-ideas/photo-1648195699350-fa0ed4a263e7.jpg&#34; alt=&#34;graffiti on a wall that says fake&#34; loading=&#34;lazy&#34;&gt;&#xA;&lt;/p&gt;&#xA;&lt;p&gt;&lt;em&gt;Photo by Markus Spiske on &lt;a href=&#34;https://unsplash.com&#34;&gt;Unsplash&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;&#xA;&lt;h2 id=&#34;procrastination&#34;&gt;Procrastination&lt;/h2&gt;&#xA;&lt;p&gt;I recently decided to start a new side-project. It’s an app for android. I often have ideas for handy little apps — but I only ever shipped a few. Why is that?&lt;/p&gt;&#xA;&lt;p&gt;Right after an idea emerges, I immediately start to think about architecture and technical details.&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;I will definitely need a database…&lt;/li&gt;&#xA;&lt;li&gt;No self-hosting. I definitely need to host that in the cloud. Maybe on AWS or Azure?&lt;/li&gt;&#xA;&lt;li&gt;Maybe some server-less approach?&lt;/li&gt;&#xA;&lt;li&gt;What kind of databases does AWS provide?&lt;/li&gt;&#xA;&lt;li&gt;…&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;I then waste at least two weeks drilling down the AWS documentation and researching several irrelevant topics like &lt;code&gt;global secondary index&lt;/code&gt; or &lt;code&gt;DynamoDB sort keys&lt;/code&gt;. Sounds familiar? It usually ends with:&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Benefits of Smart Laundry</title>
+				<link>/p/benefits-of-smart-laundry/</link>
+				<pubDate>Thu, 24 Jul 2025 10:07:17 +0000</pubDate>
+				<guid>/p/benefits-of-smart-laundry/</guid>
+				<description>&lt;p&gt;&lt;img src=&#34;/img/benefits-of-smart-laundry/photo-1610557892470-55d9e80c0bce.jpg&#34; alt=&#34;pink and green plastic container&#34; loading=&#34;lazy&#34;&gt;&#xA;&lt;/p&gt;&#xA;&lt;p&gt;&lt;em&gt;Photo by engin akyurt on &lt;a href=&#34;https://unsplash.com&#34;&gt;Unsplash&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;&#xA;&lt;p&gt;We have kids. Having kids comes with having lots of laundry. Our washing machine runs nearly every day. God forbid if we’d forget to hang out a single load of laundry. The pile would stack up indefinitely…&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;em&gt;&lt;strong&gt;We can’t handle that much pressure! That’s why Home Assistant has to help us.&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;h2 id=&#34;the-problem&#34;&gt;The Problem&lt;/h2&gt;&#xA;&lt;p&gt;A common situation we were facing is the following:&lt;/p&gt;</description>
+			</item>
+	</channel>
+</rss>

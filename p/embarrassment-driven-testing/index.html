@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#0d0f0d">
+  <title>Embarrassment-Driven-Testing · Cello&#39;s Blog</title>
+  <meta name="description" content="Personal blog of Marcel Neumann">
+  <link rel="canonical" href="/p/embarrassment-driven-testing/">
+  <link rel="alternate" type="application/rss+xml" title="Cello&#39;s Blog" href="/index.xml">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="site-title" href="/"><span class="user">cello@cellos.blog</span><span class="cursor" aria-hidden="true"></span></a>
+    <nav>
+      <a href="/index.xml">[rss]</a>
+    </nav>
+  </header>
+  <main>
+    
+<p class="prompt"><span class="ps1">~$</span> cat posts/embarrassment-driven-testing.md</p>
+<article>
+  <header>
+    <h1>Embarrassment-Driven-Testing</h1>
+    
+    <p class="byline"><time datetime="2025-07-24">2025-07-24</time> · 3 min read</p>
+  </header>
+  <p><img src="/img/embarrassment-driven-testing/photo-1483193722442-5422d99849bc.jpg" alt="girl covering her face with both hands" loading="lazy">
+</p>
+<p><em>Photo by Caleb Woods on <a href="https://unsplash.com">Unsplash</a></em></p>
+<h2 id="a-new-perspective">A new perspective</h2>
+<p>There are lots of links in my head when thinking about testing in software:</p>
+<ul>
+<li>a good test suite indicates good software quality</li>
+<li>a good test suite is a safety net for developers</li>
+<li>a good test suite saves time in the long run</li>
+<li>…</li>
+</ul>
+<p>A talk from <strong><a href="https://www.linkedin.com/in/raneland/">Daniel Raniz Raneland</a></strong> just added another surprising perspective:</p>
+<blockquote>
+<p><em><strong>A good test suite prevents you from embarrassment.</strong></em></p>
+</blockquote>
+<h2 id="the-one-thing">The <code>one thing</code></h2>
+<p>I think this provides us with valuable insights on the minimun requirements of what to test:</p>
+<blockquote>
+<p><em><strong>It&rsquo;s the</strong></em> <code>one thing</code> <em><strong>your team/software is responsible for. The</strong></em> <code>one thing</code> <em><strong>that would be totally embarrassing if it didn&rsquo;t function correctly.</strong></em></p>
+</blockquote>
+<ul>
+<li>if you develop the software for a snack vending machine, make sure that the doors open correctly.</li>
+<li>if you develop a to-do web app, make sure that to-dos can be ticked</li>
+<li>if you develop a mobile camera app, make sure you can actually take a picture</li>
+<li>…</li>
+</ul>
+<p>If the Excel export of your to-do list generates an incorrect file name, users might tolerate it for a while. But if they can&rsquo;t tick their to-dos, they will definitely unsubscribe from your service.</p>
+<p>Ticking to-dos is your <code>one thing</code>. Make sure to have that covered completely by the test suite. If starting from scratch, this should be one of the first E2E-tests.</p>
+<h2 id="return-of-investments-of-tests">Return of Investments of tests</h2>
+<p>I like this idea of embarrassment-driven-testing because it relates so well to another new link I noted from a talk by <strong><a href="https://www.linkedin.com/in/yohstern/">Johannes Stern</a></strong>.</p>
+<blockquote>
+<p><em><strong>Every single test needs a return of investment (</strong></em><code>ROI</code><em><strong>).</strong></em></p>
+</blockquote>
+<p>You would not invest your valuable money in a project that does not earn you money in the long run, would you? The same is correct for software tests.</p>
+<p>We write unit tests because they are cheap and give us a fast response to our changes. This is an instant <code>ROI</code>!</p>
+<p>Integration-, API-, and E2E-tests are more expensive. Depending on the quality of the existing code they can be very expensive. But no matter the price, testing your <code>one thing</code> is a necessary investment, not just to prevent embarrassment, but to save your business.</p>
+<p>This same thought can also be true from the opposite perspective: Tests can be a bad investment. If your feature is covered by a great E2E-test, do you really need an API-test <em>and</em> integration-test <em>and</em> unit-tests? Or are they just redundant?</p>
+<p>Don&rsquo;t get me wrong, I am an advocate for testing and support every test that is written. But testing is about quality and not quantity. Having the <code>ROI</code> in mind, maybe it&rsquo;s time to delete those flaky tests that you spend so much time on debugging every week, while not giving you any confidence when they are finally green.</p>
+
+</article>
+
+<section class="subscribe" aria-labelledby="subscribe-title">
+  <p class="prompt" id="subscribe-title"><span class="ps1">~$</span> subscribe --email</p>
+  <p class="comment"># new posts by mail. no spam, unsubscribe any time.</p>
+  <form action="https://buttondown.com/api/emails/embed-subscribe/cellos.blog" method="post" target="_blank">
+    <label for="bd-email" class="visually-hidden">Email address</label>
+    <span class="ps1" aria-hidden="true">&gt;</span>
+    <input type="email" name="email" id="bd-email" placeholder="you@example.com" required autocomplete="email">
+    <input type="hidden" name="embed" value="1">
+    <button type="submit">[ enter ]</button>
+  </form>
+</section>
+
+<p class="prompt"><span class="ps1">~$</span> <a href="/">cd ..</a></p>
+
+  </main>
+  <footer class="site-footer">
+    # © 2026 Marcel Neumann · built with hugo
+  </footer>
+</body>
+</html>

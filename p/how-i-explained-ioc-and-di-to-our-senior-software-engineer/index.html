@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#0d0f0d">
+  <title>How I explained IoC and DI to our Senior Software Engineer · Cello&#39;s Blog</title>
+  <meta name="description" content="A Step-by-Step Guide to Understanding Inversion of Control and Dependency Injection">
+  <link rel="canonical" href="/p/how-i-explained-ioc-and-di-to-our-senior-software-engineer/">
+  <link rel="alternate" type="application/rss+xml" title="Cello&#39;s Blog" href="/index.xml">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="site-title" href="/"><span class="user">cello@cellos.blog</span><span class="cursor" aria-hidden="true"></span></a>
+    <nav>
+      <a href="/index.xml">[rss]</a>
+    </nav>
+  </header>
+  <main>
+    
+<p class="prompt"><span class="ps1">~$</span> cat posts/how-i-explained-ioc-and-di-to-our-senior-software-engineer.md</p>
+<article>
+  <header>
+    <h1>How I explained IoC and DI to our Senior Software Engineer</h1>
+    <p class="subtitle">A Step-by-Step Guide to Understanding Inversion of Control and Dependency Injection</p>
+    <p class="byline"><time datetime="2025-07-24">2025-07-24</time> · 5 min read</p>
+  </header>
+  <p><img src="/img/how-i-explained-ioc-and-di-to-our-senior-software-engineer/photo-1431499012454-31a9601150c9.jpg" alt="person holding white and silver-colored pocket watch" loading="lazy">
+</p>
+<p><em>Photo by Veri Ivanova on <a href="https://unsplash.com">Unsplash</a></em></p>
+<p>Inversion of Control and Dependency Injection are two of these big buzz words you always hear when talking about modern software development. At least they were when I started going professional. That’s why I invested quite some time to research that topic. I was surprised that our Senior Software Engineer did not…</p>
+<p>I had to explain it to him while reviewing some of my code. I still remember his reaction:</p>
+<blockquote>
+<p><em><strong>That’s it? That easy? I was completely mystified by that stuff for years and you just explained it to me in a short call?</strong></em></p>
+</blockquote>
+<p>If even my valued colleague, who was my mentor for the past few years, still didn’t get that concept, I thought it might be worth writing yet another explanation:</p>
+<blockquote>
+<p><em><strong>Inversion of Control and Dependency Injection for Dummies!</strong></em></p>
+</blockquote>
+<h2 id="dependency-injection">Dependency Injection</h2>
+<p>Let’s say you want to write a piece of code that tracks how much time you spend in front of your computer. You might come up with a simple API like this:</p>
+<pre tabindex="0"><code>using System;
+
+namespace ComputerTimeTracker
+{
+    public interface IComputerTimeTracker
+    {
+        void StartTracking();
+        void StopTracking();
+        TimeSpan GetTimeSpendInFrontOfComputer();
+    }
+}
+</code></pre><p>If my colleague implemented that interface a few years back it would have looked somehow like that:</p>
+<pre tabindex="0"><code>using System;
+using System.Diagnostics;
+
+namespace ComputerTimeTracker
+{
+    public class ComputerTimeTracker : IComputerTimeTracker
+    {
+        private readonly Stopwatch _stopWatch;
+
+        public ComputerTimeTracker()
+        {
+            _stopWatch = new Stopwatch();
+        }
+
+        public void StartTracking()
+        {
+            _stopWatch.Start();
+        }
+
+        public void StopTracking()
+        {
+            _stopWatch.Stop();
+        }
+
+        public TimeSpan GetTimeSpendInFrontOfComputer()
+        {
+            return _stopWatch.Elapsed;
+        }
+    }
+}
+</code></pre><p>Simple and straight-forward. The only thing this class needs to do its work is a <code>Stopwatch</code> instance.</p>
+<blockquote>
+<p><em><strong>The class needs an instance of</strong></em> <code>Stopwatch</code><em><strong>.</strong></em></p>
+<p><em><strong>The class is dependent on a</strong></em> <code>Stopwatch</code><em><strong>.</strong></em></p>
+<p><em><strong>The</strong></em> <code>Stopwatch</code> <em><strong>is a dependency of the class</strong></em> <code>ComputerTimeTracker</code><em><strong>.</strong></em></p>
+</blockquote>
+<p>So far, so good. Now let’s just do a little modification to that code:</p>
+<pre tabindex="0"><code>using System;
+using System.Diagnostics;
+
+namespace ComputerTimeTracker
+{
+    public class ComputerTimeTracker : IComputerTimeTracker
+    {
+        private readonly Stopwatch _stopWatch;
+
+        public ComputerTimeTracker(Stopwatch stopWatch)
+        {
+            _stopWatch = stopWatch;
+        }
+
+        public void StartTracking()
+        {
+            _stopWatch.Start();
+        }
+
+        public void StopTracking()
+        {
+            _stopWatch.Stop();
+        }
+
+        public TimeSpan GetTimeSpendInFrontOfComputer()
+        {
+            return _stopWatch.Elapsed;
+        }
+    }
+}
+</code></pre><p>The only thing that changed is the constructor.</p>
+<p>Instead of <em>creating</em> the instance of <code>Stopwatch</code> inside the constructor we <em>inject</em> it into the constructor.</p>
+<blockquote>
+<p><em><strong>We inject the</strong></em> <code>Stopwatch</code> <em><strong>into the constructor.</strong></em></p>
+<p><em><strong>We inject the dependency</strong></em> <code>Stopwatch</code> <em><strong>into the constructor.</strong></em></p>
+<p><em><strong>We just did a dependency injection.</strong></em></p>
+</blockquote>
+<p>And I just want to make it clear: That is really all! Dependency injection means nothing more and nothing less than providing a dependency to someone who needs it instead of letting the someone create the dependency itself.</p>
+<p>It does not matter whether you inject the dependency via the class constructor, via a property, or via a setter-method. All you do is injecting a dependency.</p>
+<h2 id="inversion-of-control">Inversion of Control</h2>
+<p>To quote my colleague again:</p>
+<blockquote>
+<p><em><strong>I think we have to discuss this. Now I need to create the</strong></em> <code>Stopwatch</code> <em><strong>instance before I can even create an instance of</strong></em> <code>ComputerTimeTracker</code><em><strong>. That sucks. Isn’t that a code smell? Object oriented programming always praises information hiding, but now I have to know about a</strong></em> <code>Stopwatch</code><em><strong>? When I create the instance inside the constructor I just have to create my</strong></em> <code>ComputerTimeTracker</code><em><strong>and it will handle the rest for me. I don’t want to know the implementation details, I just want to use the class. In summary: The</strong></em> <code>Stopwatch</code> <em><strong>should be controlled by the</strong></em> <code>ComputerTimeTracker</code><em><strong>.</strong></em></p>
+</blockquote>
+<p>Notice how he already used the word <em>controlled</em>. I’m just gonna think that thought a little bit further:</p>
+<p>In the approach of my colleague we have clear <em>order of control:</em></p>
+<blockquote>
+<p><em><strong>The class</strong></em> <code>ComputerTimeTracker</code><em><strong>is controlling the</strong></em> <code>Stopwatch</code><em><strong>.</strong></em></p>
+<p><em><strong>It’s the responsibility of the</strong></em> <code>ComputerTimeTracker</code><em><strong>to control the</strong></em> <code>Stopwatch</code><em><strong>.</strong></em></p>
+</blockquote>
+<p>Now notice what changed when looking at the approach where we injected the <code>Stopwatch</code>:</p>
+<blockquote>
+<p><em><strong>We, the users of</strong></em> <code>ComputerTimeTracker</code><em><strong>, are controlling the</strong></em> <code>Stopwatch</code><em><strong>.</strong></em></p>
+<p><em><strong>It’s the user’s responsibility to control the</strong></em> <code>Stopwatch</code><em><strong>.</strong></em></p>
+</blockquote>
+<p>You might have already noticed it. By injecting the dependency we inverted the order of control. We moved the responsibility to control the <code>Stopwatch</code> from the class away to the user of the class. That is inversion of control. And again: That is really all!</p>
+<h2 id="loose-coupling">Loose Coupling</h2>
+<p>Now that the buzz words are de-mystified we can talk about why we might prefer the approach with dependency injection. Let&rsquo;s enhance our sample code a little further:</p>
+<pre tabindex="0"><code>using System;
+
+namespace ComputerTimeTracker
+{
+    public interface IStopwatch
+    {
+        void Start();
+        void Stop();
+        TimeSpan Elapsed { get; }
+    }
+
+    public class ComputerTimeTracker : IComputerTimeTracker
+    {
+        private readonly IStopwatch _stopWatch;
+
+        public ComputerTimeTracker(IStopwatch stopWatch)
+        {
+            _stopWatch = stopWatch;
+        }
+
+        public void StartTracking()
+        {
+            _stopWatch.Start();
+        }
+
+        public void StopTracking()
+        {
+            _stopWatch.Stop();
+        }
+
+        public TimeSpan GetTimeSpendInFrontOfComputer()
+        {
+            return _stopWatch.Elapsed;
+        }
+    }
+}
+</code></pre><p>All I changed is swapping the class dependency <code>Stopwatch</code> for an interface dependency <code>IStopwatch</code>. That way the class <code>ComputerTimeTracker</code>is not depending on the class <code>Stopwatch</code> of the .NET framework but loosely coupled to any instance that implements the interface <code>IStopwatch</code>. Now to our biggest benefit:</p>
+<h2 id="unit-tests">Unit tests</h2>
+<p>All dependencies we inject into a class via an interface can be <em>mocked</em>. That is super convenient. Consider the following use case:</p>
+<ul>
+<li>You start the tracking</li>
+<li>You spend 42 hours before the computer</li>
+<li>You stop the tracking</li>
+<li>You check the spend time</li>
+</ul>
+<p>Writing a unit test for that use case is hard when the <code>Stopwatch</code> instance gets created inside the constructor of <code>ComputerTimeTracker</code>. You can’t really replace it. And when you can’t replace it you can’t control the <code>Stopwatch</code> . So you would have to wait real 42 hours. With dependency injection you can simply inject a mocked <code>Stopwatch</code> into the class, just for the test.</p>
+<pre tabindex="0"><code>[TestClass]
+public class ComputerTimeTrackerTests
+{
+    [TestMethod]
+    public void Spend42HoursBeforeTheComputer()
+    {
+        var stopwatch = new Mock&lt;IStopwatch&gt;();
+        stopwatch.Setup(x =&gt; x.Elapsed).Returns(TimeSpan.FromHours(42));
+
+        var systemUnderTest = new ComputerTimeTracker(stopwatch.Object);
+        systemUnderTest.StartTracking();
+
+        stopwatch.Verify(x =&gt; x.Start(), Times.Once);
+
+        systemUnderTest.StopTracking();
+
+        stopwatch.Verify(x =&gt; x.Stop(), Times.Once);
+
+        Assert.AreEqual(TimeSpan.FromHours(42), systemUnderTest.GetTimeSpendInFrontOfComputer());
+    }
+}
+</code></pre><h2 id="conclusion">Conclusion</h2>
+<p>Dependency injection and inversion of control are important concepts every developer should know. They are a little hyped and often misunderstood. But if you invest some time to really dig into it you see how dumb easy they actually are.</p>
+<p>Why are they so hyped at all? For me, it&rsquo;s simply because they enable me to write readable unit tests for my code. That alone sells it for me.</p>
+<p>But there are more benefits I did not cover here: <em>Dynamic replacement</em> of dependencies or usage of an <em>IoC-Container</em>. But these are topics for a separate post…</p>
+
+</article>
+
+<section class="subscribe" aria-labelledby="subscribe-title">
+  <p class="prompt" id="subscribe-title"><span class="ps1">~$</span> subscribe --email</p>
+  <p class="comment"># new posts by mail. no spam, unsubscribe any time.</p>
+  <form action="https://buttondown.com/api/emails/embed-subscribe/cellos.blog" method="post" target="_blank">
+    <label for="bd-email" class="visually-hidden">Email address</label>
+    <span class="ps1" aria-hidden="true">&gt;</span>
+    <input type="email" name="email" id="bd-email" placeholder="you@example.com" required autocomplete="email">
+    <input type="hidden" name="embed" value="1">
+    <button type="submit">[ enter ]</button>
+  </form>
+</section>
+
+<p class="prompt"><span class="ps1">~$</span> <a href="/">cd ..</a></p>
+
+  </main>
+  <footer class="site-footer">
+    # © 2026 Marcel Neumann · built with hugo
+  </footer>
+</body>
+</html>

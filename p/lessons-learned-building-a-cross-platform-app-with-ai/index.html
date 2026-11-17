@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#0d0f0d">
+  <title>Lessons Learned: Building a Cross-Platform App with AI · Cello&#39;s Blog</title>
+  <meta name="description" content="Personal blog of Marcel Neumann">
+  <link rel="canonical" href="/p/lessons-learned-building-a-cross-platform-app-with-ai/">
+  <link rel="alternate" type="application/rss+xml" title="Cello&#39;s Blog" href="/index.xml">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="site-title" href="/"><span class="user">cello@cellos.blog</span><span class="cursor" aria-hidden="true"></span></a>
+    <nav>
+      <a href="/index.xml">[rss]</a>
+    </nav>
+  </header>
+  <main>
+    
+<p class="prompt"><span class="ps1">~$</span> cat posts/lessons-learned-building-a-cross-platform-app-with-ai.md</p>
+<article>
+  <header>
+    <h1>Lessons Learned: Building a Cross-Platform App with AI</h1>
+    
+    <p class="byline"><time datetime="2025-07-24">2025-07-24</time> · 6 min read</p>
+  </header>
+  <p><img src="/img/lessons-learned-building-a-cross-platform-app-with-ai/4a94de0f-6ef0-403e-aef3-dcc6e25133a0_1024x500.jpeg" alt="" loading="lazy">
+</p>
+<p>I developed an app for <strong><a href="https://play.google.com/store/apps/details?id=com.lily624org.bbqbuddy">Android</a></strong> and <strong><a href="https://apps.apple.com/de/app/bbq-buddy/id6747058992">iOS</a></strong> without writing a single line of code. I even had no prior experience with the programming language used. All of this was thanks to an AI agent, which I also had never used before. That sounds pretty impressive at first, but it actually wasn’t quite that easy. Here’s a brief report of my experience and what I learned, including tips and pitfalls, so you can do the same!</p>
+<h2 id="starting-point">Starting Point</h2>
+<p>I’m a professional software engineer, mainly working in the .NET environment. For work, I wanted to get more familiar with React to be able to implement small features full-stack. And what better way to learn a language than to develop a small project with it?</p>
+<h2 id="the-project">The Project</h2>
+<p>Some of my friends are real BBQ nerds (myself included). We grill all the time, running through the entire range of Weber recipes, even in winter. One of my friends even hit 300 grill sessions in 2024. He knows this so precisely because on each grill day, he marks a small cross on his calendar with a pen. That’s where the idea came up to digitize this. A small app to track your grill sessions with a photo and some metadata, so you can view statistics and unlock achievements.</p>
+<ul>
+<li>How often have I grilled this week/this month/this year?</li>
+<li>What are my most frequently used ingredients?</li>
+<li>How often have I managed the perfect weekend?</li>
+<li>How many people have I grilled for?</li>
+<li>&hellip;</li>
+</ul>
+<h2 id="the-tech-stack">The Tech Stack</h2>
+<p>Since I use Android and my buddy uses iOS, it was clear right away that the app had to be cross-platform. It also had to use React or React Native, since I wanted to learn this language. I quickly found <strong><a href="https://docs.expo.dev/">Expo</a></strong>, a seemingly very popular framework in the community that appeared to meet all my requirements. As my IDE, I chose <strong><a href="https://docs.cursor.com/welcome">Cursor AI</a></strong>, since colleagues had recommended it. By default, my setup used the Claude 3.5 model.</p>
+<h2 id="getting-started">Getting Started</h2>
+<p>To avoid starting totally blind, I first watched some <strong><a href="https://www.youtube.com/watch?v=m1-bc53EGh8">Expo getting-started videos</a></strong>. The videos were surprisingly up to date, and I was able to recreate the easy, trivial quick-start examples almost 1:1. I also browsed a bit through the <strong><a href="https://reactnative.dev/docs/getting-started">React Native docs</a></strong> to get a first feel for the syntax and general paradigms of the language.</p>
+<h2 id="vibe-coding">Vibe-Coding</h2>
+<p>Now it finally started. In Cursor, you can simply enter prompts, and the AI makes the changes in the files, showing a git diff you can view and accept directly in the editor. For example, if I prompted for a list view as the content of my first page, the AI recognized it was an Expo project and inserted the appropriate code. What can I say? The start was quite impressive.<br>
+Within seconds, I had a list of grill sessions on my phone. I prompted for more and more details over time. First, I wanted more sample data for the list, then I wanted an image for each list item, then I wanted to change the sorting, change colors, etc. No matter what I asked for, the AI executed it.<br>
+Thanks to the really strong start, I actually slipped into a sort of “vibe-coding” mode: I just wrote prompts and barely looked at the generated code anymore, simply accepting it.</p>
+<p><img src="/img/lessons-learned-building-a-cross-platform-app-with-ai/a84c322a-8473-4824-a999-f2ed54d6c37c_945x2048.png" alt="Early version of the list view after only a few iterations" loading="lazy">
+</p>
+<h2 id="the-first-setback">The First Setback</h2>
+<p>I then had the AI implement another view for adding grill sessions. Additionally, navigation between the two pages had to be implemented, and persistence via the phone&rsquo;s file system needed to be added. By this point, the AI’s changes were becoming noticeably slower. The compiler complained more and more, the AI repeatedly apologized and iterated to fix issues like incorrect syntax. Again and again, I had to specify the context explicitly in the prompt or restrict it so that usable results would be produced.</p>
+<p><img src="/img/lessons-learned-building-a-cross-platform-app-with-ai/57ccb272-e6b8-4364-ad15-e2e4f6a7a106_945x2048.png" alt="Early version of the second page of the app" loading="lazy">
+</p>
+<h2 id="pair-coding">Pair-Coding</h2>
+<p>By now, I had scrolled through the code myself a bit and can objectively say that quite a lot of technical debt had accumulated. Files exceeded 1,000 lines, with a lot of duplication, no architecture, and no tests. Therefore, blind vibe-coding is apparently not viable, even for a relatively small project. So I decided to change my approach. Instead of having the AI do everything on its own, I paired up with it, just like you would with a junior developer, explaining and avoiding code smells.</p>
+<p>I took each feature again and, together with the AI, refactored it. Bit by bit, I had the AI extract small components and clean up according to best practices/clean code. I always had to explicitly state that the AI should only edit that particular component; otherwise, there were often random changes elsewhere in the repository.<br>
+When it came to what should be in a component from a domain perspective and what should not, the AI often guessed wrong. Here, I had to be very exact with my prompts to get the desired result.</p>
+<p>This approach actually paid off. The code became a lot cleaner, and even I, as a React newbie, could follow the small diffs and intervene if needed. Most importantly, very atomic commits in git are essential so you can revert to a previous commit if the AI goes into Skynet mode and destroys everything.</p>
+<p><img src="/img/lessons-learned-building-a-cross-platform-app-with-ai/cefa4cb5-a5df-4360-80fb-5989860242b4_240x136.gif" alt="" loading="lazy">
+</p>
+<p>But I also benefited from the pairing. When I didn’t understand diffs, the AI explained them really well. Especially React paradigms I hadn’t known before were made clear to me by the AI. I think this is clearly the strength of this approach. You just have to be curious and ask the right questions.</p>
+<h2 id="the-result">The Result</h2>
+<p>The app is finished, works as intended, and is available in both the <strong><a href="https://play.google.com/store/apps/details?id=com.lily624org.bbqbuddy">Play Store</a></strong> and the <strong><a href="https://apps.apple.com/de/app/bbq-buddy/id6747058992">App Store</a></strong>! Here are a few pictures:</p>
+<p><img src="/img/lessons-learned-building-a-cross-platform-app-with-ai/565c7e25-46db-4fbc-b9ff-be01e2a546d4_1456x2588.jpeg" alt="" loading="lazy">
+</p>
+<p><img src="/img/lessons-learned-building-a-cross-platform-app-with-ai/14680896-ea07-475f-94c7-9bbe32222a99_1456x2588.jpeg" alt="" loading="lazy">
+</p>
+<p><img src="/img/lessons-learned-building-a-cross-platform-app-with-ai/24e2dd25-86d4-49ce-8c56-5e840c450b1c_1456x2588.jpeg" alt="" loading="lazy">
+</p>
+<p><img src="/img/lessons-learned-building-a-cross-platform-app-with-ai/bf846f56-98ee-4c03-8537-cf53fabcecda_1456x2588.jpeg" alt="" loading="lazy">
+</p>
+<p><img src="/img/lessons-learned-building-a-cross-platform-app-with-ai/d79b8052-2de0-4326-bcec-a2f0616cc6a8_1456x2588.jpeg" alt="" loading="lazy">
+</p>
+<p>The app is already being used by several people, which is, of course, very rewarding to see.</p>
+<h2 id="was-this-approach-worth-it">Was This Approach Worth It?</h2>
+<p>I think so, because without additional practice with a programming language previously unknown to me, I would never have managed to build the app this way. Constantly googling syntax would have taken far longer, and as a dad, that&rsquo;s important to me. Projects that seem too big are immediately considered unrealistic and abandoned. But this way, I actually completed a project in just a few days (spread over several weeks).</p>
+<h2 id="would-i-have-been-faster-in-my-familiar-net-environment">Would I Have Been Faster In My Familiar .NET Environment?</h2>
+<p>That’s tough to judge. Even now, I would rely heavily on AI support there. In .NET, I can, of course, understand code changes better and faster, but I think the tech stack for cross-platform development (dotnet MAUI) is significantly more bloated and would have caused quite a headache. The code would probably have been even cleaner, though. In the long run, that’s certainly a benefit.</p>
+<h2 id="outlook">Outlook</h2>
+<p>Pair-coding with AI works and is efficient. It’s important not to fly blind, but to consciously review things. AI doesn’t replace software engineers; instead, it’s a new tool for them. As a result, the outcome will depend on your own software development experience, as you really have to guide the AI in the desired direction. And only a trained software engineer knows exactly what that direction should be.</p>
+<p>What are your experiences with AI agents?</p>
+
+</article>
+
+<section class="subscribe" aria-labelledby="subscribe-title">
+  <p class="prompt" id="subscribe-title"><span class="ps1">~$</span> subscribe --email</p>
+  <p class="comment"># new posts by mail. no spam, unsubscribe any time.</p>
+  <form action="https://buttondown.com/api/emails/embed-subscribe/cellos.blog" method="post" target="_blank">
+    <label for="bd-email" class="visually-hidden">Email address</label>
+    <span class="ps1" aria-hidden="true">&gt;</span>
+    <input type="email" name="email" id="bd-email" placeholder="you@example.com" required autocomplete="email">
+    <input type="hidden" name="embed" value="1">
+    <button type="submit">[ enter ]</button>
+  </form>
+</section>
+
+<p class="prompt"><span class="ps1">~$</span> <a href="/">cd ..</a></p>
+
+  </main>
+  <footer class="site-footer">
+    # © 2026 Marcel Neumann · built with hugo
+  </footer>
+</body>
+</html>

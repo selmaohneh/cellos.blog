@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#0d0f0d">
+  <title>Hack The Box: Nibbles · Cello&#39;s Blog</title>
+  <meta name="description" content="Personal blog of Marcel Neumann">
+  <link rel="canonical" href="/p/hack-the-box-nibbles/">
+  <link rel="alternate" type="application/rss+xml" title="Cello&#39;s Blog" href="/index.xml">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="site-title" href="/"><span class="user">cello@cellos.blog</span><span class="cursor" aria-hidden="true"></span></a>
+    <nav>
+      <a href="/index.xml">[rss]</a>
+    </nav>
+  </header>
+  <main>
+    
+<p class="prompt"><span class="ps1">~$</span> cat posts/hack-the-box-nibbles.md</p>
+<article>
+  <header>
+    <h1>Hack The Box: Nibbles</h1>
+    
+    <p class="byline"><time datetime="2025-07-24">2025-07-24</time> · 4 min read</p>
+  </header>
+  <p><img src="/img/hack-the-box-nibbles/photo-1562813733-b31f71025d54.jpg" alt="man siting facing laptop" loading="lazy">
+</p>
+<p><em>Photo by Clint Patterson on <a href="https://unsplash.com">Unsplash</a></em></p>
+<p>This is my walkthrough for the machine <code>Nibbles</code> on <strong><a href="https://referral.hackthebox.com/mzBNP9n">Hack The Box</a></strong>.</p>
+<h3 id="enumeration">Enumeration</h3>
+<p>As usual we are only given the IP of our target machine. For convenience let&rsquo;s add that IP into our <code>/etc/hosts</code> file. That way we can simply use <code>target</code> instead of re-typing the whole IP whenever we need it for a command.</p>
+<p><img src="/img/hack-the-box-nibbles/c8aa4a4c-78bc-4e44-bf6d-e289c4c933fa_1023x280.jpeg" alt="" loading="lazy">
+</p>
+<p>Next is a full scan with <strong><a href="https://nmap.org/">Nmap</a></strong>. I like to add the flag <code>--open</code> to only get open ports and not pollute the result with so much noise. The flag <code>-p-</code> tells Nmap to scan <strong>all</strong> ports, not just the most common ones.</p>
+<p><img src="/img/hack-the-box-nibbles/5ad652b3-b358-4001-aaa7-184865565c85_960x403.jpeg" alt="" loading="lazy">
+</p>
+<p>We see that there is an open <code>http port 80</code>. Let&rsquo;s use cURL to see if we get a response from there.</p>
+<p><img src="/img/hack-the-box-nibbles/f42c036a-e387-4c0e-8e7b-ef24d15eeb18_597x383.jpeg" alt="" loading="lazy">
+</p>
+<p>We get a boring <strong>Hello world!</strong>. But further down, we see a hint. It seems like there is a sub-directory called <code>nibbleblog</code>. Let&rsquo;s cURL <code>http://target/nibbleblog</code> and we get quite a huge response. So we better open that in the browser:</p>
+<p><img src="/img/hack-the-box-nibbles/b0b720a6-170f-46a4-ad2f-7181a7c70195_1281x838.jpeg" alt="" loading="lazy">
+</p>
+<p>Alright! Looks like some dude named <code>Nibbles</code> runs a blog about <code>Yum yum</code>, or a dude named <code>Yum yum</code> runs a blog about <code>Nibbles</code>!? Either way around, that sounds wrong. But unfortunately there is nothing more interesting to find here, I guess. There are no posts yet. There is no <code>about</code> page, no <code>login</code> page, no <code>guestbook</code>. So let&rsquo;s enumerate further and start <strong><a href="https://github.com/OJ/gobuster">gobuster</a></strong> to see if we can find more hidden sub-directories of that blog. We use a list from <strong><a href="https://github.com/danielmiessler/SecLists">SecLists</a></strong> for that.</p>
+<p><img src="/img/hack-the-box-nibbles/b3fca29d-fb2f-4c24-8e2d-0c4d58e3cff9_1144x668.jpeg" alt="" loading="lazy">
+</p>
+<p>Nice, we have quite some findings! Let&rsquo;s start with the <code>/README</code> since that really sounds promising.</p>
+<p><img src="/img/hack-the-box-nibbles/b10a2b14-7747-437a-937f-cbee267b0715_554x590.jpeg" alt="" loading="lazy">
+</p>
+<p>This provides us with some URLs that give insights to <code>nibbleblog</code> which appears to be a <code>CMS</code> for blogs. This also gives us a first inside into the tech stack of the blog: It runs on <code>PHP</code>. Let&rsquo;s verify that with <strong><a href="https://whatweb.net/">WhatWeb</a></strong>.</p>
+<p><img src="/img/hack-the-box-nibbles/27c5ccfa-9a96-43af-8bd8-45f85d26badb_1857x119.jpeg" alt="" loading="lazy">
+</p>
+<p>We see <code>PHP</code> again, so that seems to be correct. Also we that the blog might be running on <code>Ubuntu</code>.</p>
+<p>Let&rsquo;s check the next URL we found. <code>/content</code> is very interesting since it contains further sub-directories called <code>/private</code> and <code>/tmp</code>. Digging deeper we can find file called <code>config.xml</code>.</p>
+<p><img src="/img/hack-the-box-nibbles/db0fe4ba-7dae-43dd-928b-938acec85e41_540x347.png" alt="" loading="lazy">
+</p>
+<p><img src="/img/hack-the-box-nibbles/57aaede4-78d9-43c5-8405-51debdeea20c_757x722.jpeg" alt="" loading="lazy">
+</p>
+<p>There is a lot more <code>nibbles</code> and <code>yum yum</code> garbage. But there are also some email addresses, especially <code>admin@nibbles.com</code>. This could indicate that <code>admin</code> is a possible user name for the blog. We are able to verify that in the next file called <code>users.xml</code>.</p>
+<p><img src="/img/hack-the-box-nibbles/85c06fb4-3524-487c-84ed-8d65a50c902b_755x301.jpeg" alt="" loading="lazy">
+</p>
+<p>Moving on to <code>/admin</code> gives us login page. Knowing that <code>admin</code> is a valid user, let&rsquo;s try some obvious passwords like <code>admin</code>, <code>administrator</code>, <code>password</code>. Sadly that does not work.</p>
+<p><img src="/img/hack-the-box-nibbles/7ab1afb2-4d2c-4f2d-b717-dcc091e452ce_962x500.jpeg" alt="" loading="lazy">
+</p>
+<p>Let&rsquo;s run <strong><a href="https://github.com/digininja/CeWL">CeWL</a></strong> to generate a custom wordlist that we might use later to brute-force the password. CeWL crawls the whole page and collects long words and/or words that are mentioned very often.</p>
+<p><img src="/img/hack-the-box-nibbles/efafb84f-8d14-4052-ba42-f5c4072800b3_1002x761.jpeg" alt="" loading="lazy">
+</p>
+<p>Wow. <code>Nibbles</code> is really mentioned <code>9</code> times. And, thank god, the password <code>nibbles</code> grants us access to the admin area of the page. From here we are able to publish new blog posts, change the theme, or tweak some settings. Also there are some plugins installed. One let&rsquo;s you upload an image. When we try that, the image appears in the already found directory <code>content/private/plugins/my_image/</code>.</p>
+<p><img src="/img/hack-the-box-nibbles/9d7cbf87-8a7a-41f8-b602-2cda8710125a_651x506.png" alt="" loading="lazy">
+</p>
+<p><img src="/img/hack-the-box-nibbles/1d868946-7bb3-42cb-8190-234eee13bfc7_793x338.jpeg" alt="" loading="lazy">
+</p>
+<h3 id="initial-access">Initial Access</h3>
+<p>Since we are now able to upload a file and also access it afterwards, let&rsquo;s try to upload a <code>web shell</code> for PHP. We use a simple test string for that.</p>
+<p><img src="/img/hack-the-box-nibbles/c75bc352-ae9c-4a3f-847a-f9e6102f486f_766x247.png" alt="" loading="lazy">
+</p>
+<p><img src="/img/hack-the-box-nibbles/4d615f62-c572-4e02-8a74-ecbb7a52a80a_788x86.jpeg" alt="" loading="lazy">
+</p>
+<p>Since that worked, let&rsquo;s go a step further and upload a <code>reverse shell</code> to gain our first foothold on the target. We can find all kinds of <code>reverse shells</code> on pages like <strong><a href="https://gtfobins.github.io/">GTFOBins</a></strong>.</p>
+<p><img src="/img/hack-the-box-nibbles/e7e3b646-f86d-4b88-9b71-05430927d973_1108x100.png" alt="" loading="lazy">
+</p>
+<p><img src="/img/hack-the-box-nibbles/6cfab219-3b99-41c0-ab50-da3c8649b8b5_541x251.png" alt="" loading="lazy">
+</p>
+<p><img src="/img/hack-the-box-nibbles/cd7e0cd5-9c51-4c8c-8aaa-a40dc9ca86e9_556x119.jpeg" alt="" loading="lazy">
+</p>
+<h3 id="privilege-escalation">Privilege Escalation</h3>
+<p>Now that we are in, we have to gain ourselves <code>root</code> rights. This includes re-starting the enumeration phase of our attack. We just found a file called <code>personal.zip</code> right next to the user flag. We should check that out.</p>
+<p><img src="/img/hack-the-box-nibbles/ebefa7b1-bdf5-4384-8b64-f208df1272a7_506x145.jpeg" alt="" loading="lazy">
+</p>
+<p>That script is quite big. We will defer digging deeper into it and proceed our enumeration first. Let&rsquo;s upload one of the big privilege escalation scripts like <strong><a href="https://github.com/rebootuser/LinEnum">LinEnum</a></strong> or <strong><a href="https://github.com/peass-ng/PEASS-ng/tree/master/linPEAS">LinPEAS</a></strong> onto our target and execute it. We do that by serving a <code>http server</code> via <code>python</code> on our machine and get the file on our target machine via <code>wget</code>.</p>
+<p><img src="/img/hack-the-box-nibbles/a2b9bbba-c521-4096-86de-7155c4c49ac4_1115x84.png" alt="" loading="lazy">
+</p>
+<p><img src="/img/hack-the-box-nibbles/9bae50e3-e128-4ecb-b61b-c1c049707364_779x364.jpeg" alt="" loading="lazy">
+</p>
+<p>After executing the script on our target machine we get a finding. It seems like our user <code>nibbler</code> is allowed to run the previously found script <code>monitor.sh</code> as <code>root</code> without password!</p>
+<p><img src="/img/hack-the-box-nibbles/5e674bcc-55b2-42c2-b05a-eca600dd29c7_1120x272.jpeg" alt="" loading="lazy">
+</p>
+<p>In that case let&rsquo;s visit <strong><a href="https://gtfobins.github.io/">GTFOBins</a></strong> again, grab a <code>reverse shell</code>, append it to the file <code>monitor.sh</code>, and execute the script.</p>
+<p><img src="/img/hack-the-box-nibbles/3b35d894-01a1-48d8-9b48-089da73ca22f_1116x201.png" alt="" loading="lazy">
+</p>
+<p><img src="/img/hack-the-box-nibbles/3eb468bf-6835-4b3c-b66a-8855d3245cda_547x199.jpeg" alt="" loading="lazy">
+</p>
+<p>We are <code>root</code>! Now we own the machine. All there is left to do, is getting the <code>root</code> flag.</p>
+<p><img src="/img/hack-the-box-nibbles/e49eba1d-743f-4ca1-a52b-aec78caa55f8_552x272.jpeg" alt="" loading="lazy">
+</p>
+
+</article>
+
+<section class="subscribe" aria-labelledby="subscribe-title">
+  <p class="prompt" id="subscribe-title"><span class="ps1">~$</span> subscribe --email</p>
+  <p class="comment"># new posts by mail. no spam, unsubscribe any time.</p>
+  <form action="https://buttondown.com/api/emails/embed-subscribe/cellos.blog" method="post" target="_blank">
+    <label for="bd-email" class="visually-hidden">Email address</label>
+    <span class="ps1" aria-hidden="true">&gt;</span>
+    <input type="email" name="email" id="bd-email" placeholder="you@example.com" required autocomplete="email">
+    <input type="hidden" name="embed" value="1">
+    <button type="submit">[ enter ]</button>
+  </form>
+</section>
+
+<p class="prompt"><span class="ps1">~$</span> <a href="/">cd ..</a></p>
+
+  </main>
+  <footer class="site-footer">
+    # © 2026 Marcel Neumann · built with hugo
+  </footer>
+</body>
+</html>

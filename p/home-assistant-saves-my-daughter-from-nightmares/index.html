@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#0d0f0d">
+  <title>Home Assistant saves my Daughter from Nightmares · Cello&#39;s Blog</title>
+  <meta name="description" content="How to know if your Kids are Sneaking on you">
+  <link rel="canonical" href="/p/home-assistant-saves-my-daughter-from-nightmares/">
+  <link rel="alternate" type="application/rss+xml" title="Cello&#39;s Blog" href="/index.xml">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="site-title" href="/"><span class="user">cello@cellos.blog</span><span class="cursor" aria-hidden="true"></span></a>
+    <nav>
+      <a href="/index.xml">[rss]</a>
+    </nav>
+  </header>
+  <main>
+    
+<p class="prompt"><span class="ps1">~$</span> cat posts/home-assistant-saves-my-daughter-from-nightmares.md</p>
+<article>
+  <header>
+    <h1>Home Assistant saves my Daughter from Nightmares</h1>
+    <p class="subtitle">How to know if your Kids are Sneaking on you</p>
+    <p class="byline"><time datetime="2025-07-24">2025-07-24</time> · 2 min read</p>
+  </header>
+  <p><img src="/img/home-assistant-saves-my-daughter-from-nightmares/photo-1580920790557-43158492adb5.jpg" alt="silhouette of man standing in front of window" loading="lazy">
+</p>
+<p><em>Photo by ALEXANDRE LALLEMAND on <a href="https://unsplash.com">Unsplash</a></em></p>
+<h2 id="the-problem">The Problem</h2>
+<p>When our daughter is (finally) asleep, we like to watch a few more series to wind down. Currently, we are into relatively violent stuff like <strong><a href="https://amzn.to/3XyVo7U">The Boys</a></strong>. My wife likes to tell the anecdote that she used to crawl out of bed as a child, then secretly sit on the stairs and listen to her parents or the television. Once, she even had nightmares because her parents were watching a horror movie and she couldn&rsquo;t get the horrifying screams out of her head.</p>
+<p>But back to the present:</p>
+<blockquote>
+<p><em><strong>I don&rsquo;t want my child to see exploding heads or dismembered people, let alone dream about them.</strong></em></p>
+</blockquote>
+<p><img src="/img/home-assistant-saves-my-daughter-from-nightmares/c27c907d-0b87-4907-bc3a-600f8ade5376_480x272.gif" alt="" loading="lazy">
+</p>
+<h2 id="home-assistant-to-the-rescue">Home Assistant to the rescue!</h2>
+<p>The first challenge was to figure out how to detect my daughter&rsquo;s escape attempts in time. The solution is super simple:</p>
+<p>I installed a <strong><a href="https://amzn.to/3ZfLBF6">cheap little door contact</a></strong> on the door to her nursery. <em>Installed</em> is an exaggeration, these things are just stuck on.</p>
+<p>I then integrated it into Home Assistant. When integrating new sensors, it&rsquo;s best to remember to tidy up right away: give them a sensible name and disable any entities you don&rsquo;t need.</p>
+<p><img src="/img/home-assistant-saves-my-daughter-from-nightmares/f8197916-acdf-4ca2-85c5-0c78a89ad622_1309x951.jpeg" alt="" loading="lazy">
+</p>
+<p>Now I can notice my little runaway as soon as she opens the door!</p>
+<p>The opening of the door is the trigger of my automation. When this trigger occurs, I pause the playback on my <strong><a href="https://amzn.to/47gcJ99">Fire TV Cube</a></strong> and let my <strong><a href="https://amzn.to/3Xeq657">speakers</a></strong> make a little warning announcement.</p>
+<p>Of course, this only happens when the cinema is currently enabled and it&rsquo;s our daughter&rsquo;s sleeping time. Otherwise, we would hear the announcement all day long…</p>
+<pre tabindex="0"><code>alias: Notify at Fire TV Cube when Lia opens her door
+description: &#34;&#34;
+trigger:
+  - platform: state
+    entity_id:
+      - binary_sensor.liasroom_door
+    from: &#34;off&#34;
+    to: &#34;on&#34;
+condition:
+  - condition: state
+    entity_id: binary_sensor.lia_sleeping
+    state: &#34;on&#34;
+action:
+  - condition: state
+    entity_id: input_boolean.livingroom_cinema_enabled
+    state: &#34;on&#34;
+  - target:
+      entity_id: tts.home_assistant_cloud
+    data:
+      cache: true
+      message: Lia is awake!
+      media_player_entity_id: media_player.wohnzimmer
+    action: tts.speak
+mode: single
+</code></pre><h2 id="an-authentic-evening-on-the-couch">An authentic evening on the couch</h2>
+<ul>
+<li>My wife and I are watching a gore-slasher-nightmare-horror movie</li>
+<li>Our little escapee sneaks out of her bed and opens the door.</li>
+<li>The movie pauses immediately; there are no scary noises or destructive images.</li>
+<li>The announcement confirms that our daughter seems to be awake.</li>
+<li>One of us can quickly go upstairs and put our daughter back into bed before she even has a chance to look at the screen.</li>
+</ul>
+<h2 id="conclusion">Conclusion</h2>
+<p>That&rsquo;s why I love Home Assistant! Such a little automation adds so much value. Sweet dreams!</p>
+
+</article>
+
+<section class="subscribe" aria-labelledby="subscribe-title">
+  <p class="prompt" id="subscribe-title"><span class="ps1">~$</span> subscribe --email</p>
+  <p class="comment"># new posts by mail. no spam, unsubscribe any time.</p>
+  <form action="https://buttondown.com/api/emails/embed-subscribe/cellos.blog" method="post" target="_blank">
+    <label for="bd-email" class="visually-hidden">Email address</label>
+    <span class="ps1" aria-hidden="true">&gt;</span>
+    <input type="email" name="email" id="bd-email" placeholder="you@example.com" required autocomplete="email">
+    <input type="hidden" name="embed" value="1">
+    <button type="submit">[ enter ]</button>
+  </form>
+</section>
+
+<p class="prompt"><span class="ps1">~$</span> <a href="/">cd ..</a></p>
+
+  </main>
+  <footer class="site-footer">
+    # © 2026 Marcel Neumann · built with hugo
+  </footer>
+</body>
+</html>

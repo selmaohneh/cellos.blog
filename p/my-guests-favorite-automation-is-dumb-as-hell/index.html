@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#0d0f0d">
+  <title>My guests&#39; favorite automation is dumb as hell · Cello&#39;s Blog</title>
+  <meta name="description" content="Personal blog of Marcel Neumann">
+  <link rel="canonical" href="/p/my-guests-favorite-automation-is-dumb-as-hell/">
+  <link rel="alternate" type="application/rss+xml" title="Cello&#39;s Blog" href="/index.xml">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="site-title" href="/"><span class="user">cello@cellos.blog</span><span class="cursor" aria-hidden="true"></span></a>
+    <nav>
+      <a href="/index.xml">[rss]</a>
+    </nav>
+  </header>
+  <main>
+    
+<p class="prompt"><span class="ps1">~$</span> cat posts/my-guests-favorite-automation-is-dumb-as-hell.md</p>
+<article>
+  <header>
+    <h1>My guests&#39; favorite automation is dumb as hell</h1>
+    
+    <p class="byline"><time datetime="2025-07-24">2025-07-24</time> · 3 min read</p>
+  </header>
+  <p><img src="/img/my-guests-favorite-automation-is-dumb-as-hell/photo-1578269174936-2709b6aeb913.jpg" alt="yellow and white trophy" loading="lazy">
+</p>
+<p><em>Photo by Giorgio Trovato on <a href="https://unsplash.com">Unsplash</a></em></p>
+<p>I&rsquo;ve installed quite some smart home stuff in my house. Some projects I&rsquo;m really proud of, like the <strong><a href="https://www.cellos.blog/p/spotify-made-my-daughter-cry-home-assistant-made-her-smile-again/">music box I built for my daughter</a></strong>. Others are super nerdy, like the <strong><a href="https://www.cellos.blog/p/how-home-assistant-saves-me-250-every-year/">smart meter I made for my gas meter</a></strong>.</p>
+<p>I would have expected visitors who are not so tech-savvy to be really impressed by that.</p>
+<p>To my surprise, however, I always find that another, totally dumb automation is the winner of the visitors&rsquo; hearts&hellip; But first a little more background:</p>
+<h2 id="open-house">Open house</h2>
+<p>We enter our garden directly from the living room via a patio door. The door has a <strong><a href="https://amzn.to/4jgGhcb">handle</a></strong> like the ones on windows. If you turn the handle horizontally, the door can be opened. If the handle is pointing downwards, it is locked.</p>
+<p>This door was often accidentally left open because it was only pushed shut but the handle was left in the horizontal position. This makes you feel quite uncomfortable when nobody is in the house.</p>
+<p>A smart solution had to be found&hellip;</p>
+<h2 id="home-assistant-to-the-rescue">Home Assistant to the rescue!</h2>
+<p>The classic solution for detecting open windows and doors is using <strong><a href="https://amzn.to/3DQutx0">smart magnetic contacts</a></strong>, which I&rsquo;ve installed a lot in my house. But for this problem door, of course, that&rsquo;s not enough because it&rsquo;s <code>closed</code> according to the magnetic contact but not really <code>locked</code> due to the handle position.</p>
+<p>But after a bit of research, I found out that there are also <strong><a href="https://amzn.to/3E3Tl4s">door handle sensors</a></strong>! They don&rsquo;t seem to be quite so common because there isn&rsquo;t such a wide vendor range, but they are just right for this application.</p>
+<p>They tell me which position the door handle is in, regardless of whether the door is open or closed.</p>
+<p><img src="/img/my-guests-favorite-automation-is-dumb-as-hell/7ad50de3-3a11-496a-acdd-5648c18821a5_446x198.jpeg" alt="" loading="lazy">
+</p>
+<p>This is exactly the state I need to solve the problem. For example, I can now show on our dashboard that the door is open. This means we can see this directly before we leave the house or go to bed. I also send a message to my cell phone if the door is still open while no one is at home.</p>
+<p><img src="/img/my-guests-favorite-automation-is-dumb-as-hell/d7faeb12-2751-4ba8-83fd-0a9ec589bae6_446x237.jpeg" alt="" loading="lazy">
+</p>
+<p>But now to our guests&rsquo; favorite automation:</p>
+<h2 id="the-guests-favorite">The guest&rsquo;s favorite</h2>
+<p>The door also has a blind. If the blind is down but I need to go out into the garden (to get a beer, cough), now all I have to do is turn the door handle and the blind goes up automatically. No need to press a button on the blind switch. As soon as I&rsquo;m back in the house and turn the door handle to the closed position, the blinds go down again.</p>
+<p>The whole thing really isn&rsquo;t rocket science. I can recognize the door handle as described above via the door handle sensor and I can control the blinds via the <strong><a href="https://amzn.to/407MsXa">built-in smart relay</a></strong>. Linking the two in home assistant is trivial.</p>
+<p><img src="/img/my-guests-favorite-automation-is-dumb-as-hell/fa6f7fe5-87df-45b7-b97e-1caf346b42f1_1243x964.jpeg" alt="" loading="lazy">
+</p>
+<p>Nevertheless, every guest wants to try it out for themselves and has a grin on their face. I guess it seems like magic when a door handle controls the blinds&hellip;</p>
+
+</article>
+
+<section class="subscribe" aria-labelledby="subscribe-title">
+  <p class="prompt" id="subscribe-title"><span class="ps1">~$</span> subscribe --email</p>
+  <p class="comment"># new posts by mail. no spam, unsubscribe any time.</p>
+  <form action="https://buttondown.com/api/emails/embed-subscribe/cellos.blog" method="post" target="_blank">
+    <label for="bd-email" class="visually-hidden">Email address</label>
+    <span class="ps1" aria-hidden="true">&gt;</span>
+    <input type="email" name="email" id="bd-email" placeholder="you@example.com" required autocomplete="email">
+    <input type="hidden" name="embed" value="1">
+    <button type="submit">[ enter ]</button>
+  </form>
+</section>
+
+<p class="prompt"><span class="ps1">~$</span> <a href="/">cd ..</a></p>
+
+  </main>
+  <footer class="site-footer">
+    # © 2026 Marcel Neumann · built with hugo
+  </footer>
+</body>
+</html>

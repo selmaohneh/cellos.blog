@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#0d0f0d">
+  <title>Spotify made my Daughter cry. Home Assistant made her smile again. · Cello&#39;s Blog</title>
+  <meta name="description" content="Building a DIY Music Box powered by Home Assistant">
+  <link rel="canonical" href="/p/spotify-made-my-daughter-cry-home-assistant-made-her-smile-again/">
+  <link rel="alternate" type="application/rss+xml" title="Cello&#39;s Blog" href="/index.xml">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="site-title" href="/"><span class="user">cello@cellos.blog</span><span class="cursor" aria-hidden="true"></span></a>
+    <nav>
+      <a href="/index.xml">[rss]</a>
+    </nav>
+  </header>
+  <main>
+    
+<p class="prompt"><span class="ps1">~$</span> cat posts/spotify-made-my-daughter-cry-home-assistant-made-her-smile-again.md</p>
+<article>
+  <header>
+    <h1>Spotify made my Daughter cry. Home Assistant made her smile again.</h1>
+    <p class="subtitle">Building a DIY Music Box powered by Home Assistant</p>
+    <p class="byline"><time datetime="2025-07-24">2025-07-24</time> · 7 min read</p>
+  </header>
+  <p><img src="/img/spotify-made-my-daughter-cry-home-assistant-made-her-smile-again/42f288bb-96d0-4935-ba84-45e62271f6e1_786x590.jpeg" alt="" loading="lazy">
+</p>
+<p>Everybody knows the famous <strong><a href="https://amzn.to/3WRLnjE">Toniebox</a></strong>. It&rsquo;s a wonderful device which lets kids start music or an audio book just by putting a little figure on top of it. Every friend of our daughter got one on their second birthday. So the pressure was high.</p>
+<blockquote>
+<p><em><strong>My daughter looked at me with her big eyes — She wants one, as well!</strong></em></p>
+</blockquote>
+<p>But that cute little cube is not cheap. Especially the costs for the <strong><a href="https://amzn.to/3Zh2OLT">Tonie figures</a></strong> stack up fast… 15€ per figure times ten audio books: That&rsquo;s 150 bucks — for audio books that are already available with my Spotify subscription.</p>
+<p>That&rsquo;s when I heard about and fell in love with the <strong><a href="https://phoniebox.de/index.html">Phoniebox</a></strong> project. Building a DIY Toniebox for my daughter sounded like a really cool gift for her birthday.</p>
+<p>I studied <strong><a href="https://splittscheid.de/phoniebox-bauanleitung-toniebox-alternative/">this excellent blog post</a></strong> and managed to build a fancy little box without any prior soldering experience:</p>
+<p><img src="/img/spotify-made-my-daughter-cry-home-assistant-made-her-smile-again/5cba14a8-f363-434e-940a-2fb2cb17e850_786x442.jpeg" alt="Previous DIY music box with NFC cards powered by Phoniebox depending on Spotify" loading="lazy">
+</p>
+<p>And the best part: I was able to add as many audio books as I want without further costs! All content came directly from Spotify.</p>
+<blockquote>
+<p><em><strong>My daughter was happy. I was proud. Success.</strong></em></p>
+</blockquote>
+<h2 id="the-catastrophe">The Catastrophe</h2>
+<p>Then it happened. My wife called me at work:</p>
+<blockquote>
+<p><em><strong>The box is not working. Did you tinker around again?</strong></em></p>
+</blockquote>
+<p>I did nothing. But Spotify did. <strong><a href="https://developer.spotify.com/community/news/2022/04/12/libspotify-sunset/">The library libspotify got discontinued</a></strong>. A library the Phoniebox project heavily relied on. From one day to the next, thousands of Phonieboxes in the Spotify version stopped working.</p>
+<p>My daughter was sad, even cried a little. I guess she was not the only one. I promised myself that this will not happen again!</p>
+<p>That&rsquo;s why I built my own music box. A music box powered by Home Assistant. A music box I have full control over.</p>
+<h2 id="step-1-the-tag-reader">Step 1: The tag reader</h2>
+<p>My box will need to register NFC cards. So I have to include an NFC reader. The Home Assistant tags documentation references a <strong><a href="https://github.com/adonno/tagreader">cool project on Github</a></strong> for a standalone tag reader.</p>
+<p>Exactly what I needed! All material needed are a <strong><a href="https://amzn.to/3GNm78F">wemos D1 mini</a></strong>, a <strong><a href="https://amzn.to/3IpgVJf">NFC reader</a></strong> and a <strong><a href="https://amzn.to/3Qmm0DT">buzzer</a></strong>. That&rsquo;s it.</p>
+<p>I ditched the LED since I don&rsquo;t wanted to integrate one in my box. Following the readme I was able to solder everything together and flash the firmware on the wemos D1 mini.</p>
+<h2 id="step-2-buttons">Step 2: Buttons</h2>
+<p>The Home Assistant docs really have a lot of information about the <strong><a href="https://www.home-assistant.io/integrations/tag/">tags feature</a></strong>. Especially the chapter <strong><a href="https://www.home-assistant.io/integrations/tag/">Building an RFID jukebox</a></strong> is nearly all I wanted.</p>
+<p>But I want to have actual <strong><a href="https://amzn.to/3vMdPaJ">physical buttons</a></strong>. My daughter needs some buttons for play, pause, next, previous, volume up/down. So I bought some.</p>
+<p><img src="/img/spotify-made-my-daughter-cry-home-assistant-made-her-smile-again/6bc1d6ec-167a-427a-b25b-2ec75ac3e5f1_786x1397.jpeg" alt="" loading="lazy">
+</p>
+<p><img src="/img/spotify-made-my-daughter-cry-home-assistant-made-her-smile-again/caa57f1b-f1dd-4554-87d7-3003e83bd23f_786x1397.jpeg" alt="" loading="lazy">
+</p>
+<h2 id="step-3-building-the-box">Step 3: Building the box</h2>
+<p>I bought a <strong><a href="https://www.ikea.com/de/de/p/dragan-badezimmer-set-4-tlg-bambus-40222607/">small bambus box</a></strong> from IKEA. I drilled some holes in it with <strong><a href="https://amzn.to/3VRJu51">these guys</a></strong>. Then I attached everything into the box with some hot glue.</p>
+<p><img src="/img/spotify-made-my-daughter-cry-home-assistant-made-her-smile-again/5dd3c4c2-de61-4c54-a5e4-78529511561a_640x480.jpeg" alt="" loading="lazy">
+</p>
+<p><img src="/img/spotify-made-my-daughter-cry-home-assistant-made-her-smile-again/245799e1-7a29-412d-ae64-ac68266f61e1_640x480.jpeg" alt="" loading="lazy">
+</p>
+<p><img src="/img/spotify-made-my-daughter-cry-home-assistant-made-her-smile-again/1e840ddb-49d9-461c-bd38-a0fe07bea56c_640x480.jpeg" alt="" loading="lazy">
+</p>
+<p><img src="/img/spotify-made-my-daughter-cry-home-assistant-made-her-smile-again/ca875601-aa27-4da9-9240-bc13743e96da_640x480.jpeg" alt="" loading="lazy">
+</p>
+<p><img src="/img/spotify-made-my-daughter-cry-home-assistant-made-her-smile-again/2a509155-25c3-4552-ad7f-9bb6021fb341_640x480.jpeg" alt="" loading="lazy">
+</p>
+<p><img src="/img/spotify-made-my-daughter-cry-home-assistant-made-her-smile-again/ba5a1e4f-6d94-4001-8d5a-980a2441f3dd_640x480.jpeg" alt="" loading="lazy">
+</p>
+<p><img src="/img/spotify-made-my-daughter-cry-home-assistant-made-her-smile-again/d4296ae6-8d41-4aca-ac3c-9e210f943991_720x540.jpeg" alt="" loading="lazy">
+</p>
+<p><img src="/img/spotify-made-my-daughter-cry-home-assistant-made-her-smile-again/92139ff4-5621-42c8-ade2-5574e88a2d00_853x640.jpeg" alt="" loading="lazy">
+</p>
+<p>I really learned a lot this time. This was the first time I soldered <strong><a href="https://amzn.to/3WXSg2N">screw mounts</a></strong> on the board. The benefit, in contrast to hard-soldering the cables to the board, is that you are able to detach them if needed. This comes in really handy if you need to debug something.</p>
+<p>I also used <strong><a href="https://amzn.to/3GlFXX0">cable end crimps</a></strong> for the first time. No more wire fibers! And they can be easily attached into the screw mounts.</p>
+<p>This was the first time I am actually proud of my cable management — although I guess any professional would puke looking at this. If so, please give me some tips! I&rsquo;m eager to learn. Thanks!</p>
+<p>The whole box is powered by a <strong><a href="https://amzn.to/3VQYsYZ">5V power supply</a></strong>. The ESP gets powered directly over its 5V pin. Don&rsquo;t use the usb port for powering. I ran into all kind of issues like the NFC reader not working.</p>
+<p>I integrated a <strong><a href="https://amzn.to/3GPs9Fw">coaxial power connector</a></strong> into the box, and it works like a charm. However, make sure you buy a connector that matches the size of your power supply. If they don&rsquo;t match, you will have a loose connection. There are two or three common sizes — just check the datasheets once and you should be fine.</p>
+<h2 id="step-4-tweaking-the-firmware-to-support-the-buttons">Step 4: Tweaking the firmware to support the buttons</h2>
+<p>To add the different buttons to the firmware and Home Assistant I had to add some binary_sensors to the ESPHome yml file of my music box.</p>
+<pre tabindex="0"><code>binary_sensor:
+  - platform: gpio
+    name: &#34;liasbox_playplause&#34;
+
+    pin:
+      number: D4
+      inverted: true
+      mode:
+        input: true
+        pullup: true
+    filters:
+      - delayed_off: 10ms
+
+  - platform: gpio
+    name: &#34;liasbox_next&#34;
+    pin:
+      number: TX
+      inverted: true
+      mode:
+        input: true
+        pullup: true
+    filters:
+      - delayed_off: 10ms
+
+  - platform: gpio
+    name: &#34;liasbox_previous&#34;
+    pin:
+      number: D3
+      inverted: true
+      mode:
+        input: true
+        pullup: true
+    filters:
+      - delayed_off: 10ms
+
+  - platform: gpio
+    name: &#34;liasbox_volume_down&#34;
+    pin:
+      number: D5
+      inverted: true
+      mode:
+        input: true
+        pullup: true
+    filters:
+      - delayed_off: 10ms 
+
+  - platform: gpio
+    name: &#34;liasbox_volume_up&#34;
+    pin:
+      number: D6
+      inverted: true
+      mode:
+        input: true
+        pullup: true
+    filters:
+      - delayed_off: 10ms 
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+
+substitutions:
+  name: &#34;liasbox&#34;
+packages:
+  adonno.tag_reader: github://adonno/tagreader/tagreader.yaml
+esphome:
+  name: ${name}
+  name_add_mac_suffix: false
+</code></pre><p>Now I have all buttons available as entities in Home Assistant, yay!</p>
+<p><img src="/img/spotify-made-my-daughter-cry-home-assistant-made-her-smile-again/a35e01ea-f484-4d1a-834b-f11c7b893463_346x371.jpeg" alt="" loading="lazy">
+</p>
+<h2 id="step-5-let-the-buttons-execute-automations">Step 5: Let the buttons execute automations</h2>
+<p>Play/Pause, next, previous and volume up/down are all standard services of media_player entities. So all I had to do was trigger all those services when a button gets pressed. Here is an example for skipping to the next song:</p>
+<p><img src="/img/spotify-made-my-daughter-cry-home-assistant-made-her-smile-again/a013bd21-1cd4-4180-b5a7-768c9f90d465_786x463.jpeg" alt="" loading="lazy">
+</p>
+<p>I made similar automations for the other buttons, as well.</p>
+<p>As you can see I capsuled the media player I want to use for my box as a helper entity. I did this because currently the music will start on our <strong><a href="https://amzn.to/3ZmPZzH">Sonos bar</a></strong> in the living room. That&rsquo;s where the box is located. But in a few years the box will move to my daughter&rsquo;s room. She will get her own little Sonos box (maybe the next good birthday present!?). And then I will be able to switch the media player very fast without needing to adjust all automations.</p>
+<p>The helper is a group with a single entity.</p>
+<p><img src="/img/spotify-made-my-daughter-cry-home-assistant-made-her-smile-again/5df11962-7f68-4a50-980d-ee014a094f2a_551x592.jpeg" alt="" loading="lazy">
+</p>
+<h2 id="step-6-creating-the-cards">Step 6: Creating the cards</h2>
+<p>The cards are simple <strong><a href="https://amzn.to/3vOT3Hu">NFC cards</a></strong>, but of course, they have to look good; I can&rsquo;t just write the title on the card with an Edding. My daughter can&rsquo;t read.</p>
+<p>So my way is to print the audio books cover on a sticker. <strong><a href="https://amzn.to/3Gq7mXO">I use these</a></strong> because they come with an online software where I can upload the covers and resize them easily.</p>
+<p>The result looks okay. It would definitely look cooler with a <strong><a href="https://amzn.to/3ikt5IT">card printer</a></strong>. But that&rsquo;s just too expensive for me.</p>
+<h2 id="step-7-adding-and-triggering-tags">Step 7: Adding and triggering tags</h2>
+<p>After the NFC reader was added to Home Assistant (which is really easy if you followed the documentation from Github, since it is discovered automatically), you are able to add new tags. This can be done in the tags menu. When swiping an NFC card over the box, a new tag appears. It has a GUID as name. I immediately rename the tag to the content it should contain.</p>
+<p><img src="/img/spotify-made-my-daughter-cry-home-assistant-made-her-smile-again/553afb42-87f4-4772-baea-0aeb480f9976_786x389.jpeg" alt="" loading="lazy">
+</p>
+<p>The automation that is triggered by the tag scan and actually starts the music is just a tweaked version of the example from the <strong><a href="https://www.home-assistant.io/integrations/tag/#building-an-rfid-jukebox">tag documentation</a></strong>. This is how it looks:</p>
+<pre tabindex="0"><code>alias: Handle Tag Scan
+description: &#34;&#34;
+trigger:
+  - platform: event
+    event_type: tag_scanned
+condition:
+  - &#34;{{ trigger.event.data.tag_id in tags }}&#34;
+action:
+  - variables:
+      media_player_entity_id: media_player.liasbox_mediaplayer
+      media_content_id: &#34;{{ tags[trigger.event.data.tag_id].media_content_id }}&#34;
+      media_content_type: &#34;{{ tags[trigger.event.data.tag_id].media_content_type }}&#34;
+  - service: media_player.play_media
+    target:
+      entity_id: media_player.liasbox_mediaplayer
+    data:
+      media_content_id: &#34;{{ media_content_id }}&#34;
+      media_content_type: &#34;{{ media_content_type }}&#34;
+  - service: script.liasbox_setmediaplayersettings
+    data: {}
+  - delay: 2
+mode: single
+max_exceeded: silent
+variables:
+  tags:
+    04-6E-DA-67-10-02-89:
+      media_content_id: &gt;-
+        https://open.sp0tify.com/playlist/1u0bu4ezkj4QHDkfjXwKsW?si=76e77a3055134782
+      media_content_type: playlist
+    04-1C-E4-67-10-02-89:
+      media_content_id: &gt;-
+        https://open.sp0tify.com/album/33Ss311uVWQViCaipw2laT?si=EfWjPNX4SieRiID3GbpnDA
+      media_content_type: album
+    04-A3-7A-67-10-02-89:
+      media_content_id: &gt;-
+        https://open.sp0tify.com/album/0FHpjWlnUmplF5ciL84Wpa?si=9DLx-nzTS7uVkoH9YsEvvA
+      media_content_type: album
+    04-75-8C-67-10-02-89:
+      media_content_id: &gt;-
+        https://open.sp0tify.com/album/3qAjGnHFbafzKWbntBjKb9?si=AeKRaR1eQ7S2RjLf41_aMA
+      media_content_type: album
+    04-4A-90-67-10-02-89:
+      media_content_id: &gt;-
+        https://open.sp0tify.com/album/6LQALkZO2BD7UJW5Rbe7AQ?si=-BrXCB_2T0ihqJKTxigefg
+      media_content_type: album
+    04-31-8F-67-10-02-89:
+      media_content_id: &gt;-
+        https://open.sp0tify.com/playlist/5AkNkdpGiTUT1Z1usDdiey?si=8723fd4d8fc5464f
+      media_content_type: playlist
+    04-83-98-67-10-02-89:
+      media_content_id: &gt;-
+        https://open.sp0tify.com/album/5ju4E5z2e8haWhNVI6jvah?si=sbeJ0sWhTBq2fcYT3WKCSg
+      media_content_type: album
+    04-2B-82-67-10-02-89:
+      media_content_id: &gt;-
+        https://open.sp0tify.com/playlist/6cKzIXYEkC2TtuTt07lOZe?si=86b2176eec0649e0
+      media_content_type: playlist
+    04-84-AA-67-10-02-89:
+      media_content_id: &gt;-
+        https://open.sp0tify.com/album/3XOuj8bXBsPPJ5hmdtcGCd?si=sjuLO1LjTqut3501iOp_AA
+      media_content_type: album
+    04-04-7A-67-10-02-89:
+      media_content_id: &gt;-
+        https://open.sp0tify.com/album/3MJtb4tIcyxbd7PIm5ASJ9?si=spXJG6INSbSI8szm6SgN_g
+      media_content_type: album
+    04-22-B8-63-10-02-89:
+      media_content_id: &gt;-
+        https://open.sp0tify.com/album/12TT6OcOHRaM9HfWlfppxN?si=VzwdAKyWT7u9bVpA9L7LeA
+      media_content_type: album
+    04-EC-BA-63-10-02-89:
+      media_content_id: &gt;-
+        https://open.sp0tify.com/album/1BDF8UTWY6wpxLzF6um2xQ?si=xX_ocM5NT5uFapCuuL7JKA
+      media_content_type: album
+</code></pre><p>As you can see, it&rsquo;s really not that complicated. You just modify the media_player you want to use and add each content as a new row. You get the ID from the tags menu and the link by using Spotifys “Share” button on the album you&rsquo;d like to use.</p>
+<p><img src="/img/spotify-made-my-daughter-cry-home-assistant-made-her-smile-again/39e0b869-e9f9-400a-aee5-52e11eebf069_786x590.jpeg" alt="" loading="lazy">
+</p>
+<p>I really like the new box. My daughter loves it and uses it every day. My wife hates it, because she has to listen to the same audio books every day.</p>
+<p>I learned so much doing this project. And I know that if something breaks, it&rsquo;s my fault and I will be able to fix it.</p>
+<p>My daughter is happy again and so am I! Thanks, Home Assistant.</p>
+<h2 id="update-2024">Update 2024</h2>
+<p>I built a further improved version of the box as a birthday present. But maybe this is content for another post…</p>
+<p><img src="/img/spotify-made-my-daughter-cry-home-assistant-made-her-smile-again/c4abe6d7-9f29-4415-a591-697ba4085333_2048x1536.jpeg" alt="" loading="lazy">
+</p>
+<p><img src="/img/spotify-made-my-daughter-cry-home-assistant-made-her-smile-again/ce0b836f-2e95-4320-b1de-7209949ecc8c_2048x1536.jpeg" alt="" loading="lazy">
+</p>
+
+</article>
+
+<section class="subscribe" aria-labelledby="subscribe-title">
+  <p class="prompt" id="subscribe-title"><span class="ps1">~$</span> subscribe --email</p>
+  <p class="comment"># new posts by mail. no spam, unsubscribe any time.</p>
+  <form action="https://buttondown.com/api/emails/embed-subscribe/cellos.blog" method="post" target="_blank">
+    <label for="bd-email" class="visually-hidden">Email address</label>
+    <span class="ps1" aria-hidden="true">&gt;</span>
+    <input type="email" name="email" id="bd-email" placeholder="you@example.com" required autocomplete="email">
+    <input type="hidden" name="embed" value="1">
+    <button type="submit">[ enter ]</button>
+  </form>
+</section>
+
+<p class="prompt"><span class="ps1">~$</span> <a href="/">cd ..</a></p>
+
+  </main>
+  <footer class="site-footer">
+    # © 2026 Marcel Neumann · built with hugo
+  </footer>
+</body>
+</html>

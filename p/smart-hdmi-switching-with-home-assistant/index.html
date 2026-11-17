@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#0d0f0d">
+  <title>Smart HDMI Switching with Home Assistant · Cello&#39;s Blog</title>
+  <meta name="description" content="Personal blog of Marcel Neumann">
+  <link rel="canonical" href="/p/smart-hdmi-switching-with-home-assistant/">
+  <link rel="alternate" type="application/rss+xml" title="Cello&#39;s Blog" href="/index.xml">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="site-title" href="/"><span class="user">cello@cellos.blog</span><span class="cursor" aria-hidden="true"></span></a>
+    <nav>
+      <a href="/index.xml">[rss]</a>
+    </nav>
+  </header>
+  <main>
+    
+<p class="prompt"><span class="ps1">~$</span> cat posts/smart-hdmi-switching-with-home-assistant.md</p>
+<article>
+  <header>
+    <h1>Smart HDMI Switching with Home Assistant</h1>
+    
+    <p class="byline"><time datetime="2025-07-24">2025-07-24</time> · 3 min read</p>
+  </header>
+  <p><img src="/img/smart-hdmi-switching-with-home-assistant/photo-1653998582106-0509104928d9.jpg" alt="a close up view of a computer keyboard" loading="lazy">
+</p>
+<p><em>Photo by TheRegisti on <a href="https://unsplash.com">Unsplash</a></em></p>
+<h2 id="the-problem">The Problem</h2>
+<p>I recently became the proud owner of a <strong><a href="https://www.steamdeck.com/de">Steam Deck</a></strong>. Most of the time I play comfortably on the couch in handheld mode, but every now and then I want to throw a game onto the screen via my <strong><a href="https://amzn.to/3BYzdQQ">projector</a></strong>. To do this, I ordered a <strong><a href="https://amzn.to/3DIsDhH">dock</a></strong> that connects the Steam Deck to my projector via HDMI.</p>
+<p>I now have two input sources for my projector. One is the <strong><a href="https://amzn.to/40jx9w3">Fire TV cube</a></strong> for watching series and the other is the Steam Deck for gaming. I have connected both with a cheap <strong><a href="https://amzn.to/4a2SYmR">HDMI switcher</a></strong>, so that I don&rsquo;t have to change the HDMI cable every time. It automatically recognizes which input has an HDMI signal and activates that route to display on the screen.</p>
+<p>However, this only works half well. For example, if I send the Steam Deck to standby, the picture from the Fire TV cube doesn&rsquo;t come up. Or if I played games the day before and start the cinema today, the picture occasionally stays black because the Steam Deck is still blocking the HDMI input. Then I either have to remove the Steam Deck from the docking station (and get up from the couch, yikes!) or switch the source of the HDMI switcher via IR remote control. Neither option is a solution, of course.</p>
+<h2 id="home-assistant-to-the-rescue">Home Assistant to the Rescue</h2>
+<p>The only device that needs to be made smart here is the HDMI switcher. It is already half smart, as it can be operated via IR remote control. The only thing we need to teach Home Assistant the IR protocol is an inexpensive little helper: an <strong><a href="https://amzn.to/4a2T6Tn">IR blaster</a></strong>. In other words, a device that is able to learn IR commands and send them back itself. A smart universal remote control, so to speak. I still had a <strong><a href="https://amzn.to/4a2T6Tn">Broadlink RM4</a></strong> in my cable box for this purpose.</p>
+<p>I connected it and placed it right next to the HDMI switcher. Learning the commands, i.e. the buttons that switch to input 1 or 2, is now super easy in Home Assistant. It&rsquo;s just an action that needs to be executed via the Developer tools:</p>
+<p><img src="/img/smart-hdmi-switching-with-home-assistant/70fa9f6a-9fd8-4447-ad41-700e5240c67b_1423x999.jpeg" alt="" loading="lazy">
+</p>
+<p>I give the commands a name, i.e. <code>goto-hdmi-one</code> or <code>go-to-hdmi-two</code>, and say which remote control this command belongs to, in this case <code>hdmi-switcher</code>. I then click on perform and press the button on the remote control in the direction of the IR blaster. Done.</p>
+<p>Now this command can be re-fired via actions, i.e. the Developer Tools. If necessary, this can be done x times in succession if the connection is not robust enough:</p>
+<p><img src="/img/smart-hdmi-switching-with-home-assistant/b3fc744a-26c0-4dd9-8948-485a955d38dd_1423x999.jpeg" alt="" loading="lazy">
+</p>
+<p>Top. So now I am able to select the input via Home Assistant. So, how does this solve my original problem?</p>
+<h2 id="fixing-the-issue">Fixing the Issue</h2>
+<p>First of all, I want to have the Fire TV as the default HDMI input for my projector. So when I start my home cinema, I now explicitly set this input. This means that it doesn&rsquo;t matter whether I played games the night before or not.</p>
+<p><img src="/img/smart-hdmi-switching-with-home-assistant/b669ae91-122f-4c8f-aa33-72f7b982ddcc_1230x1042.jpeg" alt="" loading="lazy">
+</p>
+<p>I have also put the HDMI selection on my dashboard so that I can change the mode from the couch.</p>
+<p>To do this, I simply added two new tile buttons to the dashboard, which are only visible when the cinema is active. When clicked, the buttons simply execute the corresponding remote command.</p>
+<p><img src="/img/smart-hdmi-switching-with-home-assistant/f9604523-91a7-4245-a225-ee0cadc257d6_419x225.jpeg" alt="" loading="lazy">
+</p>
+<p><img src="/img/smart-hdmi-switching-with-home-assistant/acb805f5-8d52-434d-a7bd-bc87c917c62b_958x436.jpeg" alt="" loading="lazy">
+</p>
+<p>And that&rsquo;s it. A tiny little problem that was solved super easily with Home Assistant. My suggestion: If you are still using old IR remotes, just make them smart!</p>
+
+</article>
+
+<section class="subscribe" aria-labelledby="subscribe-title">
+  <p class="prompt" id="subscribe-title"><span class="ps1">~$</span> subscribe --email</p>
+  <p class="comment"># new posts by mail. no spam, unsubscribe any time.</p>
+  <form action="https://buttondown.com/api/emails/embed-subscribe/cellos.blog" method="post" target="_blank">
+    <label for="bd-email" class="visually-hidden">Email address</label>
+    <span class="ps1" aria-hidden="true">&gt;</span>
+    <input type="email" name="email" id="bd-email" placeholder="you@example.com" required autocomplete="email">
+    <input type="hidden" name="embed" value="1">
+    <button type="submit">[ enter ]</button>
+  </form>
+</section>
+
+<p class="prompt"><span class="ps1">~$</span> <a href="/">cd ..</a></p>
+
+  </main>
+  <footer class="site-footer">
+    # © 2026 Marcel Neumann · built with hugo
+  </footer>
+</body>
+</html>

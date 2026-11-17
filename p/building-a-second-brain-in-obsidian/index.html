@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#0d0f0d">
+  <title>Building a Second Brain in Obsidian · Cello&#39;s Blog</title>
+  <meta name="description" content="My Workflow for Cyber Security &amp; Software Engineering Notes">
+  <link rel="canonical" href="/p/building-a-second-brain-in-obsidian/">
+  <link rel="alternate" type="application/rss+xml" title="Cello&#39;s Blog" href="/index.xml">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="site-title" href="/"><span class="user">cello@cellos.blog</span><span class="cursor" aria-hidden="true"></span></a>
+    <nav>
+      <a href="/index.xml">[rss]</a>
+    </nav>
+  </header>
+  <main>
+    
+<p class="prompt"><span class="ps1">~$</span> cat posts/building-a-second-brain-in-obsidian.md</p>
+<article>
+  <header>
+    <h1>Building a Second Brain in Obsidian</h1>
+    <p class="subtitle">My Workflow for Cyber Security &amp; Software Engineering Notes</p>
+    <p class="byline"><time datetime="2025-09-04">2025-09-04</time> · 7 min read</p>
+  </header>
+  <p>As a software engineer, cyber security student, and father of two, I constantly juggle a lot of information. There are too many things to remember, and my brain simply can’t handle it alone.</p>
+<p>Fortunately, I have a <strong>second brain</strong> right inside Obsidian.</p>
+<p><img src="/img/building-a-second-brain-in-obsidian/03fe778c-980c-49b1-8632-3d04df3b6697_744x765.png" alt="" loading="lazy">
+</p>
+<p>In this post, I’ll share my simple, effective workflow for taking, refining, and organizing technical notes in fields like software engineering and cyber security.</p>
+<hr>
+<h3 id="why-obsidian">Why Obsidian?</h3>
+<p>I’ve tried many note-taking tools over the years (Notion, Standard Notes, Notesnook, Joplin, Evernote, Logseq, Trillium, Notable, QOwnNotes…). None of them felt quite right, until I landed on Obsidian.</p>
+<p>Here’s why it works for me:</p>
+<ul>
+<li><strong>Plain Markdown files</strong> → My notes are just text files in Markdown. If Obsidian ever disappears, my notes remain usable. I can back them up with Git and sync however I like.</li>
+<li><strong>Data under my control</strong> → The notes live locally. If I use Obsidian Sync, they’re end-to-end encrypted. It means no central server exploit can expose my thoughts.</li>
+<li><strong>Back-links</strong> → The ability to easily create links with <code>[[this format]]</code> was a true game-changer. It makes connections between ideas visible — often between concepts I didn’t realize were related.</li>
+<li><strong>Flexibility &amp; plugins</strong> → Templates, customization, community plugins, and a thriving community all add up. Obsidian has the features I need without locking me in.</li>
+</ul>
+<hr>
+<h3 id="step-1-capturing-notes-quickly">Step 1: Capturing Notes Quickly</h3>
+<p>The first step is to <strong>capture thoughts instantly</strong>.</p>
+<p>I don’t overthink where to store them or how to name the file. If I hear a new concept, it needs to go into my second brain immediately.</p>
+<ul>
+<li>On desktop: <code>CTRL + N</code>, type the note, done.</li>
+<li>On mobile: Open the app, hit <code>+</code>, type the thought, done.</li>
+</ul>
+<p>Example: If I hear about <em>Caller ID Spoofing</em> in a cyber security podcast:</p>
+<ul>
+<li><code>CTRL + N</code></li>
+<li>type &ldquo;caller ID spoofing&rdquo;</li>
+<li>saved in seconds.</li>
+</ul>
+<p>All new notes land in my <code>01_inbox</code> folder. These raw notes are “fleeting.” They may be messy, incomplete, and unstructured — but they’re safe, not lost.</p>
+<hr>
+<h3 id="step-2-capturing-files-quickly">Step 2: Capturing Files Quickly</h3>
+<p>Ideas don’t always come as words. Sometimes it’s a screenshot, article, or PDF.</p>
+<ul>
+<li>Screenshot → <code>CTRL + N</code>, then <code>CTRL + V</code>.</li>
+<li>PDF → Drag and drop into a new note.</li>
+<li>Mobile → Share directly to the Obsidian app.</li>
+</ul>
+<p>I configured Obsidian so that all attachments (images, PDFs, etc.) go into a <code>99_attachments</code> folder. This way, files don’t clutter the inbox - the note referencing them is what matters.</p>
+<hr>
+<h3 id="step-3-refining-fleeting-notes">Step 3: Refining Fleeting Notes</h3>
+<p>Later, when I have time, I revisit the inbox to refine notes.</p>
+<p>Let’s say I open my <em>Caller ID Spoofing</em> note:</p>
+<ul>
+<li>I quickly research (Google, Wikipedia, blogs, Perplexity, etc.).</li>
+<li>I then <strong>summarize the core ideas</strong> in short bullet points and my own words.</li>
+<li>I keep the definition concise. I want a quick reminder, not a mini-Wikipedia.</li>
+</ul>
+<p><img src="/img/building-a-second-brain-in-obsidian/50d8851a-e814-47a9-ae1a-5ba07bf9803b_775x174.png" alt="" loading="lazy">
+</p>
+<p>This ensures searching my notes is <strong>faster than Googling again</strong>.</p>
+<h3 id="using-back-links">Using Back-links</h3>
+<p>While refining notes, I make heavy use of <code>[[back-links]]</code>.<br>
+You can create a link to any note by typing its name inside <code>[[ ]]</code>.</p>
+<ul>
+<li>If the note already exists, you even get <strong>auto-completion</strong> (like in a bash terminal) → super satisfying for developers.</li>
+<li>If the note doesn’t exist yet, you can still create it as a back-link. From then on, auto-completion works—even before the actual file has been created.</li>
+</ul>
+<p>This way, when I mention technical topics or concepts, I just back-link them right away:</p>
+<ul>
+<li><em>Social Engineering</em> → <code>[[Social Engineering]]</code></li>
+<li><em>Identity Theft</em> → <code>[[Identity Theft]]</code></li>
+</ul>
+<p>These are concepts that I know will definitely show up again later, so it makes sense to link them.</p>
+<p>At the bottom of many of my notes, I also add a <strong>Links section</strong>. Here I include related thoughts and associations that come to mind - even if they didn’t appear in the body text. For example:</p>
+<ul>
+<li><code>[[Netzsicher]]</code> (the podcast where I picked up the idea)</li>
+<li><code>[[Cybersecurity]]</code> (the broader umbrella topic)</li>
+<li><code>[[Phone]]</code> (an obvious mental connection)</li>
+</ul>
+<p>This <strong>Links section</strong> helps turn each note into a hub for related ideas - whether they are similar, or contrasting. My personal rule of thumb is that <em>every note should connect to at least one other note</em>.</p>
+<p>Here are more examples:</p>
+<p><img src="/img/building-a-second-brain-in-obsidian/fbdac687-8de6-4575-9941-827c5e0cdc60_612x261.png" alt="" loading="lazy">
+</p>
+<p><img src="/img/building-a-second-brain-in-obsidian/0749c75b-654e-4711-98af-8a26f9f1a38e_745x609.png" alt="" loading="lazy">
+</p>
+<p><img src="/img/building-a-second-brain-in-obsidian/5364203c-0f39-40e1-8744-33f58c7048bf_1325x928.png" alt="" loading="lazy">
+</p>
+<p><img src="/img/building-a-second-brain-in-obsidian/abbe50cc-4fff-4943-92a3-d520c3ef4c6f_1049x587.png" alt="" loading="lazy">
+</p>
+<hr>
+<h3 id="step-4-from-fleeting-notes-to-atomic-notes">Step 4: From Fleeting Notes to Atomic Notes</h3>
+<p>Once a note is refined, I drag it from <code>01_inbox</code> into <code>02_notes</code>.</p>
+<p>These “atomic notes” each cover a single idea or concept in a distilled way.</p>
+<p>What’s the benefit?</p>
+<ul>
+<li>Writing in my own words forces true understanding.</li>
+<li>Even if I forget later, I can retrieve the knowledge by searching or following links.</li>
+<li>Searching for “phone” or “identity theft” or “fake number” will lead me back to *Caller ID Spoofing*.</li>
+</ul>
+<p><img src="/img/building-a-second-brain-in-obsidian/1c2d0852-a184-4b0c-95fd-77079a66d89a_454x342.png" alt="" loading="lazy">
+</p>
+<p>Thanks to back-links, I can also trace related ideas:</p>
+<p>Checking my <em>Social Engineering</em> note’s back-links may lead me back to <em>Caller ID Spoofing</em>. This is where the <strong>graph view</strong> really shines.</p>
+<hr>
+<h3 id="step-5-deeper-learning-through-iteration">Step 5: Deeper Learning Through Iteration</h3>
+<p>Sometimes I want to expand further.</p>
+<p>If I keep linking to <code>[[Social Engineering]]</code>, eventually I’ll create that note and build it out using the same steps. Over time, my graph grows richer — not by force, but organically, based on what I revisit.</p>
+<p><img src="/img/building-a-second-brain-in-obsidian/834f6d4c-fc56-4e8d-a0dd-ba08cd10b575_621x554.png" alt="" loading="lazy">
+</p>
+<p>This iterative process builds a <strong>living knowledge system</strong> where concepts connect naturally.</p>
+<hr>
+<h3 id="keep-it-simple">Keep It Simple</h3>
+<p>There’s so much more I could share:</p>
+<ul>
+<li>Using <strong>templates</strong> to add structured, query-able metadata to notes</li>
+<li>Organizing courses via <strong>bases</strong></li>
+<li>Randomly resurfacing and polishing older notes</li>
+</ul>
+<p>But here’s the important takeaway: <strong>start simple</strong>.</p>
+<p>Don’t chase complicated workflows, zettelkasten theories, or dozens of plugins. Start capturing. Start linking. Start refining. The second brain will build itself.</p>
+<hr>
+<h3 id="summary">Summary</h3>
+<p>This is my workflow for capturing, refining, and organizing technical knowledge in <strong>Obsidian</strong>:</p>
+<ol>
+<li>
+<p><strong>Capture quickly</strong> (fleeting notes → inbox).</p>
+</li>
+<li>
+<p><strong>Attach files easily</strong> (screenshots, PDFs, images → attachment folder).</p>
+</li>
+<li>
+<p><strong>Refine notes</strong> with short bullet point summaries in my own words.</p>
+</li>
+<li>
+<p><strong>Back-link aggressively</strong> to link concepts together.</p>
+</li>
+<li>
+<p><strong>Move refined notes</strong> into a structured folder of atomic notes.</p>
+</li>
+<li>
+<p><strong>Iteratively build knowledge</strong> through back-links and deeper notes.</p>
+</li>
+</ol>
+<p>I’ve used this system for years while learning cyber security and software engineering. It’s not perfect, but it works — and more importantly, it grows with me.</p>
+<p>If you’re starting your own note-taking journey, my advice is simple: <strong>just start.</strong></p>
+<p>Your second brain doesn’t have to be perfect on day one - it just has to start working for you.</p>
+<hr>
+<h3 id="faq">FAQ</h3>
+<h4 id="-how-is-your-folder-structure">❓ How is your folder structure?</h4>
+<p>Very minimal. I only keep a few top-level folders for this workflow:</p>
+<ul>
+<li><strong>01_inbox</strong> → New, fleeting notes (raw, unrefined).</li>
+<li><strong>02_notes</strong> → Refined, atomic notes in my own words.</li>
+<li><strong>99_attachments</strong> → Images, PDFs, and other files.</li>
+</ul>
+<p>That’s it. I prefer not to over-complicate with too many sub-folders — back-links do most of the organizational work for me.</p>
+<p><img src="/img/building-a-second-brain-in-obsidian/f53ad199-e87f-493c-98f7-49ec5425519b_444x318.png" alt="" loading="lazy">
+</p>
+<hr>
+<h4 id="-do-you-share-your-vault">❓ Do you share your vault?</h4>
+<p>No. My vault contains private notes, work references, and personal thoughts. That said, the method is what’s important — not the content. You can build your own system using the same structure.</p>
+<hr>
+<h4 id="-why-is-writing-in-your-own-words-so-important">❓ Why is writing in your own words so important?</h4>
+<p>This is the core of my workflow. I never just copy-paste from articles or books. Instead, I summarize and rephrase <strong>in my own words</strong>.<br>
+This simple step:</p>
+<ul>
+<li>Forces me to actually understand the topic.</li>
+<li>Makes retrieval easier later, since I’ll recognize my own phrasing.</li>
+<li>Prevents turning my vault into just another dump of external info.</li>
+</ul>
+<p>If you skip this, you essentially skip the real learning part.</p>
+<hr>
+<h4 id="-where-do-you-study-cyber-security">❓ Where do you study cyber security?</h4>
+<p>I started with the <strong>SEC-100 certificate from OffSec</strong>.<br>
+Currently, I’m taking the <strong>CPTS (Certified Penetration Testing Specialist)</strong> course on HackTheBox.</p>
+<hr>
+<h4 id="-how-long-did-it-take-to-build-your-graph">❓ How long did it take to build your graph?</h4>
+<p>I’ve been taking notes like this for <strong>2–3 years</strong>.<br>
+It grows more quickly when I’m reading a technical book or taking a course, and more slowly when I’m just doing daily work.<br>
+The graph is a byproduct — it emerges naturally over time, not something I actively try to “grow” for its own sake.</p>
+<hr>
+<h4 id="-isnt-this-a-lot-of-work">❓ Isn’t this a lot of work?</h4>
+<p>Yes, it takes time to write good notes. But the benefits compound over years:</p>
+<ul>
+<li>Writing and linking forces deeper understanding.</li>
+<li>Notes become my <strong>first lookup point</strong> before I turn to Google or AI.</li>
+<li>Over time, I’ve built a “second brain” that saves me hours of re-learning the same things.</li>
+</ul>
+<p>In short: yes, it’s effort, but it pays off more than any quick-copy method ever could.</p>
+<hr>
+<p>👉 Your turn:</p>
+<ul>
+<li>What’s your workflow for keeping technical knowledge organized?</li>
+<li>Do you have a favorite Obsidian tweak I should try?</li>
+</ul>
+<p>Let’s compare notes and keep learning together.</p>
+
+</article>
+
+<section class="subscribe" aria-labelledby="subscribe-title">
+  <p class="prompt" id="subscribe-title"><span class="ps1">~$</span> subscribe --email</p>
+  <p class="comment"># new posts by mail. no spam, unsubscribe any time.</p>
+  <form action="https://buttondown.com/api/emails/embed-subscribe/cellos.blog" method="post" target="_blank">
+    <label for="bd-email" class="visually-hidden">Email address</label>
+    <span class="ps1" aria-hidden="true">&gt;</span>
+    <input type="email" name="email" id="bd-email" placeholder="you@example.com" required autocomplete="email">
+    <input type="hidden" name="embed" value="1">
+    <button type="submit">[ enter ]</button>
+  </form>
+</section>
+
+<p class="prompt"><span class="ps1">~$</span> <a href="/">cd ..</a></p>
+
+  </main>
+  <footer class="site-footer">
+    # © 2026 Marcel Neumann · built with hugo
+  </footer>
+</body>
+</html>

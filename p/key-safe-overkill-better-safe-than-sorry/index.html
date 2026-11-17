@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#0d0f0d">
+  <title>Key Safe Overkill: Better Safe than Sorry · Cello&#39;s Blog</title>
+  <meta name="description" content="Personal blog of Marcel Neumann">
+  <link rel="canonical" href="/p/key-safe-overkill-better-safe-than-sorry/">
+  <link rel="alternate" type="application/rss+xml" title="Cello&#39;s Blog" href="/index.xml">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="site-title" href="/"><span class="user">cello@cellos.blog</span><span class="cursor" aria-hidden="true"></span></a>
+    <nav>
+      <a href="/index.xml">[rss]</a>
+    </nav>
+  </header>
+  <main>
+    
+<p class="prompt"><span class="ps1">~$</span> cat posts/key-safe-overkill-better-safe-than-sorry.md</p>
+<article>
+  <header>
+    <h1>Key Safe Overkill: Better Safe than Sorry</h1>
+    
+    <p class="byline"><time datetime="2025-07-24">2025-07-24</time> · 3 min read</p>
+  </header>
+  <p><img src="/img/key-safe-overkill-better-safe-than-sorry/photo-1503792243040-7ce7f5f06085.jpg" alt="photo of key against black background" loading="lazy">
+</p>
+<p><em>Photo by Matt Artz on <a href="https://unsplash.com">Unsplash</a></em></p>
+<p>I bet you have a spare key for your home hidden somewhere on your property!</p>
+<ul>
+<li>Is it in the garden? Maybe disguised as a rock?</li>
+<li>Is it right under the doormat?</li>
+<li>Do your neighbors have it?</li>
+</ul>
+<p>No matter where it is, it is important to have one! It sucks to come home after a long day, only to realize that you&rsquo;ve forgotten your keys. I know that from experience because until recently we didn’t have a spare key.</p>
+<p>Why? Because we didn’t know where to hide it. What if the hiding place isn&rsquo;t good enough? What if our neighbors were on vacation right when we need the key?</p>
+<p>Thanks to Home Assistant I was able to implement an <strong>overkill-bullet-proof</strong>™ solution for that problem.</p>
+<blockquote>
+<p><em><strong>I introduce to you: The Fort Knox Key Safe.</strong></em></p>
+</blockquote>
+<h2 id="security-level-1-the-safe">Security Level 1: The Safe</h2>
+<p>My solution is based on a <strong><a href="https://amzn.to/4gR6NYG">key safe</a></strong>. It’s pretty convenient for us since it works with a numerical code. Still this safe should scare of casual thiefs that just happened to find the key by accident.</p>
+<p><img src="/img/key-safe-overkill-better-safe-than-sorry/83d92119-db93-4ae0-97c4-cd48bda64cf8_1400x1867.jpeg" alt="" loading="lazy">
+</p>
+<h2 id="security-level-2-the-location">Security Level 2: The Location</h2>
+<p>Of course I did not mount the safe right next to the main door. That would be an invitation. It’s somewhere in the backyard, not directly visible since it is hidden by some flowerpots.</p>
+<h2 id="security-level-3-the-camera">Security Level 3: The Camera</h2>
+<p>One of my <strong><a href="https://amzn.to/3Nb7FcS">cameras</a></strong> monitors the location of the safe. That is deterrence. But also I will have visual proof of anyone trying to mess with the safe.</p>
+<p><img src="/img/key-safe-overkill-better-safe-than-sorry/d14429c1-53cf-41d4-9ab3-8047e876e338_1400x1050.jpeg" alt="" loading="lazy">
+</p>
+<h2 id="security-level-4-the-vibration-sensor">Security Level 4: The Vibration Sensor</h2>
+<p>Inside the key safe I attached a <strong><a href="https://amzn.to/47MCDl3">vibration sensor</a></strong>. That way I will be alerted if someone opens the safe or even tries to remove it from the wall. Spinning one of the number wheels is already enough for the sensor to detect a vibration.</p>
+<p><img src="/img/key-safe-overkill-better-safe-than-sorry/f4ee226e-6edc-4a09-bc52-983b90ec0a3a_786x1048.jpeg" alt="" loading="lazy">
+</p>
+<h2 id="the-bullst-heist">The Bulls**t Heist</h2>
+<p>Someone sneaks in my backyard. It takes him 30 minutes to find the key safe. He tries to guess the combination. No success after 15 minutes. He takes out the jimmy and tries to rip the safe from the wall. The police arrive.</p>
+<p>What happend? I received a notification on my phone because the camera detected a person in the backyard. I also received a notification that someone tried to open the safe due to the vibration sensor. Plenty of time to check the camera stream and call the cops.</p>
+<h2 id="honest-summary">Honest Summary</h2>
+<p>This solution is total overkill. I guess hiding a key somewhere in flowerpot is safe enough. But this solution is so much fun. And it gives me a false sense of safety. If you are a burgular: Please don’t take that as a challenge.</p>
+<p>To be honest: A thief would probably just break a window with a rock instead of looking for a hidden key. But that’s no reason for skipping the fun of Home Automation. Your home just needs to be more secure than your neighbor’s.</p>
+
+</article>
+
+<section class="subscribe" aria-labelledby="subscribe-title">
+  <p class="prompt" id="subscribe-title"><span class="ps1">~$</span> subscribe --email</p>
+  <p class="comment"># new posts by mail. no spam, unsubscribe any time.</p>
+  <form action="https://buttondown.com/api/emails/embed-subscribe/cellos.blog" method="post" target="_blank">
+    <label for="bd-email" class="visually-hidden">Email address</label>
+    <span class="ps1" aria-hidden="true">&gt;</span>
+    <input type="email" name="email" id="bd-email" placeholder="you@example.com" required autocomplete="email">
+    <input type="hidden" name="embed" value="1">
+    <button type="submit">[ enter ]</button>
+  </form>
+</section>
+
+<p class="prompt"><span class="ps1">~$</span> <a href="/">cd ..</a></p>
+
+  </main>
+  <footer class="site-footer">
+    # © 2026 Marcel Neumann · built with hugo
+  </footer>
+</body>
+</html>

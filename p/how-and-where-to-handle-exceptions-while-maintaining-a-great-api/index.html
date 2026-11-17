@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#0d0f0d">
+  <title>How and Where to handle Exceptions while Maintaining a Great API · Cello&#39;s Blog</title>
+  <meta name="description" content="Personal blog of Marcel Neumann">
+  <link rel="canonical" href="/p/how-and-where-to-handle-exceptions-while-maintaining-a-great-api/">
+  <link rel="alternate" type="application/rss+xml" title="Cello&#39;s Blog" href="/index.xml">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="site-title" href="/"><span class="user">cello@cellos.blog</span><span class="cursor" aria-hidden="true"></span></a>
+    <nav>
+      <a href="/index.xml">[rss]</a>
+    </nav>
+  </header>
+  <main>
+    
+<p class="prompt"><span class="ps1">~$</span> cat posts/how-and-where-to-handle-exceptions-while-maintaining-a-great-api.md</p>
+<article>
+  <header>
+    <h1>How and Where to handle Exceptions while Maintaining a Great API</h1>
+    
+    <p class="byline"><time datetime="2025-07-24">2025-07-24</time> · 7 min read</p>
+  </header>
+  <p><img src="/img/how-and-where-to-handle-exceptions-while-maintaining-a-great-api/photo-1611890798517-07b0fcb4a811.jpg" alt="a close up of a computer screen with a sign on it" loading="lazy">
+</p>
+<p><em>Photo by Nong on <a href="https://unsplash.com">Unsplash</a></em></p>
+<p>Exception handling is not easy. It can be done in the wrong places, it can be done the wrong way, and it can even be forgotten completely.</p>
+<p>The best we can do to help our fellow developers with that problem is to design our API as bulletproof as possible.</p>
+<p>An exception-less approach via the Result Pattern is a step in that direction.</p>
+<p>In this article, I will guide you through a typical software problem I faced multiple times working in the production industry. I will provide some simple examples, share my thoughts, and explain why I prefer the exception-less approach in this use case.</p>
+<h2 id="the-manufacturers-dll">The Manufacturer’s DLL</h2>
+<p>I often have to deal with actual hardware at my job.</p>
+<ul>
+<li>Opening/Closing valves</li>
+<li>Switching relais</li>
+<li>Retrieving values from temperature sensors</li>
+<li>Moving actuators</li>
+<li>…</li>
+</ul>
+<p>All these expensive hardwares gets shipped with a piece of software in form of a DLL from the manufacturer.</p>
+<p>Let’s say we want to measure the ambient pressure and bought some expensive pressure sensor. The manufacturer provided us with a driver that has the following features:</p>
+<pre tabindex="0"><code>public interface IPressureSensorDriver
+{
+    void Init();
+    void StartMeasurement();
+    void StopMeasurement();
+    double GetPressure();
+}
+</code></pre><p>As for most manufacturer DLLs the API is not very convenient. To actually poll the current ambient pressure we have to</p>
+<ol>
+<li>Call <code>Init()</code></li>
+<li>Call <code>StartMeasurement()</code></li>
+<li>Call <code>StopMeasurement()</code></li>
+<li>Call <code>GetPressure()</code></li>
+</ol>
+<h2 id="dont-repeat-yourself">Don’t repeat yourself!</h2>
+<p>Since we don’t want calls repeated all over our solution we will introduce a new class that wraps the manufacturer&rsquo;s driver and acts as a convenient service for us.</p>
+<pre tabindex="0"><code>public class PressureService
+{
+    private readonly IPressureSensorDriver _driver;
+
+    public PressureService(IPressureSensorDriver driver)
+    {
+        _driver = driver;
+    }
+
+    public double GetPressure()
+    {
+        _driver.Init();
+        _driver.StartMeasurement();
+        _driver.StopMeasurement();
+        double pressure = _driver.GetPressure();
+
+        return pressure;
+    }
+}
+</code></pre><p>Let’s test our service by polling the pressure multiple times in a row:</p>
+<pre tabindex="0"><code> public class Program
+{
+    public static async Task Main(string[] args)
+    {
+        var driver = new PressureSensorDriver();
+        var pressureService = new PressureService(driver);
+
+        for (int i = 0; i &lt; 4; i++)
+        {
+            double pressure = pressureService.GetPressure();
+            Console.WriteLine($&#34;Pressure: {pressure}&#34;);
+            await Task.Delay(1000);
+        }
+
+        Console.ReadKey();
+    }
+}
+</code></pre><p>And of course: As soon as we run the application we’ll get an unhandled exception:</p>
+<blockquote>
+<p><em><strong>Exception Unhandled — System.Exception: ‘Connection to Sensor interrupted.’</strong></em></p>
+</blockquote>
+<h2 id="what-did-we-do-wrong">What did we do wrong?</h2>
+<p>We just called a method from another application layer without any exception handling.</p>
+<p>The driver class is a third-party code we do not know. Nevertheless we crossed that border without any safety net. We just assumed that the method will work as expected.</p>
+<blockquote>
+<p><em><strong>Always handle exceptions on application borders!</strong></em></p>
+</blockquote>
+<p>This includes:</p>
+<ul>
+<li>Hardware calls no matter the communication protocol</li>
+<li>Web Requests or anything that depends on the internet</li>
+<li>External code, either unknown, undocumented or untested</li>
+</ul>
+<h2 id="the-classic-solution">The Classic Solution</h2>
+<p>Since we already found the problem, let’s implement the classic solution for it: a try-catch right in our service:</p>
+<pre tabindex="0"><code>public class PressureService
+{
+    private readonly IPressureSensorDriver _driver;
+
+    public PressureService(IPressureSensorDriver driver)
+    {
+        _driver = driver;
+    }
+
+    public double GetPressure()
+    {
+        try
+        {
+            _driver.Init();
+            _driver.StartMeasurement();
+            _driver.StopMeasurement();
+            double pressure = _driver.GetPressure();
+
+            return pressure;
+        }
+        catch
+        {
+            return double.NaN;
+        }
+    }
+}
+</code></pre><p>That, of course, will work. All exceptions will be swallowed by our <code>catch</code>. If something goes wrong, we simply return a <code>double.NaN</code> . We are now exception-less!</p>
+<p>But there are some flaws. Let’s look at the API of our service from a user’s view. And with API I simply mean our method <code>GetPressure()</code>; its name, its return type and its input arguments. Because that is all the user sees.</p>
+<ul>
+<li>The user has no way to know whether the method throws an exception or not. He has no way to decide whether he has to put that method call in a <code>try/catch</code> without looking into it. That sucks.</li>
+<li>The user has no way to know whether the method was a success or not. Even when the method ran without an exception, he has to check whether he got a valid number or <code>double.NaN</code>. That sucks, as well.</li>
+</ul>
+<h2 id="the-try-pattern">The Try Pattern</h2>
+<p>Let’s tweak our service a little further to see if we can get rid of these flaws:</p>
+<pre tabindex="0"><code>public class PressureService
+{
+    private readonly IPressureSensorDriver _driver;
+
+    public PressureService(IPressureSensorDriver driver)
+    {
+        _driver = driver;
+    }
+
+    public bool TryGetPressure(out double pressure)
+    {
+        try
+        {
+            _driver.Init();
+            _driver.StartMeasurement();
+            _driver.StopMeasurement();
+            pressure = _driver.GetPressure();
+
+            return true;
+        }
+        catch
+        {
+            pressure = Double.NaN;
+
+            return false;
+        }
+    }
+}
+</code></pre><p>Our method now returns the pressure via an out variable. The return value of the method now is a <code>bool</code> indicating success or failure of the method. We also tweaked the name of our method from <code>GetPressure</code> to <code>TryGetPressure</code>.</p>
+<p>We just implemented the Try Pattern.</p>
+<h2 id="what-have-we-won-that-way">What have we won that way?</h2>
+<p>Method names starting with <code>Try</code> are exception-less! That is the most important part of the Try Pattern.</p>
+<p>Just by reading the method’s name the user of our service already knows that he does not need to handle any exceptions when calling it. This sounds so trivial but is a big part of API design:</p>
+<blockquote>
+<p><em><strong>If you let the user know what to expect, he will do it the correct way.</strong></em></p>
+</blockquote>
+<p>The other flaw was eliminated, as well: The user can simply check the returned <code>bool</code> flag to see if the method call was a success or not. He does not need to look at the pressure value at all, when the method already returned <code>false</code>.</p>
+<p>But in my opinion there are some new flaws:</p>
+<ul>
+<li>I don’t like the syntax of out variables. A lot of Clean Code Prophets would sign that immediately. It’s just confusing — everyone expects the outputs of the method left to its name and suddenly there is in output right between the inputs? Just because we can, does not mean we should. Don’t obfuscate your code with all the syntax sugar your language provides. Keep it Simple!</li>
+<li>We only have a single, binary result. But most of the time we want to provide the user of our method with more information. Consider all the reasons our method could fail: The service could not connect to the sensor? The service was connected to the sensor but the connection was lost? The sensor returned a value but it is not plausible? There might be different ways the user wants to handle each of these situations. In some he might schedule a retry, in others he might simply show a descriptive error message.</li>
+</ul>
+<h2 id="the-result-pattern">The Result Pattern</h2>
+<p>To even solve these flaws, let’s tweak our service even a little further:</p>
+<pre tabindex="0"><code>public class PressureService
+{
+    private readonly IPressureSensorDriver _driver;
+
+    public PressureService(IPressureSensorDriver driver)
+    {
+        _driver = driver;
+    }
+
+    public Result&lt;double&gt; GetPressure()
+    {
+        try
+        {
+            _driver.Init();
+            _driver.StartMeasurement();
+            _driver.StopMeasurement();
+            pressure = _driver.GetPressure();
+
+            if(pressure &lt; 0)
+            {
+              return Result.Fail(&#34;Pressure is not plausible.&#34;);
+            }
+
+            return Result.Ok(pressure);
+        }
+        catch()
+        {
+            return Result.Fail(&#34;Could not retrieve Pressure from Sensor.&#34;);
+        }
+    }
+}
+</code></pre><p>In this version we don’t return a <code>bool</code> but a full <code>object</code> of type <code>Result&lt;double&gt;</code>.</p>
+<p>Before digging deeper into the type <code>Result</code>, have a look at the new usage of our service:</p>
+<pre tabindex="0"><code>public static async Task Main(string[] args)
+{
+    var driver = new PressureSensorDriver();
+    var pressureService = new PressureService(driver);
+
+    Result&lt;double&gt; pressure = pressureService.GetPressure();
+
+    if (pressure.IsFailed)
+    {
+        HandleErrorWhileRetrievingPressure(pressure.Errors);
+    }
+
+    Console.WriteLine($&#34;Pressure: {pressure}&#34;);
+
+    Console.ReadKey();
+}
+</code></pre><p>If you review the API and its usage you will notice:</p>
+<p>You do not retrieve a <code>double</code> but a <code>Result&lt;double&gt;</code>. You are forced to think about what you will do if the operation failed. Just by using <code>Result&lt;double&gt;</code> you know that there could be problems. You wouldn’t have noticed that if I just threw an exception inside the method, would you? And that is the big benefit of the Result Pattern.</p>
+<blockquote>
+<p><em><strong>A good API forces the user to use it correctly! It makes it nearly impossible to forget about error handling.</strong></em></p>
+</blockquote>
+<h2 id="the-result-object">The Result Object</h2>
+<p>The result object simply contains the actual value you are interested in plus any additional information you need — error reasons, success reasons, helper methods like <code>IsFailed</code> — be creative!</p>
+<p>This pattern is not new; it’s a classic. There are many libraries for the Result Pattern available, so you don’t even have to implement your own <code>Result</code> class!</p>
+<p>My .NET example used the great project <strong><a href="https://github.com/altmann/FluentResults">FluentResults</a></strong>.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>Just to digest, I will repeat my introduction:</p>
+<p>Exception handling is not easy. It can be done in the wrong places, it can be done the wrong way, and it can even be forgotten completely.</p>
+<p>The best we can do to help our fellow developers with that problem is to design our API as bulletproof as possible.</p>
+<p>An exception-less approach via the Result Pattern is a step in that direction.</p>
+<p>Thanks for reading!</p>
+
+</article>
+
+<section class="subscribe" aria-labelledby="subscribe-title">
+  <p class="prompt" id="subscribe-title"><span class="ps1">~$</span> subscribe --email</p>
+  <p class="comment"># new posts by mail. no spam, unsubscribe any time.</p>
+  <form action="https://buttondown.com/api/emails/embed-subscribe/cellos.blog" method="post" target="_blank">
+    <label for="bd-email" class="visually-hidden">Email address</label>
+    <span class="ps1" aria-hidden="true">&gt;</span>
+    <input type="email" name="email" id="bd-email" placeholder="you@example.com" required autocomplete="email">
+    <input type="hidden" name="embed" value="1">
+    <button type="submit">[ enter ]</button>
+  </form>
+</section>
+
+<p class="prompt"><span class="ps1">~$</span> <a href="/">cd ..</a></p>
+
+  </main>
+  <footer class="site-footer">
+    # © 2026 Marcel Neumann · built with hugo
+  </footer>
+</body>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#0d0f0d">
+  <title>Benefits of Smart Laundry · Cello&#39;s Blog</title>
+  <meta name="description" content="How to make a Dumb washing machine Smart">
+  <link rel="canonical" href="/p/benefits-of-smart-laundry/">
+  <link rel="alternate" type="application/rss+xml" title="Cello&#39;s Blog" href="/index.xml">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="site-title" href="/"><span class="user">cello@cellos.blog</span><span class="cursor" aria-hidden="true"></span></a>
+    <nav>
+      <a href="/index.xml">[rss]</a>
+    </nav>
+  </header>
+  <main>
+    
+<p class="prompt"><span class="ps1">~$</span> cat posts/benefits-of-smart-laundry.md</p>
+<article>
+  <header>
+    <h1>Benefits of Smart Laundry</h1>
+    <p class="subtitle">How to make a Dumb washing machine Smart</p>
+    <p class="byline"><time datetime="2025-07-24">2025-07-24</time> · 4 min read</p>
+  </header>
+  <p><img src="/img/benefits-of-smart-laundry/photo-1610557892470-55d9e80c0bce.jpg" alt="pink and green plastic container" loading="lazy">
+</p>
+<p><em>Photo by engin akyurt on <a href="https://unsplash.com">Unsplash</a></em></p>
+<p>We have kids. Having kids comes with having lots of laundry. Our washing machine runs nearly every day. God forbid if we’d forget to hang out a single load of laundry. The pile would stack up indefinitely…</p>
+<blockquote>
+<p><em><strong>We can’t handle that much pressure! That’s why Home Assistant has to help us.</strong></em></p>
+</blockquote>
+<h2 id="the-problem">The Problem</h2>
+<p>A common situation we were facing is the following:</p>
+<ul>
+<li>We started the washing machine with a big load of kids-laundry in the evening.</li>
+<li>We went right to the couch and watched some Netflix.</li>
+<li>We went to sleep.</li>
+<li>We woke up the next morning with the instant knowledge that we forgot the laundry in the washing machine.</li>
+<li>The laundry stinks due to lying around wet in the drum all night</li>
+<li>We have to wash that load again</li>
+<li>The next kids-laundry-load stacks up the pile.</li>
+</ul>
+<p>That happened way too often. That’s why I decided to make my laundry smart!</p>
+<h2 id="step-1-gathering-data">Step 1: Gathering data</h2>
+<p>Our <strong><a href="https://amzn.to/3ZJhciU">washing machine</a></strong> is really dumb. But there is a common approach in the community to integrate these kind of machines into Home Assistant:</p>
+<blockquote>
+<p><em><strong>You can detect the state of the washing machine by looking at its current power consumption.</strong></em></p>
+</blockquote>
+<p>All I need to retrieve the current power consumption of the washing machine is a <strong><a href="https://amzn.to/4elBvqV">smart plug</a></strong> with integrated power monitoring. Just make sure to check the data sheet — you’ll want one that allows at least <code>2.5kW</code> before shutting off!</p>
+<p>After integrating that plug into Home Assistant, do some washing runs! Try your favorite programs — for us it’s <code>40°C</code> and <code>60°C</code>. Afterwards you can check the power graphs inside the history right from Home Assistant!</p>
+<p><img src="/img/benefits-of-smart-laundry/ffc405da-4bd4-42d9-880d-480b6a1d9d3c_786x291.jpeg" alt="" loading="lazy">
+</p>
+<h2 id="step-2-defining-the-states">Step 2: Defining the states</h2>
+<p>This step was easy. Our washing machine can only have two states: Either it’s <code>washing</code> or it’s <code>idle</code>. I capsuled these two states in an <em>input_select</em> helper.</p>
+<p><img src="/img/benefits-of-smart-laundry/be8b95cd-5fa5-4117-aa6f-96a95b97f9b4_557x727.jpeg" alt="" loading="lazy">
+</p>
+<h2 id="step-3-a-logic-for-setting-the-states">Step 3: A logic for setting the states</h2>
+<p>Look at the graph of my washing machine again:</p>
+<ul>
+<li>Right after I started the run the power goes above <code>2W</code>.</li>
+<li>This is followed by a very high power consumption around <code>1800W</code>. This is where the washing machine heats up the water.</li>
+<li>Later there are several peaks when the laundry gets spun.</li>
+<li>At the end the power consumption drops below <code>2W</code> again.</li>
+</ul>
+<p>Knowing that after analyzing several graphs I created an automation that sets my helper entity’s state to <code>washing</code> when the power consumption is bigger than <code>2W</code> for at least <code>60s</code>.</p>
+<p><img src="/img/benefits-of-smart-laundry/504e50c2-2c91-4957-8532-97213838ed20_786x351.jpeg" alt="" loading="lazy">
+</p>
+<p>I need a second automation to reset my helper entity’s state back to <code>idle</code> when the power consumption is below <code>2W</code> for at least <code>60s</code>.</p>
+<p><img src="/img/benefits-of-smart-laundry/a4b218fd-74b5-4943-aa2c-e26bd48cd291_786x482.webp" alt="" loading="lazy">
+</p>
+<p><img src="/img/benefits-of-smart-laundry/cacb3dc4-eb2f-41d5-ae82-1f227b2c0577_786x351.jpeg" alt="" loading="lazy">
+</p>
+<h2 id="step-4-defining-when-the-laundry-needs-attention">Step 4: Defining when the laundry needs attention</h2>
+<p>Now we know whether the washing machine is <code>idle</code> or <code>washing</code>. But we don’t know whether the laundry needs any <em>attention</em>. Idle can mean two things:</p>
+<ul>
+<li>The washing machine can be <code>idle</code> and empty.</li>
+<li>The washing machine can be <code>idle</code> but filled with wet laundry.</li>
+</ul>
+<p>I therefore created another helper entity. It’s a simple <em>input_boolean</em> which will tell me whether I have to do laundry stuff or can stay on the couch.</p>
+<p><img src="/img/benefits-of-smart-laundry/5a711d26-57df-494c-93d2-8f03c4382f2b_581x521.jpeg" alt="" loading="lazy">
+</p>
+<p>I enable this <em>input_boolean</em> with another automation. As soon as the state of my washing machine changes from <code>washing</code> to <code>idle</code>, I know that it’s done and that my laundry needs attention.</p>
+<p><img src="/img/benefits-of-smart-laundry/b71bc185-3a91-4d8f-9b2f-c8331bd2499e_786x441.webp" alt="" loading="lazy">
+</p>
+<p><img src="/img/benefits-of-smart-laundry/af3c93b0-78bf-49b8-bcbd-909373711ed4_786x283.jpeg" alt="" loading="lazy">
+</p>
+<h2 id="step-5-knowing-when-the-laundry-was-taken-care-of">Step 5: Knowing when the laundry was taken care of</h2>
+<p>The alert reader might already ask how the attention <em>input_boolean</em> will be reset. As soon as my wife or me opens the washing machine I can be <code>95%</code> sure that the laundry gets hung out right away. So I use exactly that as a trigger!</p>
+<p>I bought and attached a <strong><a href="https://amzn.to/3TNr878">cheap contact sensor</a></strong> to my washing machine’s door. That way I can reset the <em>input_boolean</em> in an automation right when the door gets opened:</p>
+<p><img src="/img/benefits-of-smart-laundry/9fd91a1d-c6b3-4e2e-8f8e-f39a3af3c206_786x647.jpeg" alt="" loading="lazy">
+</p>
+<h2 id="benefits">Benefits</h2>
+<p>I now know whether my laundry needs attention or not. This enables me to do some real cool automations:</p>
+<ul>
+<li>I can make a TTS announcement on my <strong><a href="https://amzn.to/3XLmWG7">Sonos speakers</a></strong> which scrambles us to finally take care of the laundry as soon as the washing machine is done.</li>
+<li>I can remind as just before going to bed that there are still wet kid-socks in the washing machine.</li>
+<li>I can color the laundry icon on my dashboard red when there is some laundry work to do.</li>
+</ul>
+<p><img src="/img/benefits-of-smart-laundry/ce260d16-e640-43d8-9e09-3021c822164d_1080x1175.jpeg" alt="" loading="lazy">
+</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>Making a dumb washing machine smart is really <strong>easy</strong> and <strong>inexpensive</strong>. Nevertheless it is really <strong>helpful</strong> and not just kid’s stuff. My wife loves that there are no more stinky laundry surprises in the morning.</p>
+<p>I took the same approach for making our <strong><a href="https://amzn.to/47ON0Vl">dryer</a></strong> smart.</p>
+<p>Damn… The washing machine just send a notification to my phone. :-/</p>
+
+</article>
+
+<section class="subscribe" aria-labelledby="subscribe-title">
+  <p class="prompt" id="subscribe-title"><span class="ps1">~$</span> subscribe --email</p>
+  <p class="comment"># new posts by mail. no spam, unsubscribe any time.</p>
+  <form action="https://buttondown.com/api/emails/embed-subscribe/cellos.blog" method="post" target="_blank">
+    <label for="bd-email" class="visually-hidden">Email address</label>
+    <span class="ps1" aria-hidden="true">&gt;</span>
+    <input type="email" name="email" id="bd-email" placeholder="you@example.com" required autocomplete="email">
+    <input type="hidden" name="embed" value="1">
+    <button type="submit">[ enter ]</button>
+  </form>
+</section>
+
+<p class="prompt"><span class="ps1">~$</span> <a href="/">cd ..</a></p>
+
+  </main>
+  <footer class="site-footer">
+    # © 2026 Marcel Neumann · built with hugo
+  </footer>
+</body>
+</html>

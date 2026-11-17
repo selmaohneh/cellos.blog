@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#0d0f0d">
+  <title>I have nothing to hide - A dangerous mindset in the age of OSINT · Cello&#39;s Blog</title>
+  <meta name="description" content="Personal blog of Marcel Neumann">
+  <link rel="canonical" href="/p/i-have-nothing-to-hide-a-dangerous-mindset-in-the-age-of-osint/">
+  <link rel="alternate" type="application/rss+xml" title="Cello&#39;s Blog" href="/index.xml">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="site-title" href="/"><span class="user">cello@cellos.blog</span><span class="cursor" aria-hidden="true"></span></a>
+    <nav>
+      <a href="/index.xml">[rss]</a>
+    </nav>
+  </header>
+  <main>
+    
+<p class="prompt"><span class="ps1">~$</span> cat posts/i-have-nothing-to-hide-a-dangerous-mindset-in-the-age-of-osint.md</p>
+<article>
+  <header>
+    <h1>I have nothing to hide - A dangerous mindset in the age of OSINT</h1>
+    
+    <p class="byline"><time datetime="2025-07-24">2025-07-24</time> · 3 min read</p>
+  </header>
+  <p><img src="/img/i-have-nothing-to-hide-a-dangerous-mindset-in-the-age-of-osint/photo-1580582932707-520aed937b7b.jpg" alt="brown wooden table and chairs" loading="lazy">
+</p>
+<p><em>Photo by Ivan Aleksic on <a href="https://unsplash.com">Unsplash</a></em></p>
+<p>I often hear the argument &ldquo;I have nothing to hide&rdquo; when talking about data privacy. This argument, of course, is a little naive. Some time ago I came across a story that shows how easy it is to find enough private information about a person in publicly available sources (also called OSINT - Open Source Intelligence) to perform a scary phishing attack.</p>
+<p>No matter if the story actually happened or is just made up, I want to rethink the steps of that attack from the role of the attacker to show how trivial it actually is. After reading it, be honest with yourself—would you have fallen for it?</p>
+<h3 id="finding-the-target">Finding the Target</h3>
+<p>The first step is to find a company we want to attack. After some Googling, we find a promising company called <em>Generic Company</em>. We defined that company as interesting because of two facts:</p>
+<ol>
+<li>The company has a high revenue every year. A high revenue also means a high potential bounty. This data is publicly available since the company is legally bound to publish a report periodically. There are multiple websites we can use to see the numbers, i.e., <strong><a href="http://annualreports.com/">annualreports.com</a></strong>.</li>
+<li>The company has to have an impressum on its website. The impressum lists the email address of the secretary: <strong><a href="mailto:flobdop.jenny@generic-company.com">flobdop.jenny@generic-company.com</a></strong>. We noticed that <em>Flobdop</em> is a pretty uncommon last name. This is promising for further investigations.</li>
+</ol>
+<h3 id="finding-the-weak-point">Finding the Weak Point</h3>
+<p>Now we start researching <em>Flobdop</em> with some additional information, like the city of the company. We find an article from <em>Generic School</em> that says that Sarah Flobdop (14) won the school&rsquo;s art competition. We also find a death notice stating that Jenny, Mike, and Sarah are mourning the loss of their beloved Marge Flobdop. It&rsquo;s not rocket science to figure out that Sarah seems to be the daughter of our secretary Jenny from <em>Generic Company</em>.</p>
+<h3 id="setting-the-scene">Setting the Scene</h3>
+<p>Now we open up Google Maps and take a look at <em>Generic School</em>. We look for the nearest hospital and find <em>Generic Hospital</em>. The website shows us that there is an emergency ambulance. There is also a &ldquo;Meet the Team&rdquo; section. We now even know the name of the emergency doctor at the hospital, <em>Doctor Generic</em>. We could even take a little walk, visit the hospital, and take a photo of the shift schedule to know who will work next week.</p>
+<h3 id="preparing-to-phish">Preparing to Phish</h3>
+<p>We go back to the website of the school and download some of the available documents. They all have a nice-looking school letterhead. We simply copy that for our own document we are about to write. We also note down the name of the school counselor.</p>
+<h3 id="the-attack">The Attack</h3>
+<p>Let&rsquo;s swap roles again! We are now Jenny Flobdop.</p>
+<p>It&rsquo;s a Tuesday morning. Kids are in school, and we are back at <em>Generic Company</em> doing work. Then an email pops up. You immediately recognize the design of your daughter&rsquo;s school. It says that they are sorry to inform you that your daughter Sarah had a school accident and was sent to <em>Generic Hospital</em>. Attached you&rsquo;ll find the admission report from Doctor Generic, signed by <em>Generic School Counselor</em>.</p>
+<p>Of course the attachment was opened. The secretary was under emotional stress. <strong>Boom</strong>. As soon as the .pdf is opened, the ransomware starts&hellip;</p>
+<p>According to the speaker this click cost <em>Generic Company</em> <strong><a href="https://www.youtube.com/watch?v=Zn-vOGp-e4c">over 4 million bucks</a></strong>.</p>
+<h3 id="conclusion">Conclusion</h3>
+<p>This attack is powered solely by publicly available information. There is no Matrix-style hacking involved; it&rsquo;s just a well-crafted phishing email that was created using the information we gathered through OSINT. So please reconsider your &ldquo;I have nothing to hide&rdquo; mentality.</p>
+
+</article>
+
+<section class="subscribe" aria-labelledby="subscribe-title">
+  <p class="prompt" id="subscribe-title"><span class="ps1">~$</span> subscribe --email</p>
+  <p class="comment"># new posts by mail. no spam, unsubscribe any time.</p>
+  <form action="https://buttondown.com/api/emails/embed-subscribe/cellos.blog" method="post" target="_blank">
+    <label for="bd-email" class="visually-hidden">Email address</label>
+    <span class="ps1" aria-hidden="true">&gt;</span>
+    <input type="email" name="email" id="bd-email" placeholder="you@example.com" required autocomplete="email">
+    <input type="hidden" name="embed" value="1">
+    <button type="submit">[ enter ]</button>
+  </form>
+</section>
+
+<p class="prompt"><span class="ps1">~$</span> <a href="/">cd ..</a></p>
+
+  </main>
+  <footer class="site-footer">
+    # © 2026 Marcel Neumann · built with hugo
+  </footer>
+</body>
+</html>

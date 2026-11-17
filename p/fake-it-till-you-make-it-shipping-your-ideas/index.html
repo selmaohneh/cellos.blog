@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#0d0f0d">
+  <title>Fake it till you Make it: Shipping your Ideas · Cello&#39;s Blog</title>
+  <meta name="description" content="Personal blog of Marcel Neumann">
+  <link rel="canonical" href="/p/fake-it-till-you-make-it-shipping-your-ideas/">
+  <link rel="alternate" type="application/rss+xml" title="Cello&#39;s Blog" href="/index.xml">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="site-title" href="/"><span class="user">cello@cellos.blog</span><span class="cursor" aria-hidden="true"></span></a>
+    <nav>
+      <a href="/index.xml">[rss]</a>
+    </nav>
+  </header>
+  <main>
+    
+<p class="prompt"><span class="ps1">~$</span> cat posts/fake-it-till-you-make-it-shipping-your-ideas.md</p>
+<article>
+  <header>
+    <h1>Fake it till you Make it: Shipping your Ideas</h1>
+    
+    <p class="byline"><time datetime="2025-07-24">2025-07-24</time> · 3 min read</p>
+  </header>
+  <p><img src="/img/fake-it-till-you-make-it-shipping-your-ideas/photo-1648195699350-fa0ed4a263e7.jpg" alt="graffiti on a wall that says fake" loading="lazy">
+</p>
+<p><em>Photo by Markus Spiske on <a href="https://unsplash.com">Unsplash</a></em></p>
+<h2 id="procrastination">Procrastination</h2>
+<p>I recently decided to start a new side-project. It’s an app for android. I often have ideas for handy little apps — but I only ever shipped a few. Why is that?</p>
+<p>Right after an idea emerges, I immediately start to think about architecture and technical details.</p>
+<ul>
+<li>I will definitely need a database…</li>
+<li>No self-hosting. I definitely need to host that in the cloud. Maybe on AWS or Azure?</li>
+<li>Maybe some server-less approach?</li>
+<li>What kind of databases does AWS provide?</li>
+<li>…</li>
+</ul>
+<p>I then waste at least two weeks drilling down the AWS documentation and researching several irrelevant topics like <code>global secondary index</code> or <code>DynamoDB sort keys</code>. Sounds familiar? It usually ends with:</p>
+<blockquote>
+<p><em><strong>That will be a huge application. I won’t be able to develop that on my own with that little spare time.</strong></em></p>
+</blockquote>
+<p>And just like that a great app idea dies. Right before it even started.</p>
+<h2 id="getting-sht-done">Getting sh*t done!</h2>
+<p>I learned from these mistakes. The first step to fix them is easy:</p>
+<blockquote>
+<p><em><strong>Just start coding!</strong></em></p>
+</blockquote>
+<p>Open your IDE and get going. Connect your mobile to the computer and start up the template solution. As soon as you see the first little success, you will keep going on.</p>
+<h2 id="fake-it">Fake it!</h2>
+<p>But what about the database? There is a simple solution for that too. And it works so well for me, I felt compelled to share it:</p>
+<blockquote>
+<p><em><strong>Fake it till you make it!</strong></em></p>
+</blockquote>
+<p>You don’t need a full fledged cloud-database to get started. Just get your interfaces right.</p>
+<p>A simple <code>IDatabase</code> might be enough. Add methods to it as you go and need them.</p>
+<ul>
+<li><code>IDatabase.GetUser(Guid userId)</code></li>
+<li><code>IDatabase.GetPostsBy(Guid userId)</code></li>
+<li>…</li>
+</ul>
+<p>I simply implement a <code>LocalDatabase</code> class that implements the interface returning some dummy data. As I need more test data I might implement a <code>FileDatabase</code> class which returns data from a file.</p>
+<p>That way I was able to complete the whole app before even thinking about clouds, AWS, Azure, server-less or partition keys.</p>
+<blockquote>
+<p><em><strong>By moving hard decisions like choosing a database to the end of the project, I got rid of all fear and actually finished the app!</strong></em></p>
+</blockquote>
+<p>And even better: At that point, I had all the information I needed to choose the correct database. I knew my access patterns and which queries I need. All that without spending a single penny to AWS while developing.</p>
+<p>If that big technical decision is the last step to finish your product, you will definitely do it. You won’t drop that much work you already invested. You won’t drop your idea when you can already see it and use it!</p>
+<h2 id="summary">Summary</h2>
+<p>Faking technical decisions in code is a psychological trick to actually finish and ship your ideas. It helps me get started. It helps me get things done. Maybe it helps you, as well.</p>
+
+</article>
+
+<section class="subscribe" aria-labelledby="subscribe-title">
+  <p class="prompt" id="subscribe-title"><span class="ps1">~$</span> subscribe --email</p>
+  <p class="comment"># new posts by mail. no spam, unsubscribe any time.</p>
+  <form action="https://buttondown.com/api/emails/embed-subscribe/cellos.blog" method="post" target="_blank">
+    <label for="bd-email" class="visually-hidden">Email address</label>
+    <span class="ps1" aria-hidden="true">&gt;</span>
+    <input type="email" name="email" id="bd-email" placeholder="you@example.com" required autocomplete="email">
+    <input type="hidden" name="embed" value="1">
+    <button type="submit">[ enter ]</button>
+  </form>
+</section>
+
+<p class="prompt"><span class="ps1">~$</span> <a href="/">cd ..</a></p>
+
+  </main>
+  <footer class="site-footer">
+    # © 2026 Marcel Neumann · built with hugo
+  </footer>
+</body>
+</html>

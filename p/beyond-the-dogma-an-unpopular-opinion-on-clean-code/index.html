@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#0d0f0d">
+  <title>Beyond the Dogma: An unpopular opinion on Clean Code · Cello&#39;s Blog</title>
+  <meta name="description" content="Personal blog of Marcel Neumann">
+  <link rel="canonical" href="/p/beyond-the-dogma-an-unpopular-opinion-on-clean-code/">
+  <link rel="alternate" type="application/rss+xml" title="Cello&#39;s Blog" href="/index.xml">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="site-title" href="/"><span class="user">cello@cellos.blog</span><span class="cursor" aria-hidden="true"></span></a>
+    <nav>
+      <a href="/index.xml">[rss]</a>
+    </nav>
+  </header>
+  <main>
+    
+<p class="prompt"><span class="ps1">~$</span> cat posts/beyond-the-dogma-an-unpopular-opinion-on-clean-code.md</p>
+<article>
+  <header>
+    <h1>Beyond the Dogma: An unpopular opinion on Clean Code</h1>
+    
+    <p class="byline"><time datetime="2025-07-24">2025-07-24</time> · 2 min read</p>
+  </header>
+  <p><img src="/img/beyond-the-dogma-an-unpopular-opinion-on-clean-code/photo-1631333615271-c8e1028e9717.jpg" alt="a neon sign on the side of a building" loading="lazy">
+</p>
+<p><em>Photo by Jon Tyson on <a href="https://unsplash.com">Unsplash</a></em></p>
+<h2 id="an-uplifting-read">An uplifting read</h2>
+<p>Part of being a good developer is reading books and pursuing lifelong learning. One of the books that greatly influenced me as a young professional was <strong><a href="https://amzn.to/3XZ8j3J">“Clean Code” by Robert C. Martin</a></strong>.</p>
+<p>The best part? It’s an uplifting read. Even with limited software knowledge, you can easily grasp Martin’s concepts. I remember sitting on the train, reading with a smile on my face, and nodding in agreement throughout.</p>
+<blockquote>
+<p><em><strong>Martin is spot on! “Clean Code” is the real deal!</strong></em></p>
+</blockquote>
+<h2 id="the-hardliner">The Hardliner</h2>
+<p>That’s when my “Clean Code” phase began. I treated all of Martin’s principles as established facts; a guidebook that all good developers must adhere to. I became rather dogmatic, sometimes blindly applying Martin’s suggestions.</p>
+<p><code>DRY</code> (Don’t Repeat Yourself) — one of the key tenets of Clean Code. I internalized Martin’s ideas and shared them with my colleagues like a prophet. If I noticed something duplicated three times, I’d get nervous and immediately address it through extraction.</p>
+<blockquote>
+<p><em><strong>“Extract ’til you drop!” — Martin’s mantra.</strong></em></p>
+</blockquote>
+<h2 id="coming-of-age">Coming of Age</h2>
+<p>Becoming a Senior Developer required me to question Martin’s principles. Don’t get me wrong, Martin is still correct and “Clean Code” remains essential. However, blindly adopting all his rules is a mistake. Ponder them; some rules even contradict each other. <code>DRY</code> can lead to complex architectures that breach the <code>KISS</code> (Keep It Simple, Stupid!) principle. It can also lead to disregarding <code>YAGNI</code> (You Ain’t Gonna Need It).</p>
+<p>I’ve come to realize that 6 lines of duplicated code are often cleaner than, for instance, implementing an observer pattern. With those 6 lines, I can instantly understand the code, without having to navigate through multiple classes and interfaces. If those 6 lines turn into 7 lines in 5 years, so be it. It’s an acceptable growth.</p>
+<p>If you find yourself with 12 lines of duplicated code growing every month, it’s a sign that refactoring should be scheduled.</p>
+<h2 id="some-advice">Some Advice</h2>
+<p>I believe every dedicated developer experiences a dogmatic Clean Code phase, so I won’t advise you to skip it. But keep it brief by critically evaluating Martin’s rules and adopting them only when they truly fit!</p>
+<p>Another rule I always remember:</p>
+<blockquote>
+<p><em><strong>The developer who has to debug your code is a serial killer who knows where you live!</strong></em></p>
+</blockquote>
+<p>Will you offer them 6 lines of code adding items to a list, or will you guide him through the Visitor Pattern to gather those 6 items?</p>
+
+</article>
+
+<section class="subscribe" aria-labelledby="subscribe-title">
+  <p class="prompt" id="subscribe-title"><span class="ps1">~$</span> subscribe --email</p>
+  <p class="comment"># new posts by mail. no spam, unsubscribe any time.</p>
+  <form action="https://buttondown.com/api/emails/embed-subscribe/cellos.blog" method="post" target="_blank">
+    <label for="bd-email" class="visually-hidden">Email address</label>
+    <span class="ps1" aria-hidden="true">&gt;</span>
+    <input type="email" name="email" id="bd-email" placeholder="you@example.com" required autocomplete="email">
+    <input type="hidden" name="embed" value="1">
+    <button type="submit">[ enter ]</button>
+  </form>
+</section>
+
+<p class="prompt"><span class="ps1">~$</span> <a href="/">cd ..</a></p>
+
+  </main>
+  <footer class="site-footer">
+    # © 2026 Marcel Neumann · built with hugo
+  </footer>
+</body>
+</html>

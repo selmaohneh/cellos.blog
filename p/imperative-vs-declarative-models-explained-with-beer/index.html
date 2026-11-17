@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#0d0f0d">
+  <title>Imperative vs. Declarative Models. Explained with Beer · Cello&#39;s Blog</title>
+  <meta name="description" content="Personal blog of Marcel Neumann">
+  <link rel="canonical" href="/p/imperative-vs-declarative-models-explained-with-beer/">
+  <link rel="alternate" type="application/rss+xml" title="Cello&#39;s Blog" href="/index.xml">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="site-title" href="/"><span class="user">cello@cellos.blog</span><span class="cursor" aria-hidden="true"></span></a>
+    <nav>
+      <a href="/index.xml">[rss]</a>
+    </nav>
+  </header>
+  <main>
+    
+<p class="prompt"><span class="ps1">~$</span> cat posts/imperative-vs-declarative-models-explained-with-beer.md</p>
+<article>
+  <header>
+    <h1>Imperative vs. Declarative Models. Explained with Beer</h1>
+    
+    <p class="byline"><time datetime="2025-07-24">2025-07-24</time> · 3 min read</p>
+  </header>
+  <p><img src="/img/imperative-vs-declarative-models-explained-with-beer/photo-1605251947757-4cad133bd9e0.jpg" alt="brown and white labeled can" loading="lazy">
+</p>
+<p><em>Photo by Masaaki Komori on <a href="https://unsplash.com">Unsplash</a></em></p>
+<p>Do you know the difference between an imperative modelling approach and a declarative one? If not, here is a brief explanation with beer.</p>
+<p>When hosting a party in our garage, I need to make sure the fridge is filled with beer. Of course we also organize soft drinks and water, since legend has it that there are people who don&rsquo;t like beer.</p>
+<h2 id="the-imperative-model">The Imperative Model</h2>
+<p>Let&rsquo;s say I have space for around 30 bottles in my fridge. I put 15 bottles of beer, 10 bottles of soft drinks and 5 bottles of water in it.</p>
+<blockquote>
+<p><em><strong>Perfect! Work done, the party can start!</strong></em></p>
+</blockquote>
+<p>But 10 minutes into the party, the work continues. The fridge is getting empty and I have to replenish the supply. My desired state of 15/10/5 bottles has already dropped to roughly 6/5/4.</p>
+<p>I need to move more bottles from the beer, soft drink, and water cases to the fridge to keep them cold.</p>
+<p>Phew… that is quite tedious. The work never stops since it&rsquo;s my job to maintain the desired state of 15/10/5 bottles all night long.</p>
+<p>That&rsquo;s why I instructed everyone to refill the fridge from time to time when they see a shortage, by sticking a note on the fridge.</p>
+<p>But chaos soon ensues. We now have very strange fridge-bottle-ratios:</p>
+<ul>
+<li>Either there are too many bottles in the fridge, causing them to roll out and spill all over the floor,</li>
+<li>Or the fridge is full but doesn&rsquo;t contain a single bottle of beer.</li>
+<li>…</li>
+</ul>
+<p>This pretty much sums up how an imperative model works:</p>
+<ul>
+<li>There is the job of moving bottles from the case to the fridge</li>
+<li>This has to be done once before the party</li>
+<li>The bottle count has to be checked regularly</li>
+<li>The job of restocking the fridge needs to be done repeatedly</li>
+</ul>
+<blockquote>
+<p><em><strong>The imperative model focuses on the actions that need to be done in order to set the system up and keep it running.</strong></em></p>
+</blockquote>
+<h2 id="the-declarative-model">The Declarative Model</h2>
+<p>I learned from my mistakes! I don&rsquo;t want to go to bed at 9pm because I&rsquo;m exhausted from all the work. So, we hired a bartender.</p>
+<p>We told the bartender our desired state of 15/10/5 bottles, and he handles the rest for us.</p>
+<ul>
+<li>
+<p>He sets up the fridge initially,</p>
+</li>
+<li>
+<p>He checks the ratio regularly,</p>
+</li>
+<li>
+<p>He refills the fridge as needed.</p>
+</li>
+<li>
+<p>…</p>
+</li>
+</ul>
+<p>In essence, he performs all the jobs I had to do. I can enjoy the party without worry.</p>
+<p>So from my perspective, the following happened:</p>
+<p>Instead of focusing on the actions that need to be done, I simply defined the desired end-state and delegated the responsibility of achieving that state to the bartender. I don&rsquo;t even care <strong>how</strong> he does his job, as long as he guarantees that the fridge is always filled as I requested.</p>
+<blockquote>
+<p><em><strong>The declarative model focuses on the desired state while delegating the responsibility of the necessary actions to achieve that state.</strong></em></p>
+</blockquote>
+<h2 id="why-beer">Why beer?</h2>
+<p>There might be better examples like:</p>
+<ul>
+<li>Setting the room temperature on a thermostat vs. switching a heater on and off all the time depending on the current temperature</li>
+<li>Asking a cook to provide a buffet for 20 people vs. giving the cook atomic instructions on what to buy, how to cut the ingredients, how to season, …</li>
+<li>Kubernetes: Scaling pods on load changes</li>
+<li>…</li>
+</ul>
+<p>But I like beer. So I chose this example. Deal with it.</p>
+<p>I learned these concepts while reading <strong><a href="https://amzn.to/3LyFNOS">The Kubernetes Book by Nigel Poulton</a></strong>. It&rsquo;s really well written, and I recommend it to anyone who needs a deep dive into Kubernetes.</p>
+
+</article>
+
+<section class="subscribe" aria-labelledby="subscribe-title">
+  <p class="prompt" id="subscribe-title"><span class="ps1">~$</span> subscribe --email</p>
+  <p class="comment"># new posts by mail. no spam, unsubscribe any time.</p>
+  <form action="https://buttondown.com/api/emails/embed-subscribe/cellos.blog" method="post" target="_blank">
+    <label for="bd-email" class="visually-hidden">Email address</label>
+    <span class="ps1" aria-hidden="true">&gt;</span>
+    <input type="email" name="email" id="bd-email" placeholder="you@example.com" required autocomplete="email">
+    <input type="hidden" name="embed" value="1">
+    <button type="submit">[ enter ]</button>
+  </form>
+</section>
+
+<p class="prompt"><span class="ps1">~$</span> <a href="/">cd ..</a></p>
+
+  </main>
+  <footer class="site-footer">
+    # © 2026 Marcel Neumann · built with hugo
+  </footer>
+</body>
+</html>
