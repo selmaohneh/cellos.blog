@@ -2,6 +2,7 @@
 title: "Imperative vs. Declarative Models. Explained with Beer"
 date: 2025-07-24T10:34:20.595Z
 slug: "imperative-vs-declarative-models-explained-with-beer"
+aliases: ["/p/imperative-vs-declarative-models-explained-with-beer/"]
 ---
 
 ![brown and white labeled can](/img/imperative-vs-declarative-models-explained-with-beer/photo-1605251947757-4cad133bd9e0.jpg)

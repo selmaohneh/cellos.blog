@@ -9,9 +9,10 @@ enableRobotsTXT = true
   # Buttondown username, as in the form URL under Settings → Embedding.
   buttondown = "cellos.blog"
 
-# Same URL scheme as Substack, so existing links keep working.
+# Posts live at /<slug>/. Posts imported from Substack also carry an alias
+# at /p/<slug>/ that redirects to the new address (see front matter).
 [permalinks.page]
-  posts = "/p/:slug/"
+  posts = "/:slug/"
 
 [outputs]
   home = ["HTML", "RSS"]

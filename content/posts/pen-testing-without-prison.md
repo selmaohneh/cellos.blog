@@ -3,6 +3,7 @@ title: "Pen-testing without Prison"
 subtitle: "Laws every Ethical Hacker should know"
 date: 2025-08-29T06:02:03.345Z
 slug: "pen-testing-without-prison"
+aliases: ["/p/pen-testing-without-prison/"]
 ---
 
 ![gray stainless steel bed frame](/img/pen-testing-without-prison/photo-1567766176311-a1a2d11a3e35.jpg)

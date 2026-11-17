@@ -3,6 +3,7 @@ title: "How I explained IoC and DI to our Senior Software Engineer"
 subtitle: "A Step-by-Step Guide to Understanding Inversion of Control and Dependency Injection"
 date: 2025-07-24T10:39:04.060Z
 slug: "how-i-explained-ioc-and-di-to-our-senior-software-engineer"
+aliases: ["/p/how-i-explained-ioc-and-di-to-our-senior-software-engineer/"]
 ---
 
 ![person holding white and silver-colored pocket watch](/img/how-i-explained-ioc-and-di-to-our-senior-software-engineer/photo-1431499012454-31a9601150c9.jpg)

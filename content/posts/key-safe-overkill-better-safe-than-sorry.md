@@ -2,6 +2,7 @@
 title: "Key Safe Overkill: Better Safe than Sorry"
 date: 2025-07-24T11:36:49.468Z
 slug: "key-safe-overkill-better-safe-than-sorry"
+aliases: ["/p/key-safe-overkill-better-safe-than-sorry/"]
 ---
 
 ![photo of key against black background](/img/key-safe-overkill-better-safe-than-sorry/photo-1503792243040-7ce7f5f06085.jpg)

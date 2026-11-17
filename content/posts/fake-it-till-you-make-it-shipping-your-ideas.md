@@ -2,6 +2,7 @@
 title: "Fake it till you Make it: Shipping your Ideas"
 date: 2025-07-24T10:24:35.207Z
 slug: "fake-it-till-you-make-it-shipping-your-ideas"
+aliases: ["/p/fake-it-till-you-make-it-shipping-your-ideas/"]
 ---
 
 ![graffiti on a wall that says fake](/img/fake-it-till-you-make-it-shipping-your-ideas/photo-1648195699350-fa0ed4a263e7.jpg)

@@ -2,13 +2,14 @@
 title: "My guests' favorite automation is dumb as hell"
 date: 2025-07-24T11:41:52.706Z
 slug: "my-guests-favorite-automation-is-dumb-as-hell"
+aliases: ["/p/my-guests-favorite-automation-is-dumb-as-hell/"]
 ---
 
 ![yellow and white trophy](/img/my-guests-favorite-automation-is-dumb-as-hell/photo-1578269174936-2709b6aeb913.jpg)
 
 *Photo by Giorgio Trovato on [Unsplash](https://unsplash.com)*
 
-I've installed quite some smart home stuff in my house. Some projects I'm really proud of, like the **[music box I built for my daughter](https://www.cellos.blog/p/spotify-made-my-daughter-cry-home-assistant-made-her-smile-again/)**. Others are super nerdy, like the **[smart meter I made for my gas meter](https://www.cellos.blog/p/how-home-assistant-saves-me-250-every-year/)**.
+I've installed quite some smart home stuff in my house. Some projects I'm really proud of, like the **[music box I built for my daughter](/spotify-made-my-daughter-cry-home-assistant-made-her-smile-again/)**. Others are super nerdy, like the **[smart meter I made for my gas meter](/how-home-assistant-saves-me-250-every-year/)**.
 
 I would have expected visitors who are not so tech-savvy to be really impressed by that.
 

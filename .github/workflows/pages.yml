@@ -34,10 +34,11 @@ jobs:
         uses: actions/configure-pages@v5
       - name: Build
         run: hugo --gc --minify --baseURL "${{ steps.pages.outputs.base_url || 'https://www.cellos.blog' }}/"
-      - name: Check Substack-style URL
+      - name: Check post URLs, old /p/ redirects and subscribe form
         run: |
-          test -f public/p/benefits-of-smart-laundry/index.html
-          grep -q 'embed-subscribe/' public/p/benefits-of-smart-laundry/index.html
+          test -f public/benefits-of-smart-laundry/index.html
+          grep -q 'embed-subscribe/' public/benefits-of-smart-laundry/index.html
+          grep -q 'benefits-of-smart-laundry/' public/p/benefits-of-smart-laundry/index.html
           grep -q 'embed-subscribe/' public/index.html
       - name: Upload preview of the built site
         if: github.event_name == 'pull_request'

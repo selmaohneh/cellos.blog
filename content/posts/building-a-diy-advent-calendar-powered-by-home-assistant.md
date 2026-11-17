@@ -3,6 +3,7 @@ title: "Building a DIY Advent Calendar powered by Home Assistant"
 subtitle: "24 days of Bibi Blocksberg"
 date: 2025-11-11T11:50:48.665Z
 slug: "building-a-diy-advent-calendar-powered-by-home-assistant"
+aliases: ["/p/building-a-diy-advent-calendar-powered-by-home-assistant/"]
 ---
 
 **Christmas is coming!**
@@ -11,7 +12,7 @@ That also means it’s time once again to fill Advent calendars for the kids. Th
 
 ![](/img/building-a-diy-advent-calendar-powered-by-home-assistant/9bf3c92c-6d27-4d54-89fe-6ffe9b7ae0fb_4000x3000.jpeg)
 
-Some time ago, I built my daughter her own music box. The box is based on *ESPHome*, recognizes when *NFC* tags are placed on it, and then starts an album via *Home Assistant* → *Music Assistant* → *Spotify* on a *SONOS* speaker. I packed the whole thing into a *LEGO* case and attached a few buttons — basically a DIY *Toniebox*. Since so many people have asked about the *LEGO* version, I still owe you a separate blog post on that. But you can find the guide to the first version [here](https://www.cellos.blog/p/spotify-made-my-daughter-cry-home-assistant-made-her-smile-again/).
+Some time ago, I built my daughter her own music box. The box is based on *ESPHome*, recognizes when *NFC* tags are placed on it, and then starts an album via *Home Assistant* → *Music Assistant* → *Spotify* on a *SONOS* speaker. I packed the whole thing into a *LEGO* case and attached a few buttons — basically a DIY *Toniebox*. Since so many people have asked about the *LEGO* version, I still owe you a separate blog post on that. But you can find the guide to the first version [here](/spotify-made-my-daughter-cry-home-assistant-made-her-smile-again/).
 
 ![](/img/building-a-diy-advent-calendar-powered-by-home-assistant/5efa0ebb-02d0-420f-b5f0-b26e60f2762f_720x540.jpeg)
 

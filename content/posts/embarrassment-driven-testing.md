@@ -2,6 +2,7 @@
 title: "Embarrassment-Driven-Testing"
 date: 2025-07-24T10:37:04.578Z
 slug: "embarrassment-driven-testing"
+aliases: ["/p/embarrassment-driven-testing/"]
 ---
 
 ![girl covering her face with both hands](/img/embarrassment-driven-testing/photo-1483193722442-5422d99849bc.jpg)

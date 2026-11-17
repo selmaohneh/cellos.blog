@@ -2,6 +2,7 @@
 title: "Lost in Translation"
 date: 2025-07-24T11:13:14.718Z
 slug: "lost-in-translation"
+aliases: ["/p/lost-in-translation/"]
 ---
 
 ![a wooden block that says translation on it](/img/lost-in-translation/photo-1673515335152-f2589ba8bb7a.jpg)
