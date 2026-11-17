@@ -90,10 +90,10 @@ article h5::before { content: "##### "; color: var(--muted); }
 strong { color: #eef3ee; }
 em { color: var(--text); }
 hr { border: 0; border-top: 1px dashed var(--rule); margin: 2.5rem 0; }
-ul, ol { padding-left: 2.5ch; }
-ul { list-style: none; }
-ul > li::before { content: "-"; color: var(--green); display: inline-block; width: 2.5ch; margin-left: -2.5ch; }
-ol > li::marker { color: var(--green); }
+article ul, article ol { padding-left: 2.5ch; }
+article ul { list-style: none; }
+article ul > li::before { content: "-"; color: var(--green); display: inline-block; width: 2.5ch; margin-left: -2.5ch; }
+article ol > li::marker { color: var(--green); }
 blockquote { margin: 1.5rem 0; padding: 0 0 0 2ch; border-left: 2px solid var(--green); color: var(--muted); }
 code { color: var(--amber); font-family: var(--mono); font-size: .95em; }
 pre { overflow-x: auto; padding: 1rem; background: var(--panel); border: 1px solid var(--rule); font-size: .88rem; line-height: 1.55; }
