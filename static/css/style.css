@@ -39,3 +39,12 @@ article header { margin-bottom: 2rem; }
 img, video, iframe { max-width: 100%; height: auto; }
 pre { overflow-x: auto; padding: 1rem; border: 1px solid var(--rule); border-radius: 6px; font-size: .9rem; }
 blockquote { margin: 1.5rem 0; padding-left: 1rem; border-left: 3px solid var(--rule); color: var(--muted); }
+
+.subscribe { margin: 3rem 0; padding: 1.5rem; border: 1px solid var(--rule); border-radius: 8px; }
+.subscribe h2 { margin: 0 0 .25rem; font-size: 1.2rem; }
+.subscribe p { margin: 0 0 1rem; color: var(--muted); font-size: .95rem; }
+.subscribe form { display: flex; gap: .5rem; flex-wrap: wrap; }
+.subscribe input[type=email] { flex: 1 1 14rem; padding: .6rem .75rem; font: inherit; font-size: 1rem; color: var(--text); background: var(--bg); border: 1px solid var(--rule); border-radius: 6px; }
+.subscribe button { padding: .6rem 1.1rem; font: 600 1rem system-ui, -apple-system, "Segoe UI", sans-serif; color: #fff; background: var(--link); border: 0; border-radius: 6px; cursor: pointer; }
+@media (prefers-color-scheme: dark) { .subscribe button { color: #161616; } }
+.visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }

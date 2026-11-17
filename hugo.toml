@@ -6,6 +6,8 @@ enableRobotsTXT = true
 [params]
   description = "Personal blog of Marcel Neumann"
   author = "Marcel Neumann"
+  # Buttondown username, as in the form URL under Settings → Embedding.
+  buttondown = "cellos.blog"
 
 # Same URL scheme as Substack, so existing links keep working.
 [permalinks.page]
