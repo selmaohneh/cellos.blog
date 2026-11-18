@@ -1,0 +1,94 @@
+<!--
+  Buttondown RSS-to-email body template for cellos.blog.
+  Paste everything below this comment into Buttondown → Automations → RSS feed → Body.
+  Subject template:  {{ item.title }}
+  Feed URL:          https://www.cellos.blog/index.xml
+
+  The feed (layouts/index.rss.xml) gives each item:
+    item.enclosure    the post's preview image (absolute URL)
+    item.description  <p><strong>subtitle</strong></p><p>teaser …</p>
+  The email deliberately shows only a teaser so readers click through to the blog.
+-->
+{% with link=item.url|add:"?utm_source=newsletter&utm_medium=email&utm_campaign=new-post" %}
+<div style="display:none;max-height:0;overflow:hidden;opacity:0;color:#0d0f0d;font-size:1px;line-height:1px;">{{ item.description|striptags|truncatechars:140 }}</div>
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#0d0f0d" style="width:100%;background:#0d0f0d;border-collapse:collapse;">
+  <tr>
+    <td align="center" style="padding:24px 12px;">
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="max-width:600px;width:100%;border-collapse:collapse;font-family:ui-monospace,'JetBrains Mono','Cascadia Mono','Fira Code',Menlo,Consolas,'Liberation Mono','Courier New',monospace;color:#cfd6cf;font-size:15px;line-height:1.7;">
+
+        <!-- header -->
+        <tr>
+          <td style="padding:0 0 12px;border-bottom:1px dashed #2a312a;">
+            <a href="https://www.cellos.blog/?utm_source=newsletter&utm_medium=email&utm_campaign=new-post" style="color:#5fd068;font-weight:700;text-decoration:none;">cello@cellos.blog<span style="background:#5fd068;color:#5fd068;">&#9608;</span></a>
+          </td>
+        </tr>
+
+        <!-- prompt -->
+        <tr>
+          <td style="padding:24px 0 16px;">
+            <span style="color:#5fd068;font-weight:700;">~$</span> cat posts/new.md
+          </td>
+        </tr>
+
+        <!-- image -->
+        {% if item.enclosure %}
+        <tr>
+          <td style="padding:0 0 20px;">
+            <a href="{{ link }}" style="text-decoration:none;">
+              <img src="{{ item.enclosure }}" alt="{{ item.title }}" width="600" style="display:block;width:100%;max-width:600px;height:auto;border:1px solid #2a312a;">
+            </a>
+          </td>
+        </tr>
+        {% endif %}
+
+        <!-- title -->
+        <tr>
+          <td style="padding:0 0 4px;">
+            <h1 style="margin:0;font-family:inherit;font-size:22px;line-height:1.35;font-weight:700;">
+              <a href="{{ link }}" style="color:#5fd068;text-decoration:none;">{{ item.title }}</a>
+            </h1>
+          </td>
+        </tr>
+
+        <!-- subtitle + teaser -->
+        <tr>
+          <td style="padding:0 0 8px;color:#cfd6cf;font-family:inherit;font-size:15px;line-height:1.7;">
+            {{ item.description|safe }}
+          </td>
+        </tr>
+
+        <!-- call to action -->
+        <tr>
+          <td style="padding:8px 0 28px;">
+            <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;">
+              <tr>
+                <td bgcolor="#5fd068" style="background:#5fd068;">
+                  <a href="{{ link }}" style="display:inline-block;padding:12px 20px;font-family:ui-monospace,Menlo,Consolas,'Courier New',monospace;font-size:15px;font-weight:700;color:#0d0f0d;text-decoration:none;">[ read the full post &rarr; ]</a>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <!-- secondary link -->
+        <tr>
+          <td style="padding:16px 0 0;border-top:1px dashed #2a312a;color:#7d887d;font-size:13px;">
+            <span style="color:#5fd068;font-weight:700;">~$</span>
+            <a href="https://www.cellos.blog/?utm_source=newsletter&utm_medium=email&utm_campaign=new-post" style="color:#cfd6cf;text-decoration:underline;text-decoration-color:#5fd068;">ls -t posts/</a>
+            <span style="color:#7d887d;"># more posts on the blog</span>
+          </td>
+        </tr>
+
+        <!-- footer -->
+        <tr>
+          <td style="padding:16px 0 0;color:#7d887d;font-size:12px;line-height:1.6;">
+            # you get this because you subscribed on cellos.blog.<br>
+            # reply to this email, I read every one.
+          </td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+{% endwith %}
