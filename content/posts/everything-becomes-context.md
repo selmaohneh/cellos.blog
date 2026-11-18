@@ -1,6 +1,6 @@
 ---
 title: "Everything Becomes Context"
-subtitle: "Why lazy tickets are about to come back and bite us"
+subtitle: "Why our laziness is about to come back and bite us"
 date: 2026-11-17T09:00:00Z
 slug: "everything-becomes-context"
 ---
