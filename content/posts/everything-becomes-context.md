@@ -46,5 +46,6 @@ So here's my resolution: treat our tools with respect, and only fill them with m
 1. Every ticket gets at least one sentence on *why*.
 2. Resources get descriptive names, not numbers.
 3. Commit messages explain the reason, not just the change.
+4. ...
 
 Future Cello will thank me.
