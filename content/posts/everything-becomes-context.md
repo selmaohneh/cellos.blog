@@ -40,7 +40,7 @@ The difference is easy to see:
 | --- | --- |
 | `backup13` | `pre-migration-postgres16-2026-11-12` |
 | `fix` | `Fix invoice totals: tax was applied before discount` |
-| Ticket: "Export button" | "Accounting needs a CSV export of filtered orders for monthly reporting. The export should respect the active filters." |
+| `Ticket: "Export button"` | `"Accounting needs a CSV export of filtered orders for monthly reporting. The export should respect the active filters."` |
 
 The right column helps an AI tool. But it also helps your teammates, and you, half a year from now. Writing good context for machines turns out to be the same as writing good context for humans.
 
