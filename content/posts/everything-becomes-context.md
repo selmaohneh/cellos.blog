@@ -1,6 +1,11 @@
 ---
 title: "Everything Becomes Context"
 subtitle: "Why our laziness is about to come back and bite us"
+teaser: >-
+  The feature ticket has no description. The cloud VM snapshot is called `backup13`.
+  The email subject line is empty, or just says "here you go". We've all seen it.
+  Most of us have done it. Until recently, the cost was a bit of confusion for a
+  colleague, or for ourselves six months later. That cost is about to go up.
 date: 2026-11-17T09:00:00Z
 slug: "everything-becomes-context"
 ---
