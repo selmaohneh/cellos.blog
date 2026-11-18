@@ -17,6 +17,6 @@ No external theme: templates are in `layouts/`, styles in `static/css/style.css`
 
 ## Newsletter
 
-Buttondown sends new posts from the RSS feed (`layouts/index.rss.xml`, served at `/index.xml`). Keep the feed plain RSS 2.0: `<description>` is a plain-text teaser (Buttondown strips HTML from it, images and links included), `<media:content medium="image">` is the preview image (a plain `<enclosure>` left `{{ item.enclosure }}` empty in Buttondown). The email template uses `{{ item.enclosure }}` for the image and `{{ item.url }}` for links, as in Buttondown's RSS docs. Keep `<guid>` as the permalink, or Buttondown will re-send old posts.
+Buttondown sends new posts from the RSS feed (`layouts/index.rss.xml`, served at `/index.xml`). Keep the feed plain RSS 2.0: `<description>` is a plain-text teaser (Buttondown strips HTML from it). The email template has no image and uses `{{ item.url }}` for links. Keep `<guid>` as the permalink, or Buttondown will re-send old posts.
 
 The email body template is `buttondown/rss-email-template.html`; paste the whole file into Buttondown (subject: `{{ item.title }}`). Buttondown's editor is Markdown and only fills in plain `{{ item.* }}` variables, so the template must have no indented lines, no `{% %}` tags, no `|filters`.
