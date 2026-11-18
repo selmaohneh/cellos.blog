@@ -3,8 +3,8 @@
   that the Buttondown RSS-to-email automation reads (see buttondown/rss-email-template.html):
   - <enclosure> / <media:content>: the post's preview image as an absolute URL
     (Buttondown exposes it as {{ item.enclosure }}).
-  - <description>: a plain-text teaser, from front matter "teaser" or the first paragraphs
-    of the post, skipping the lead image and its photo credit ({{ item.description }}).
+  - <description>: the preview image linked to the post, then a teaser from front matter
+    "teaser" or the first paragraphs, skipping the lead image and photo credit ({{ item.description }}).
 */ -}}
 {{- $pages := where site.RegularPages "Section" "posts" -}}
 {{- $limit := site.Config.Services.RSS.Limit -}}
@@ -42,8 +42,14 @@
     {{- $max := cond (isset .Params "teaser") 1000 60 -}}
     {{- $teaser := delimit (first $max $words) " " -}}
     {{- if gt (len $words) $max }}{{ $teaser = print $teaser " …" }}{{ end -}}
-    {{- /* Plain text on purpose: the Buttondown template inserts it as-is, without filters. */ -}}
-    {{- $desc := $teaser -}}
+    {{- $p := . -}}
+    {{- $img := "" }}{{ with partial "preview-image.html" . }}{{ $img = . | absURL }}{{ end -}}
+    {{- /* HTML: the image (linked to the post) and the teaser. Buttondown inserts {{ item.description }}
+         verbatim; an image in the description reaches the email, while {{ item.enclosure }} in an
+         <img src> does not survive Buttondown's editor. */ -}}
+    {{- $desc := "" -}}
+    {{- with $img }}{{ $desc = printf `<p><a href="%s"><img src="%s" alt="%s" width="600" style="display:block;width:100%%;max-width:600px;height:auto;border:1px solid #2a312a;"></a></p>` $p.Permalink . (htmlEscape $p.Title) }}{{ end -}}
+    {{- with $teaser }}{{ $desc = printf "%s<p>%s</p>" $desc (htmlEscape .) }}{{ end }}
     <item>
       <title>{{ .Title }}</title>
       <link>{{ .Permalink }}</link>
@@ -53,8 +59,8 @@
       {{- end }}
       <guid>{{ .Permalink }}</guid>
       <description>{{ $desc }}</description>
-      {{- with partial "preview-image.html" . }}
-      {{- $url := . | absURL -}}
+      {{- with $img }}
+      {{- $url := . -}}
       {{- $ext := path.Ext $url | lower | strings.TrimPrefix "." -}}
       {{- $type := index (dict "jpg" "image/jpeg" "jpeg" "image/jpeg" "png" "image/png" "gif" "image/gif" "webp" "image/webp") $ext | default "image/jpeg" -}}
       {{- $length := 0 -}}
