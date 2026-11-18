@@ -17,6 +17,6 @@ No external theme: templates are in `layouts/`, styles in `static/css/style.css`
 
 ## Newsletter
 
-Buttondown sends new posts from the RSS feed (`layouts/index.rss.xml`, served at `/index.xml`). Keep the feed plain RSS 2.0: `<description>` is a plain-text teaser (Buttondown strips HTML from it, images and links included), `<enclosure>` is the preview image. Buttondown breaks variables inside attributes (`<img src>`, `<a href>`) when it creates a draft, so the email can only show the post URL as text (`{{ item.url }}`). Keep `<guid>` as the permalink, or Buttondown will re-send old posts.
+Buttondown sends new posts from the RSS feed (`layouts/index.rss.xml`, served at `/index.xml`). Keep the feed plain RSS 2.0: `<description>` is a plain-text teaser (Buttondown strips HTML from it, images and links included), `<enclosure>` is the preview image. The email template uses `{{ item.enclosure }}` (read from `<enclosure>`) for the image and `{{ item.url }}` for links, as in Buttondown's RSS docs. Keep `<guid>` as the permalink, or Buttondown will re-send old posts.
 
-The email body template is `buttondown/rss-email-template.html`; paste the whole file into Buttondown (subject: `{{ item.title }}`). Buttondown's editor is Markdown and only fills in plain `{{ item.* }}` variables, so the template must have no indented lines, no `{% %}` tags, no `|filters` and no variables inside attributes.
+The email body template is `buttondown/rss-email-template.html`; paste the whole file into Buttondown (subject: `{{ item.title }}`). Buttondown's editor is Markdown and only fills in plain `{{ item.* }}` variables, so the template must have no indented lines, no `{% %}` tags, no `|filters`.
