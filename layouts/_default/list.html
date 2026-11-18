@@ -1,5 +1,5 @@
 {{ define "main" }}
-<p class="prompt"><span class="ps1">~$</span> ls -t {{ .Section }}/</p>
+<p class="prompt"><span class="ps1">~$</span> <span class="cmd">ls -t {{ .Section }}/</span></p>
 {{ .Content }}
 {{ partial "post-list.html" .RegularPages.ByDate.Reverse }}
 {{ end }}
