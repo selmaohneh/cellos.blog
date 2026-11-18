@@ -44,12 +44,14 @@
     {{- if gt (len $words) $max }}{{ $teaser = print $teaser " …" }}{{ end -}}
     {{- $p := . -}}
     {{- $img := "" }}{{ with partial "preview-image.html" . }}{{ $img = . | absURL }}{{ end -}}
-    {{- /* HTML: the image (linked to the post) and the teaser. Buttondown inserts {{ item.description }}
-         verbatim; an image in the description reaches the email, while {{ item.enclosure }} in an
-         <img src> does not survive Buttondown's editor. */ -}}
+    {{- /* HTML: the linked image, the teaser and a "read the full post" link. Buttondown inserts
+         {{ item.description }} verbatim, but breaks {{ item.* }} placed inside attributes
+         (<img src>, <a href>) when it creates a draft, so every post URL travels in here. */ -}}
+    {{- $href := printf "%s?utm_source=newsletter&utm_medium=email&utm_campaign=new-post" $p.Permalink | htmlEscape -}}
     {{- $desc := "" -}}
-    {{- with $img }}{{ $desc = printf `<p><a href="%s"><img src="%s" alt="%s" width="600" style="display:block;width:100%%;max-width:600px;height:auto;border:1px solid #2a312a;"></a></p>` $p.Permalink . (htmlEscape $p.Title) }}{{ end -}}
-    {{- with $teaser }}{{ $desc = printf "%s<p>%s</p>" $desc (htmlEscape .) }}{{ end }}
+    {{- with $img }}{{ $desc = printf `<p><a href="%s"><img src="%s" alt="%s" width="600" style="display:block;width:100%%;max-width:600px;height:auto;border:1px solid #2a312a;"></a></p>` $href . (htmlEscape $p.Title) }}{{ end -}}
+    {{- with $teaser }}{{ $desc = printf "%s<p>%s</p>" $desc (htmlEscape .) }}{{ end -}}
+    {{- $desc = printf `%s<p><a href="%s" style="display:inline-block;padding:12px 20px;background:#5fd068;color:#0d0f0d;font-weight:700;text-decoration:none;">[ read the full post &rarr; ]</a></p>` $desc $href }}
     <item>
       <title>{{ .Title }}</title>
       <link>{{ .Permalink }}</link>
