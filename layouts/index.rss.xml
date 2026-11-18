@@ -1,16 +1,14 @@
 {{- /*
-  Site RSS feed (/index.xml). Based on Hugo's built-in RSS template, with two additions
-  that the Buttondown RSS-to-email automation reads (see buttondown/rss-email-template.html):
-  - <description>: a plain-text teaser from front matter "teaser" or the first paragraphs,
-    skipping the lead image and photo credit ({{ item.description }}).
-  - <media:content medium="image">: the post's preview image as an absolute URL ({{ item.enclosure }}).
-    Buttondown leaves {{ item.enclosure }} empty for a plain RSS <enclosure>, so the image is MediaRSS.
+  Site RSS feed (/index.xml). Based on Hugo's built-in RSS template. <description> is a
+  plain-text teaser that the Buttondown RSS-to-email automation reads as {{ item.description }}
+  (see buttondown/rss-email-template.html): front matter "teaser" or the first paragraphs,
+  skipping the lead image and photo credit.
 */ -}}
 {{- $pages := where site.RegularPages "Section" "posts" -}}
 {{- $limit := site.Config.Services.RSS.Limit -}}
 {{- if ge $limit 1 }}{{ $pages = $pages | first $limit }}{{ end -}}
 {{- printf "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\"?>" | safeHTML }}
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:media="http://search.yahoo.com/mrss/">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
   <channel>
     <title>{{ site.Title }}</title>
     <link>{{ .Permalink }}</link>
@@ -56,12 +54,6 @@
       {{- end }}
       <guid>{{ .Permalink }}</guid>
       <description>{{ $teaser }}</description>
-      {{- with partial "preview-image.html" . }}
-      {{- $url := . | absURL -}}
-      {{- $ext := path.Ext $url | lower | strings.TrimPrefix "." -}}
-      {{- $type := index (dict "jpg" "image/jpeg" "jpeg" "image/jpeg" "png" "image/png" "gif" "image/gif" "webp" "image/webp") $ext | default "image/jpeg" -}}
-      <media:content url="{{ $url }}" medium="image" type="{{ $type }}" />
-      {{- end }}
     </item>
     {{- end }}
   </channel>
