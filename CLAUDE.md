@@ -9,6 +9,7 @@ Hugo site, deployed to GitHub Pages by `.github/workflows/pages.yml` on every pu
 - Posts imported from Substack also have `aliases: ["/p/<slug>/"]`, which keeps their old Substack URLs working as redirects. Keep these; new posts don't need one.
 - Images for a post go in `static/img/<slug>/` and are referenced as `/img/<slug>/<file>`.
 - `draft: true` keeps a post out of the published site.
+- `teaser` (optional) overrides the newsletter/RSS teaser; `image` (optional) overrides the preview image (default: first image in the post).
 
 ## Layout
 

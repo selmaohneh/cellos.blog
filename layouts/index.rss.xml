@@ -27,9 +27,11 @@
     {{ printf "<atom:link href=%q rel=\"self\" type=%q />" .Permalink .MediaType | safeHTML }}
     {{- end }}
     {{- range $pages.ByDate.Reverse }}
-    {{- /* Teaser: first real paragraphs, ~60 words. */ -}}
+    {{- /* Teaser: front matter "teaser" if set, else the first real paragraphs, ~60 words. */ -}}
     {{- $words := slice -}}
-    {{- range findRE `(?s)<p>.*?</p>` .Content -}}
+    {{- $paras := findRE `(?s)<p>.*?</p>` .Content -}}
+    {{- with .Params.teaser }}{{ $paras = slice (. | markdownify | printf "<p>%s</p>") }}{{ end -}}
+    {{- range $paras -}}
       {{- if ge (len $words) 40 }}{{ break }}{{ end -}}
       {{- if in . "<img" }}{{ continue }}{{ end -}}
       {{- $inner := strings.TrimSuffix "</p>" (strings.TrimPrefix "<p>" .) | strings.TrimSpace -}}
@@ -37,8 +39,9 @@
       {{- if and (strings.HasPrefix $inner "<em>") (strings.HasSuffix $inner "</em>") }}{{ continue }}{{ end -}}
       {{- $words = $words | append (split (plainify $inner | htmlUnescape) " ") -}}
     {{- end -}}
-    {{- $teaser := delimit (first 60 $words) " " -}}
-    {{- if gt (len $words) 60 }}{{ $teaser = print $teaser " …" }}{{ end -}}
+    {{- $max := cond (isset .Params "teaser") 1000 60 -}}
+    {{- $teaser := delimit (first $max $words) " " -}}
+    {{- if gt (len $words) $max }}{{ $teaser = print $teaser " …" }}{{ end -}}
     {{- $desc := "" -}}
     {{- with .Params.subtitle }}{{ $desc = printf "<p><strong>%s</strong></p>" (htmlEscape .) }}{{ end -}}
     {{- with $teaser }}{{ $desc = printf "%s<p>%s</p>" $desc (htmlEscape .) }}{{ end }}
