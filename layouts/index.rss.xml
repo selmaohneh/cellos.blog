@@ -1,0 +1,70 @@
+{{- /*
+  Site RSS feed (/index.xml). Based on Hugo's built-in RSS template, with two additions
+  that the Buttondown RSS-to-email automation reads (see buttondown/rss-email-template.html):
+  - <enclosure> / <media:content>: the post's preview image as an absolute URL
+    (Buttondown exposes it as {{ item.enclosure }}).
+  - <description>: the subtitle plus a short teaser from the first paragraphs of the post,
+    skipping the lead image and its photo credit ({{ item.description }}).
+*/ -}}
+{{- $pages := where site.RegularPages "Section" "posts" -}}
+{{- $limit := site.Config.Services.RSS.Limit -}}
+{{- if ge $limit 1 }}{{ $pages = $pages | first $limit }}{{ end -}}
+{{- printf "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\"?>" | safeHTML }}
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>{{ site.Title }}</title>
+    <link>{{ .Permalink }}</link>
+    <description>{{ site.Params.description }}</description>
+    <generator>Hugo</generator>
+    <language>{{ site.Language.LanguageCode }}</language>
+    {{- with site.Params.author }}
+    <copyright>© {{ now.Year }} {{ . }}</copyright>
+    {{- end }}
+    {{- if not .Date.IsZero }}
+    <lastBuildDate>{{ (index $pages.ByLastmod.Reverse 0).Lastmod.Format "Mon, 02 Jan 2006 15:04:05 -0700" | safeHTML }}</lastBuildDate>
+    {{- end }}
+    {{- with .OutputFormats.Get "RSS" }}
+    {{ printf "<atom:link href=%q rel=\"self\" type=%q />" .Permalink .MediaType | safeHTML }}
+    {{- end }}
+    {{- range $pages.ByDate.Reverse }}
+    {{- /* Teaser: front matter "teaser" if set, else the first real paragraphs, ~60 words. */ -}}
+    {{- $words := slice -}}
+    {{- $paras := findRE `(?s)<p>.*?</p>` .Content -}}
+    {{- with .Params.teaser }}{{ $paras = slice (. | markdownify | printf "<p>%s</p>") }}{{ end -}}
+    {{- range $paras -}}
+      {{- if ge (len $words) 40 }}{{ break }}{{ end -}}
+      {{- if in . "<img" }}{{ continue }}{{ end -}}
+      {{- $inner := strings.TrimSuffix "</p>" (strings.TrimPrefix "<p>" .) | strings.TrimSpace -}}
+      {{- /* Photo credits are a paragraph that is entirely italic. */ -}}
+      {{- if and (strings.HasPrefix $inner "<em>") (strings.HasSuffix $inner "</em>") }}{{ continue }}{{ end -}}
+      {{- $words = $words | append (split (plainify $inner | htmlUnescape) " ") -}}
+    {{- end -}}
+    {{- $max := cond (isset .Params "teaser") 1000 60 -}}
+    {{- $teaser := delimit (first $max $words) " " -}}
+    {{- if gt (len $words) $max }}{{ $teaser = print $teaser " …" }}{{ end -}}
+    {{- $desc := "" -}}
+    {{- with .Params.subtitle }}{{ $desc = printf "<p><strong>%s</strong></p>" (htmlEscape .) }}{{ end -}}
+    {{- with $teaser }}{{ $desc = printf "%s<p>%s</p>" $desc (htmlEscape .) }}{{ end }}
+    <item>
+      <title>{{ .Title }}</title>
+      <link>{{ .Permalink }}</link>
+      <pubDate>{{ .PublishDate.Format "Mon, 02 Jan 2006 15:04:05 -0700" | safeHTML }}</pubDate>
+      {{- with site.Params.author }}
+      <dc:creator>{{ . }}</dc:creator>
+      {{- end }}
+      <guid>{{ .Permalink }}</guid>
+      <description>{{ $desc }}</description>
+      {{- with partial "preview-image.html" . }}
+      {{- $url := . | absURL -}}
+      {{- $ext := path.Ext $url | lower | strings.TrimPrefix "." -}}
+      {{- $type := index (dict "jpg" "image/jpeg" "jpeg" "image/jpeg" "png" "image/png" "gif" "image/gif" "webp" "image/webp") $ext | default "image/jpeg" -}}
+      {{- $length := 0 -}}
+      {{- $local := path.Join "static" (strings.TrimPrefix site.BaseURL $url | strings.TrimPrefix "/") -}}
+      {{- if fileExists $local }}{{ $length = (os.Stat $local).Size }}{{ end }}
+      <enclosure url="{{ $url }}" type="{{ $type }}" length="{{ $length }}" />
+      <media:content url="{{ $url }}" medium="image" type="{{ $type }}" />
+      {{- end }}
+    </item>
+    {{- end }}
+  </channel>
+</rss>
