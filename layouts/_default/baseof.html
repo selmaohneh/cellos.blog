@@ -12,6 +12,13 @@
   <link rel="alternate" type="application/rss+xml" title="{{ site.Title }}" href="{{ .Permalink }}">
   {{ end -}}
   <link rel="stylesheet" href="{{ "css/style.css" | relURL }}">
+  <script>
+    if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      document.documentElement.classList.add('typing');
+      setTimeout(function () { document.documentElement.classList.remove('typing'); }, 4000);
+    }
+  </script>
+  <script src="{{ "js/typing.js" | relURL }}" defer></script>
   <!-- Privacy-friendly analytics by Plausible -->
   <script async src="https://plausible.io/js/pa-lazDbg8lRl3OKLFhtYKs-.js"></script>
   <script>

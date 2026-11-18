@@ -49,6 +49,13 @@ a:focus-visible { outline: 2px solid var(--green); outline-offset: 2px; }
 .comment, .error { color: var(--muted); }
 .error { color: #e06c6c; }
 
+/* typed first prompt (see static/js/typing.js): hide the command and its output until typed */
+.typing main > .prompt:first-child .cmd,
+.typing main > .prompt:first-child ~ *,
+.typing .site-title .cursor { visibility: hidden; }
+.typing main > .prompt:first-child .cmd.is-typing { visibility: visible; }
+.cursor.steady { animation: none; }
+
 /* post list */
 .post-list { list-style: none; margin: 0; padding: 0; }
 .post-list li { margin: 0; border-bottom: 1px dashed var(--rule); }

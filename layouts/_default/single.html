@@ -1,5 +1,5 @@
 {{ define "main" }}
-<p class="prompt"><span class="ps1">~$</span> cat posts/{{ .File.ContentBaseName }}.md</p>
+<p class="prompt"><span class="ps1">~$</span> <span class="cmd">cat posts/{{ .File.ContentBaseName }}.md</span></p>
 <article>
   <header>
     <h1>{{ .Title }}</h1>
