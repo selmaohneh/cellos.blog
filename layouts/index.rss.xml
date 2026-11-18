@@ -3,8 +3,8 @@
   that the Buttondown RSS-to-email automation reads (see buttondown/rss-email-template.html):
   - <enclosure> / <media:content>: the post's preview image as an absolute URL
     (Buttondown exposes it as {{ item.enclosure }}).
-  - <description>: the subtitle plus a short teaser from the first paragraphs of the post,
-    skipping the lead image and its photo credit ({{ item.description }}).
+  - <description>: a plain-text teaser, from front matter "teaser" or the first paragraphs
+    of the post, skipping the lead image and its photo credit ({{ item.description }}).
 */ -}}
 {{- $pages := where site.RegularPages "Section" "posts" -}}
 {{- $limit := site.Config.Services.RSS.Limit -}}
@@ -42,9 +42,8 @@
     {{- $max := cond (isset .Params "teaser") 1000 60 -}}
     {{- $teaser := delimit (first $max $words) " " -}}
     {{- if gt (len $words) $max }}{{ $teaser = print $teaser " …" }}{{ end -}}
-    {{- $desc := "" -}}
-    {{- with .Params.subtitle }}{{ $desc = printf "<p><strong>%s</strong></p>" (htmlEscape .) }}{{ end -}}
-    {{- with $teaser }}{{ $desc = printf "%s<p>%s</p>" $desc (htmlEscape .) }}{{ end }}
+    {{- /* Plain text on purpose: the Buttondown template inserts it as-is, without filters. */ -}}
+    {{- $desc := $teaser -}}
     <item>
       <title>{{ .Title }}</title>
       <link>{{ .Permalink }}</link>
