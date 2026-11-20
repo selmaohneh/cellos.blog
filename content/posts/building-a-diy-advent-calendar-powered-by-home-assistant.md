@@ -3,6 +3,7 @@ title: "Building a DIY Advent Calendar powered by Home Assistant"
 subtitle: "24 days of Bibi Blocksberg"
 date: 2025-11-11T11:50:48.665Z
 slug: "building-a-diy-advent-calendar-powered-by-home-assistant"
+tags: ["smart home"]
 aliases: ["/p/building-a-diy-advent-calendar-powered-by-home-assistant/"]
 ---
 

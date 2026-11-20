@@ -5,6 +5,7 @@ teaser: >-
   What would you do if you found the next big zero-day exploit?
 date: 2026-11-20T07:00:00Z
 slug: "the-zero-day-dilemma"
+tags: ["cyber security"]
 ---
 
 ![red clock on a black background](/img/the-zero-day-dilemma/photo-1697994311219-025b715b412e.jpg)

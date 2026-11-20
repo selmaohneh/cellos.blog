@@ -3,6 +3,7 @@ title: "Pen-testing without Prison"
 subtitle: "Laws every Ethical Hacker should know"
 date: 2025-08-29T06:02:03.345Z
 slug: "pen-testing-without-prison"
+tags: ["cyber security"]
 aliases: ["/p/pen-testing-without-prison/"]
 ---
 

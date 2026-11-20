@@ -2,6 +2,7 @@
 title: "Smart HDMI Switching with Home Assistant"
 date: 2025-07-24T11:40:38.567Z
 slug: "smart-hdmi-switching-with-home-assistant"
+tags: ["smart home"]
 aliases: ["/p/smart-hdmi-switching-with-home-assistant/"]
 ---
 

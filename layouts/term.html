@@ -1,0 +1,6 @@
+{{ define "main" }}
+<p class="prompt"><span class="ps1">~$</span> <span class="cmd">ls -t posts/ --tag={{ .Data.Term | urlize }}</span></p>
+{{ partial "tag-filter.html" . }}
+{{ partial "post-list.html" .Pages.ByDate.Reverse }}
+<p class="prompt"><span class="ps1">~$</span> <a href="{{ site.Home.RelPermalink }}">cd ..</a></p>
+{{ end }}

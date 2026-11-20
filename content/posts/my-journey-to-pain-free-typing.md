@@ -2,6 +2,7 @@
 title: "My Journey to Pain-Free Typing"
 date: 2025-07-24T10:39:57.298Z
 slug: "my-journey-to-pain-free-typing"
+tags: ["nerdy stuff"]
 aliases: ["/p/my-journey-to-pain-free-typing/"]
 ---
 

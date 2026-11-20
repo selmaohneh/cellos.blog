@@ -1,18 +1,19 @@
+{{- /* The title link stretches over the whole card (see .post-card .title::after in style.css),
+       so the card stays one click target while the tag links on it remain separate links. */ -}}
 <ul class="post-list">
   {{- range . }}
-  <li>
-    <a class="post-card" href="{{ .RelPermalink }}">
-      {{- with partial "preview-image.html" . }}
-      <img class="thumb" src="{{ . }}" alt="" loading="lazy">
-      {{- else }}
-      <span class="thumb thumb-empty" aria-hidden="true">[no img]</span>
-      {{- end }}
-      <span class="meta">
-        <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006-01-02" }}</time>
-        <span class="title">{{ .Title }}</span>
-        {{- with .Params.subtitle }}<span class="subtitle">{{ . }}</span>{{ end }}
-      </span>
-    </a>
+  <li class="post-card">
+    {{- with partial "preview-image.html" . }}
+    <img class="thumb" src="{{ . }}" alt="" loading="lazy">
+    {{- else }}
+    <span class="thumb thumb-empty" aria-hidden="true">[no img]</span>
+    {{- end }}
+    <span class="meta">
+      <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006-01-02" }}</time>
+      <a class="title" href="{{ .RelPermalink }}">{{ .Title }}</a>
+      {{- with .Params.subtitle }}<span class="subtitle">{{ . }}</span>{{ end }}
+      {{- partial "tags.html" . }}
+    </span>
   </li>
   {{- end }}
 </ul>

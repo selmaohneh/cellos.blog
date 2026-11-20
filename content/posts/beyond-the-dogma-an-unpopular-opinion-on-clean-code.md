@@ -2,6 +2,7 @@
 title: "Beyond the Dogma: An unpopular opinion on Clean Code"
 date: 2025-07-24T10:33:07.753Z
 slug: "beyond-the-dogma-an-unpopular-opinion-on-clean-code"
+tags: ["software craftsmanship"]
 aliases: ["/p/beyond-the-dogma-an-unpopular-opinion-on-clean-code/"]
 ---
 

@@ -2,6 +2,7 @@
 title: "You are Never Safe in Cyber Security"
 date: 2025-08-26T11:41:02.443Z
 slug: "you-are-never-safe-in-cyber-security"
+tags: ["cyber security"]
 aliases: ["/p/you-are-never-safe-in-cyber-security/"]
 ---
 

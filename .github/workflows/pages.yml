@@ -40,6 +40,11 @@ jobs:
           grep -q 'embed-subscribe/' public/benefits-of-smart-laundry/index.html
           grep -q 'benefits-of-smart-laundry/' public/p/benefits-of-smart-laundry/index.html
           grep -q 'embed-subscribe/' public/index.html
+      - name: Check tags
+        run: |
+          grep -q 'href="/tags/smart-home/"' public/index.html
+          grep -q 'benefits-of-smart-laundry/' public/tags/smart-home/index.html
+          grep -q 'href="/tags/smart-home/"' public/benefits-of-smart-laundry/index.html
       - name: Check sitemap and robots.txt
         run: |
           grep -q '/benefits-of-smart-laundry/</loc>' public/sitemap.xml

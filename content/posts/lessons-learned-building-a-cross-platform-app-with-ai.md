@@ -2,6 +2,7 @@
 title: "Lessons Learned: Building a Cross-Platform App with AI"
 date: 2025-07-24T11:46:54.755Z
 slug: "lessons-learned-building-a-cross-platform-app-with-ai"
+tags: ["software craftsmanship"]
 aliases: ["/p/lessons-learned-building-a-cross-platform-app-with-ai/"]
 ---
 

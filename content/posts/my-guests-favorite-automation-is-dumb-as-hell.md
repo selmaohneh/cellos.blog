@@ -2,6 +2,7 @@
 title: "My guests' favorite automation is dumb as hell"
 date: 2025-07-24T11:41:52.706Z
 slug: "my-guests-favorite-automation-is-dumb-as-hell"
+tags: ["smart home"]
 aliases: ["/p/my-guests-favorite-automation-is-dumb-as-hell/"]
 ---
 

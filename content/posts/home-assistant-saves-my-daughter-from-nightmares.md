@@ -3,6 +3,7 @@ title: "Home Assistant saves my Daughter from Nightmares"
 subtitle: "How to know if your Kids are Sneaking on you"
 date: 2025-07-24T11:14:49.986Z
 slug: "home-assistant-saves-my-daughter-from-nightmares"
+tags: ["smart home"]
 aliases: ["/p/home-assistant-saves-my-daughter-from-nightmares/"]
 ---
 

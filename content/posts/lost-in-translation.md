@@ -2,6 +2,7 @@
 title: "Lost in Translation"
 date: 2025-07-24T11:13:14.718Z
 slug: "lost-in-translation"
+tags: ["software craftsmanship"]
 aliases: ["/p/lost-in-translation/"]
 ---
 

@@ -8,6 +8,7 @@ teaser: >-
   colleague, or for ourselves six months later. That cost is about to go up.
 date: 2026-11-17T09:00:00Z
 slug: "everything-becomes-context"
+tags: ["software craftsmanship"]
 ---
 
 ![person holding light bulb](/img/everything-becomes-context/photo-1493612276216-ee3925520721.jpg)
