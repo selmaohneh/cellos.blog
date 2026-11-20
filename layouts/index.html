@@ -1,6 +1,5 @@
 {{ define "main" }}
 <p class="prompt"><span class="ps1">~$</span> <span class="cmd">ls -t posts/</span></p>
-{{ partial "tag-filter.html" . }}
 {{ partial "post-list.html" (where site.RegularPages "Section" "posts").ByDate.Reverse }}
 {{ partial "subscribe.html" . }}
 {{ end }}
