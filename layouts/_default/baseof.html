@@ -42,7 +42,7 @@
     {{ block "main" . }}{{ end }}
   </main>
   <footer class="site-footer">
-    # © {{ now.Year }} {{ site.Params.author }} · built with hugo{{ with site.GetPage "/impressum" }} · <a href="{{ .RelPermalink }}">impressum</a>{{ end }}
+    {{ with site.GetPage "/impressum" }}# <a href="{{ .RelPermalink }}">impressum</a>{{ end }}
   </footer>
 </body>
 </html>
