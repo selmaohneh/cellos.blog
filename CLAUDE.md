@@ -16,7 +16,7 @@ Hugo site, deployed to GitHub Pages by `.github/workflows/pages.yml` on every pu
 
 No external theme: templates are in `layouts/`, styles in `static/css/style.css`.
 
-Tags: each post's tags are shown on the post list and in the post header (`layouts/partials/tags.html`). The home page and each tag page (`/tags/<tag>/`, `layouts/term.html`) show a filter row (`layouts/partials/tag-filter.html`); `/tags/` lists all tags (`layouts/taxonomy.html`). Filtering is plain static pages, no JavaScript.
+Tags: each post's tags are shown on the post list and in the post header (`layouts/partials/tags.html`). Each tag page (`/tags/<tag>/`, `layouts/term.html`) shows a filter row (`layouts/partials/tag-filter.html`); `/tags/` lists all tags (`layouts/taxonomy.html`). Filtering is plain static pages, no JavaScript.
 
 ## Search
 
