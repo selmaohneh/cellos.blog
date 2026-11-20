@@ -40,6 +40,11 @@ jobs:
           grep -q 'embed-subscribe/' public/benefits-of-smart-laundry/index.html
           grep -q 'benefits-of-smart-laundry/' public/p/benefits-of-smart-laundry/index.html
           grep -q 'embed-subscribe/' public/index.html
+      - name: Check sitemap and robots.txt
+        run: |
+          grep -q '/benefits-of-smart-laundry/</loc>' public/sitemap.xml
+          grep -q '^User-agent: GPTBot' public/robots.txt
+          grep -q '^Sitemap: https://.*/sitemap.xml' public/robots.txt
       - name: Upload preview of the built site
         if: github.event_name == 'pull_request'
         uses: actions/upload-artifact@v4
