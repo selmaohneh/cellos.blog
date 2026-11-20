@@ -36,13 +36,11 @@
     <nav>
       {{ with site.GetPage "/tags" }}<a href="{{ .RelPermalink }}">[tags]</a>{{ end }}
       {{ with site.Home.OutputFormats.Get "rss" }}<a href="{{ .RelPermalink }}">[rss]</a>{{ end }}
+      {{ with site.GetPage "/impressum" }}<a href="{{ .RelPermalink }}">[impressum]</a>{{ end }}
     </nav>
   </header>
   <main>
     {{ block "main" . }}{{ end }}
   </main>
-  <footer class="site-footer">
-    # © {{ now.Year }} {{ site.Params.author }} · built with hugo
-  </footer>
 </body>
 </html>

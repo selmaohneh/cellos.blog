@@ -27,3 +27,7 @@ The email body template is `buttondown/rss-email-template.html`; paste the whole
 ## Sitemap and robots.txt
 
 Hugo builds `/sitemap.xml` on every build, so new posts are added automatically. `/robots.txt` comes from `layouts/robots.txt` (needs `enableRobotsTXT = true`): it blocks known AI crawlers and links the sitemap.
+
+## Impressum
+
+`content/impressum.md` (published at `/impressum/`, linked from the header nav in `layouts/_default/baseof.html`). Standalone pages like this use `layouts/page/single.html`.

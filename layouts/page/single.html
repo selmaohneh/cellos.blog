@@ -1,0 +1,7 @@
+{{ define "main" }}
+<p class="prompt"><span class="ps1">~$</span> <span class="cmd">cat {{ .File.ContentBaseName }}.txt</span></p>
+<article class="page">
+  {{ .Content }}
+</article>
+<p class="prompt"><span class="ps1">~$</span> <a href="{{ site.Home.RelPermalink }}">cd ..</a></p>
+{{ end }}
