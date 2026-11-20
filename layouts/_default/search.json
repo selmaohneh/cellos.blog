@@ -1,0 +1,13 @@
+{{- /* Full-text search index, served at /search/index.json and read by static/js/search.js. */ -}}
+{{- $posts := slice }}
+{{- range (where site.RegularPages "Section" "posts").ByDate.Reverse }}
+  {{- $posts = $posts | append (dict
+      "title" .Title
+      "subtitle" (.Params.subtitle | default "")
+      "date" (.Date.Format "2006-01-02")
+      "url" .RelPermalink
+      "tags" (.Params.tags | default slice)
+      "body" (.Plain | htmlUnescape | replaceRE `\s+` " " | strings.TrimSpace)
+    ) }}
+{{- end }}
+{{- $posts | jsonify }}
