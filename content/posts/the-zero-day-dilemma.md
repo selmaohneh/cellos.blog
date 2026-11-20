@@ -1,5 +1,6 @@
 ---
 title: "The Zero-Day Dilemma"
+subtitle: "What would you do if you found the next big zero-day exploit?"
 teaser: >-
   What would you do if you found the next big zero-day exploit?
 date: 2026-11-20T07:00:00Z
@@ -9,8 +10,6 @@ slug: "the-zero-day-dilemma"
 ![red clock on a black background](/img/the-zero-day-dilemma/photo-1697994311219-025b715b412e.jpg)
 
 *Photo by [Soham Rathod](https://unsplash.com/@thesohamrathod) on [Unsplash](https://unsplash.com/photos/14y-pXminzE)*
-
-What would you do if you found the next big zero-day exploit?
 
 I recently had an interesting discussion with my father-in-law. We were talking about vulnerabilities like PHP2Shell, the kind so big they even make it into the mainstream news and onto the radio. By way of greeting, he asked whether I'd switched off the router at home out of fear. Of course not. None of my projects have PHP in the stack, and hosting anything public on my private server is a no-go for me anyway.
 
