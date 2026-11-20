@@ -101,8 +101,7 @@ a:focus-visible { outline: 2px solid var(--green); outline-offset: 2px; }
 .tag-filter a { color: var(--muted); text-decoration: none; padding: 0 .5ch; }
 .tag-filter a:hover { color: var(--bg); background: var(--amber); }
 .tag-filter a.is-active { color: var(--bg); background: var(--green); font-weight: 700; }
-.tag-filter .count, .tag-index .count { color: var(--muted); opacity: .75; margin-left: .5ch; font-size: .8em; }
-.tag-filter a:hover .count, .tag-filter a.is-active .count { color: inherit; opacity: .8; }
+.tag-index .count { color: var(--muted); opacity: .75; margin-left: .5ch; font-size: .8em; }
 .tag-index { list-style: none; margin: 0; padding: 0; }
 .tag-index li { padding: .3rem 0; }
 

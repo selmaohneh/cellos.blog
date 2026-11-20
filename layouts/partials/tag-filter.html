@@ -4,6 +4,6 @@
 <nav class="tag-filter" aria-label="Filter posts by tag">
   <a href="{{ site.Home.RelPermalink }}"{{ if not $current }} class="is-active" aria-current="page"{{ end }}>all</a>
   {{- range site.Taxonomies.tags.Alphabetical }}
-  <a href="{{ .Page.RelPermalink }}"{{ if eq .Page.Data.Term $current }} class="is-active" aria-current="page"{{ end }}>#{{ .Page.Data.Term | urlize }}<span class="count">{{ .Count }}</span></a>
+  <a href="{{ .Page.RelPermalink }}"{{ if eq .Page.Data.Term $current }} class="is-active" aria-current="page"{{ end }}>#{{ .Page.Data.Term | urlize }}</a>
   {{- end }}
 </nav>
