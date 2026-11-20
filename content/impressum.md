@@ -3,8 +3,6 @@ title: "Impressum"
 slug: "impressum"
 ---
 
-<p class="comment"># Angaben gemäß § 5 DDG</p>
-
 Marcel Neumann  
 c/o Postflex #10260  
 Emsdettener Str. 10  
