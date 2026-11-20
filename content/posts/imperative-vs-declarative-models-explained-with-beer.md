@@ -2,6 +2,7 @@
 title: "Imperative vs. Declarative Models. Explained with Beer"
 date: 2025-07-24T10:34:20.595Z
 slug: "imperative-vs-declarative-models-explained-with-beer"
+tags: ["software craftsmanship"]
 aliases: ["/p/imperative-vs-declarative-models-explained-with-beer/"]
 ---
 

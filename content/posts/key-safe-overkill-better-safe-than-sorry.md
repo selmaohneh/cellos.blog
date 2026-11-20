@@ -2,6 +2,7 @@
 title: "Key Safe Overkill: Better Safe than Sorry"
 date: 2025-07-24T11:36:49.468Z
 slug: "key-safe-overkill-better-safe-than-sorry"
+tags: ["smart home", "cyber security"]
 aliases: ["/p/key-safe-overkill-better-safe-than-sorry/"]
 ---
 

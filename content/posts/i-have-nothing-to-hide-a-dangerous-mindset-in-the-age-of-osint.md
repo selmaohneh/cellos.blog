@@ -2,6 +2,7 @@
 title: "I have nothing to hide - A dangerous mindset in the age of OSINT"
 date: 2025-07-24T11:39:17.568Z
 slug: "i-have-nothing-to-hide-a-dangerous-mindset-in-the-age-of-osint"
+tags: ["cyber security"]
 aliases: ["/p/i-have-nothing-to-hide-a-dangerous-mindset-in-the-age-of-osint/"]
 ---
 

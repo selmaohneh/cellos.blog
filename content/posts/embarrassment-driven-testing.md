@@ -2,6 +2,7 @@
 title: "Embarrassment-Driven-Testing"
 date: 2025-07-24T10:37:04.578Z
 slug: "embarrassment-driven-testing"
+tags: ["software craftsmanship"]
 aliases: ["/p/embarrassment-driven-testing/"]
 ---
 

@@ -1,0 +1,6 @@
+{{- /* Tag links for one post, e.g. "#smart-home #cyber-security". Context: the post. */ -}}
+{{- with .GetTerms "tags" }}
+<p class="tags">
+  {{- range . }}<a class="tag" href="{{ .RelPermalink }}">#{{ .Data.Term | urlize }}</a>{{ end -}}
+</p>
+{{- end }}

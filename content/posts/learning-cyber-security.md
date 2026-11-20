@@ -3,6 +3,7 @@ title: "Learning Cyber Security"
 subtitle: "5 Quick Wins for Your Mindset"
 date: 2025-08-25T12:36:42.879Z
 slug: "learning-cyber-security"
+tags: ["cyber security"]
 aliases: ["/p/learning-cyber-security/"]
 ---
 

@@ -1,0 +1,9 @@
+{{ define "main" }}
+<p class="prompt"><span class="ps1">~$</span> <span class="cmd">ls tags/</span></p>
+<ul class="tag-index">
+  {{- range .Data.Terms.Alphabetical }}
+  <li><a class="tag" href="{{ .Page.RelPermalink }}">#{{ .Page.Data.Term | urlize }}</a> <span class="count">{{ .Count }} {{ cond (eq .Count 1) "post" "posts" }}</span></li>
+  {{- end }}
+</ul>
+<p class="prompt"><span class="ps1">~$</span> <a href="{{ site.Home.RelPermalink }}">cd ..</a></p>
+{{ end }}

@@ -2,6 +2,7 @@
 title: "How to implement Retries without Cluttering your Code"
 date: 2025-07-24T10:35:49.202Z
 slug: "how-to-implement-retries-without-cluttering-your-code"
+tags: ["software craftsmanship"]
 aliases: ["/p/how-to-implement-retries-without-cluttering-your-code/"]
 ---
 

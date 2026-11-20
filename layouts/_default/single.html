@@ -5,6 +5,7 @@
     <h1>{{ .Title }}</h1>
     {{ with .Params.subtitle }}<p class="subtitle">{{ . }}</p>{{ end }}
     {{ if not .Date.IsZero }}<p class="byline"><time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006-01-02" }}</time> · {{ .ReadingTime }} min read</p>{{ end }}
+    {{ partial "tags.html" . }}
   </header>
   {{ .Content }}
 </article>

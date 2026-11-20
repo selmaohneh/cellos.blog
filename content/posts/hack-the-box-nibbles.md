@@ -2,6 +2,7 @@
 title: "Hack The Box: Nibbles"
 date: 2025-07-24T11:44:47.507Z
 slug: "hack-the-box-nibbles"
+tags: ["cyber security"]
 aliases: ["/p/hack-the-box-nibbles/"]
 ---
 

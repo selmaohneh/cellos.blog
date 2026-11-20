@@ -2,6 +2,7 @@
 title: "How and Where to handle Exceptions while Maintaining a Great API"
 date: 2025-07-24T10:31:11.985Z
 slug: "how-and-where-to-handle-exceptions-while-maintaining-a-great-api"
+tags: ["software craftsmanship"]
 aliases: ["/p/how-and-where-to-handle-exceptions-while-maintaining-a-great-api/"]
 ---
 

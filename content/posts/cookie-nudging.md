@@ -2,6 +2,7 @@
 title: "Cookie Nudging"
 date: 2025-07-24T11:38:19.534Z
 slug: "cookie-nudging"
+tags: ["cyber security"]
 aliases: ["/p/cookie-nudging/"]
 ---
 

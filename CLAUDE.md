@@ -8,12 +8,15 @@ Hugo site, deployed to GitHub Pages by `.github/workflows/pages.yml` on every pu
 - Posts are published at `/<slug>/`. Never change the slug of a published post.
 - Posts imported from Substack also have `aliases: ["/p/<slug>/"]`, which keeps their old Substack URLs working as redirects. Keep these; new posts don't need one.
 - Images for a post go in `static/img/<slug>/` and are referenced as `/img/<slug>/<file>`.
+- `tags` (optional) puts the post under tags, e.g. `tags: ["smart home", "cyber security"]`. Current tags: `nerdy stuff`, `software craftsmanship`, `cyber security`, `smart home`. Reuse these spellings exactly: a new spelling creates a new tag.
 - `draft: true` keeps a post out of the published site.
 - `teaser` (optional) overrides the newsletter/RSS teaser; `image` (optional) overrides the preview image (default: first image in the post).
 
 ## Layout
 
 No external theme: templates are in `layouts/`, styles in `static/css/style.css`.
+
+Tags: each post's tags are shown on the post list and in the post header (`layouts/partials/tags.html`). The home page and each tag page (`/tags/<tag>/`, `layouts/term.html`) show a filter row (`layouts/partials/tag-filter.html`); `/tags/` lists all tags (`layouts/taxonomy.html`). Filtering is plain static pages, no JavaScript.
 
 ## Newsletter
 

@@ -61,12 +61,20 @@ a:focus-visible { outline: 2px solid var(--green); outline-offset: 2px; }
 .post-list li { margin: 0; border-bottom: 1px dashed var(--rule); }
 .post-list li:first-child { border-top: 1px dashed var(--rule); }
 .post-card {
+  position: relative;
   display: grid; grid-template-columns: 9rem 1fr; gap: 1rem; align-items: start;
-  padding: .9rem .5rem; color: inherit; text-decoration: none;
+  padding: .9rem .5rem;
 }
-.post-card:hover { background: var(--panel); color: inherit; }
+.post-card:hover { background: var(--panel); }
 .post-card:hover .title { color: var(--green); }
 .post-card:hover .title::before { content: "> "; }
+/* The title link covers the whole card; tag links sit above it. */
+.post-card .title { text-decoration: none; }
+.post-card .title::after { content: ""; position: absolute; inset: 0; }
+.post-card .title:hover { background: none; }
+.post-card .title:focus-visible { outline: none; }
+.post-card:has(.title:focus-visible) { outline: 2px solid var(--green); outline-offset: -2px; }
+.post-card .tags { position: relative; z-index: 1; margin-top: 0; line-height: 1.5; }
 .thumb {
   display: block; width: 9rem; aspect-ratio: 3 / 2; object-fit: cover;
   border: 1px solid var(--rule); background: var(--panel);
@@ -77,11 +85,26 @@ a:focus-visible { outline: 2px solid var(--green); outline-offset: 2px; }
 .meta { display: flex; flex-direction: column; gap: .15rem; min-width: 0; }
 .meta time { color: var(--muted); font-size: .85rem; }
 .meta .title { color: var(--text); font-weight: 700; }
-.meta .subtitle { color: var(--muted); font-size: .9rem; }
+.meta .subtitle { color: var(--muted); font-size: .9rem; margin: 0; }
 @media (max-width: 34rem) {
   .post-card { grid-template-columns: 6rem 1fr; gap: .75rem; }
   .thumb { width: 6rem; }
 }
+
+/* tags: "#smart-home" in amber, hover inverts like the other links */
+.tags { display: flex; flex-wrap: wrap; gap: .1rem 1.5ch; margin: .4rem 0 0; font-size: .85rem; }
+.tag { color: var(--amber); text-decoration: none; }
+.tag:hover { color: var(--bg); background: var(--amber); }
+
+/* tag filter row above the post list, like tab-completion output */
+.tag-filter { display: flex; flex-wrap: wrap; gap: .25rem 1.5ch; margin: -.25rem 0 1.25rem; font-size: .9rem; }
+.tag-filter a { color: var(--muted); text-decoration: none; padding: 0 .5ch; }
+.tag-filter a:hover { color: var(--bg); background: var(--amber); }
+.tag-filter a.is-active { color: var(--bg); background: var(--green); font-weight: 700; }
+.tag-filter .count, .tag-index .count { color: var(--muted); opacity: .75; margin-left: .5ch; font-size: .8em; }
+.tag-filter a:hover .count, .tag-filter a.is-active .count { color: inherit; opacity: .8; }
+.tag-index { list-style: none; margin: 0; padding: 0; }
+.tag-index li { padding: .3rem 0; }
 
 /* article */
 article header { margin-bottom: 2rem; }

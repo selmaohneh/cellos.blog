@@ -2,6 +2,7 @@
 title: "Reclaiming Privacy: How I Got Rid of Google Photos"
 date: 2025-07-24T11:35:54.008Z
 slug: "reclaiming-privacy-how-i-got-rid-of-google-photos"
+tags: ["nerdy stuff", "cyber security"]
 aliases: ["/p/reclaiming-privacy-how-i-got-rid-of-google-photos/"]
 ---
 
