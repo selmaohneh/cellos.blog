@@ -30,4 +30,4 @@ Hugo builds `/sitemap.xml` on every build, so new posts are added automatically.
 
 ## Impressum
 
-`content/impressum.md` (published at `/impressum/`, linked from the footer in `layouts/_default/baseof.html`). Standalone pages like this use `layouts/page/single.html`.
+`content/impressum.md` (published at `/impressum/`, linked from the header nav in `layouts/_default/baseof.html`). Standalone pages like this use `layouts/page/single.html`.
