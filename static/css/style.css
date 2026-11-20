@@ -149,3 +149,30 @@ th, td { border: 1px solid var(--rule); padding: .35rem .6rem; text-align: left;
 }
 .subscribe button:hover { color: var(--bg); background: var(--green); }
 .visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* search (/search/, static/js/search.js): the query is typed straight into the prompt line */
+.search-prompt { display: flex; align-items: baseline; gap: 0 1ch; flex-wrap: wrap; }
+.search-prompt .ps1 { margin-right: 0; }
+.search-input {
+  flex: 1 1 10rem; min-width: 0; padding: 0 .25ch; font: inherit; color: var(--amber); caret-color: var(--green);
+  background: transparent; border: 0; border-bottom: 1px dashed var(--rule); border-radius: 0; outline: none;
+  -webkit-appearance: none; appearance: none;
+}
+.search-input:focus { border-bottom-color: var(--green); }
+.search-input::placeholder { color: var(--muted); opacity: .6; }
+.search-input::-webkit-search-cancel-button { display: none; }
+.search-path { color: var(--muted); }
+.typing main > .prompt:first-child .search-input,
+.typing main > .prompt:first-child .search-path { visibility: hidden; }
+.search-status { margin: 0 0 1rem; }
+.search-results { list-style: none; margin: 0; padding: 0; }
+.search-hit { padding: .9rem .5rem; border-bottom: 1px dashed var(--rule); }
+.search-hit:first-child { border-top: 1px dashed var(--rule); }
+.search-hit p { margin: 0; }
+.search-head time { color: var(--muted); font-size: .85rem; margin-right: 1ch; }
+.search-head .title { font-weight: 700; }
+.search-hit .subtitle { color: var(--muted); font-size: .9rem; }
+.search-line { margin-top: .35rem !important; padding-left: 1.5ch; border-left: 2px solid var(--rule); color: var(--muted); font-size: .88rem; overflow-wrap: anywhere; }
+.search-more { font-size: .8rem; padding-left: 1.5ch; }
+mark { color: var(--bg); background: var(--amber); }
+a:hover mark { background: none; color: inherit; }

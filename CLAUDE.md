@@ -18,6 +18,10 @@ No external theme: templates are in `layouts/`, styles in `static/css/style.css`
 
 Tags: each post's tags are shown on the post list and in the post header (`layouts/partials/tags.html`). The home page and each tag page (`/tags/<tag>/`, `layouts/term.html`) show a filter row (`layouts/partials/tag-filter.html`); `/tags/` lists all tags (`layouts/taxonomy.html`). Filtering is plain static pages, no JavaScript.
 
+## Search
+
+`/search/` (`content/search.md`, linked as `[search]` in the header nav) is a client-side full-text search over all posts, styled as `grep -ri <query> posts/`. Hugo builds the index at `/search/index.json` (`layouts/_default/search.json`: title, subtitle, date, url, tags, plain-text body per post); `static/js/search.js` loads it and searches in the browser. New posts are indexed automatically. The query is kept in the URL (`/search/?q=...`), so searches can be linked.
+
 ## Newsletter
 
 Buttondown sends new posts from the RSS feed (`layouts/index.rss.xml`, served at `/index.xml`). Keep the feed plain RSS 2.0: `<description>` is a plain-text teaser (Buttondown strips HTML from it). The email template has no image and uses `{{ item.url }}` for links. Keep `<guid>` as the permalink, or Buttondown will re-send old posts.

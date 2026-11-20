@@ -1,0 +1,14 @@
+{{ define "main" }}
+<form class="prompt search-prompt" role="search" action="{{ .RelPermalink }}" method="get">
+  <span class="ps1">~$</span> <span class="cmd">grep -ri</span>
+  <label class="visually-hidden" for="search-input">Search all posts</label>
+  <input id="search-input" class="search-input" type="search" name="q" autocomplete="off" spellcheck="false"
+         autocapitalize="off" enterkeyhint="search" placeholder="pattern">
+  <span class="search-path" aria-hidden="true">posts/</span>
+</form>
+<p class="comment search-status" id="search-status" role="status" aria-live="polite"># type to search all {{ len (where site.RegularPages "Section" "posts") }} posts</p>
+<noscript><p class="error"># search needs JavaScript. Browse by <a href="{{ "tags/" | relURL }}">[tags]</a> instead.</p></noscript>
+<ul class="search-results" id="search-results"></ul>
+<p class="prompt"><span class="ps1">~$</span> <a href="{{ site.Home.RelPermalink }}">cd ..</a></p>
+<script src="{{ "js/search.js" | relURL }}?v={{ substr (readFile "static/js/search.js" | md5) 0 8 }}" data-index="{{ with .OutputFormats.Get "json" }}{{ .RelPermalink }}{{ end }}" defer></script>
+{{ end }}

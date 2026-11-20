@@ -34,6 +34,7 @@
   <header class="site-header">
     <a class="site-title" href="{{ site.Home.RelPermalink }}"><span class="user">cello@cellos.blog</span><span class="cursor" aria-hidden="true"></span></a>
     <nav>
+      {{ with site.GetPage "/search" }}<a href="{{ .RelPermalink }}">[search]</a>{{ end }}
       {{ with site.GetPage "/tags" }}<a href="{{ .RelPermalink }}">[tags]</a>{{ end }}
       {{ with site.Home.OutputFormats.Get "rss" }}<a href="{{ .RelPermalink }}">[rss]</a>{{ end }}
       {{ with site.GetPage "/impressum" }}<a href="{{ .RelPermalink }}">[impressum]</a>{{ end }}
